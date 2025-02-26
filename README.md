@@ -26,7 +26,7 @@ The availability of the software used and its safe handling are also assumed by 
 
 |Nr.| Discription | Order number| Version| Quantity|
 |---| ------------|-------------| -------| --------|
-| 1 | IndustrialPi| A1000003    | V12    |    1    |
+| 1 | IndustrialPi| A1000003    |   4    |    1    |
 | 2 | PSEN rd3.1  | X           | XXXXXXX|    1    |
 | 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
@@ -44,9 +44,9 @@ Bild [hier]
 ## 3. Application description
 
 This application basically describes the commissioning of a PSENrd 3.1 with an Industrial Pi. Both devices communicate with each other using MQTT.
-Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi. This data is sent to the Python program provided and processed there. <br/><br/>
-
+Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi. This data is sent to the Python program provided and processed there. <br/>
 The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. 
-basic configuration.
+basic configuration. <br/>
 
-
+> [!IMPORTANT]
+> This document only describes the procedure for using the IndustrialPi (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the Linux and Python operating system.
