@@ -143,7 +143,7 @@ Exit the configuration tool with the esc key.
 ### 5.3 Update System packages
 
 > [!Tip]
-> Connect your IndustrialPi to the Internet for the first time via the Ethernet interface. 
+> Connect your IndustrialPI to the Internet for the first time via the Ethernet interface. 
 
 + get all updates with the commando
 
@@ -158,10 +158,13 @@ Exit the configuration tool with the esc key.
 
 ### 5.4 Install Mosquitto and Mosquitto-Clients
 
-+ Please use the installation of Mosquitto and Mosquitto-Clients from the README file PilzForwarder:<br/>
++ Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
 [Install Mosquittoand Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
 
+### 5.5 Create certificates (optional)
 
++ Also install the necessary additional conditions that require, among other things, creating certificates, creating access control lists.<br/>
+[Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>
 
 
 
