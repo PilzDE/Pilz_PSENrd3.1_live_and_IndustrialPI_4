@@ -15,6 +15,7 @@ Application IndustrialPi and PSENrd 3
 5.  [First steps to start IndustrialPi](#5-first-steps-to-start-industrialpi)<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)
+5.3 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
 
 ## 1. Useful documentation
 
@@ -138,6 +139,28 @@ Exit the configuration tool with the esc key.
 
 > [!Tip]
 > Try whether the setting has worked. press Y or Z.
+
+### 5.3 Update System packages
+
+> [!Tip]
+> Connect your IndustrialPi to the Internet for the first time via the Ethernet interface. 
+
++ get all updates with the commando
+
+ ```
+ sudo apt-get update
+ ```
+ ```
+ sudo apt-get upgrade
+ ```
+> [!Tip]
+> Both commands will ask you to continue. confirm both commands with Y.
+
+### 5.4 Install Mosquitto and Mosquitto-Clients
+
++ Please use the installation of Mosquitto and Mosquitto-Clients from the README file PilzForwarder:<br/>
+[Install Mosquittoand Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
+
 
 
 
