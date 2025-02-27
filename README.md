@@ -3,16 +3,16 @@ Application IndustrialPi and PSENrd 3
 
 ## Contents and Setup steps
 
-1.  [Useful documentation](#1-useful-documentation).
-1.1 [Documentation form Pilz GmbH & Co. KG](#11-documentation-from-pilz-gmbh--co-kg)
-1.2 [Documentation form other sources](#12-documentation-form-other-sources)
-2.  [Hardware and software used](#2-hardware-and-software-used)
-2.1 [Pilz products](#21-pilz-products)
-2.2 [Third-party products](#22-third-party-products)
-2.3 [Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)
-3.  [Foreword](#3-foreword)
-4.  [Application description](#4-application-description)
-5.  [Setup MQTT](#5-setup-mqtt)
+1.  [Useful documentation](#1-useful-documentation).<br/>
+1.1 [Documentation form Pilz GmbH & Co. KG](#11-documentation-from-pilz-gmbh--co-kg)<br/>
+1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>
+2.  [Hardware and software used](#2-hardware-and-software-used)<br/>
+2.1 [Pilz products](#21-pilz-products)<br/>
+2.2 [Third-party products](#22-third-party-products)<br/>
+2.3 [Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
+3.  [Foreword](#3-foreword)<br/>
+4.  [Application description](#4-application-description)<br/>
+5.  [Setup MQTT](#5-setup-mqtt)<br/>
 
 ## 1. Useful documentation
 
