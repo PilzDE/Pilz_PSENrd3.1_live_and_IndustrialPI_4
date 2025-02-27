@@ -101,7 +101,7 @@ Username: pi
 
 Password: raspberry
 
-> [Tip]
+> [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
 
 Information comes:<br/>
@@ -112,7 +112,7 @@ Press okay<br/>
 
 You will now be asked to use the password on the sticker.<br/>
 
-> [Tip]
+> [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.<br/>
 > The letter l (small L) can easily be confused with the number 1 (one). Make sure you use the correct character.<br/>
 
@@ -120,7 +120,7 @@ You will now be asked to use the password on the sticker.<br/>
 
 Open the Raspberry Pi Software Configuration Tool (raspi-config)<br/>
 
-> [Tip]
+> [!Tip]
 > On the English keyboard, the character - (hyphen) corresponds to the character ? (question mark). Make sure you take this into account when entering.
 
 ```
@@ -136,7 +136,7 @@ sudo raspi-config
 
 Exit the configuration tool with the esc key.
 
-> [Tip]
+> [!Tip]
 > Try whether the setting has worked. press Y or Z.
 
 
