@@ -3,16 +3,18 @@ Application IndustrialPi and PSENrd 3
 
 ## Contents and Setup steps
 
-1.  [Useful documentation](#1-useful-documentation).<br/>
+1.  [Useful documentation](#1-useful-documentation)<br/>
 1.1 [Documentation form Pilz GmbH & Co. KG](#11-documentation-from-pilz-gmbh--co-kg)<br/>
 1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>
 2.  [Hardware and software used](#2-hardware-and-software-used)<br/>
 2.1 [Pilz products](#21-pilz-products)<br/>
 2.2 [Third-party products](#22-third-party-products)<br/>
 2.3 [Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
-3.  [Foreword](#3-foreword)<br/>
+3.  [Preface](#3-preface)<br/>
 4.  [Application description](#4-application-description)<br/>
-5.  [Setup MQTT](#5-setup-mqtt)<br/>
+5.  [First steps to start IndustrialPi](#5-first-steps-to-start-industrialpi)<br/>
+5.1 [Password](#51-password)<br/>
+5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)
 
 ## 1. Useful documentation
 
@@ -47,14 +49,16 @@ The availability of the software used and its safe handling are also assumed by 
 
 |Nr.| Discription | Order number| Version| Quantity|
 |---| ------------|-------------| -------| --------|
-| 1 |      X      |      X      |    X   |    X    |
-| 2 |      X      |      X      |    X   |    X    |
+| 1 |   Monitor   |      -      |    -   |    1    |
+| 2 |   Keyboard  |      -      |    -   |    1    |
+| 3 | Micro-HDMI adapter |  -   |    -   |    1    |
+| 4 | HDMI cable for the Monitor| -  | - |    1    |
 
 ### 2.3 Stucture of the applaction (schematic)
 
 Bild [hier]
 
-## 3. Foreword
+## 3. Preface
 
 This application basically describes the commissioning of a PSENrd 3.1 with an Industrial Pi. Both devices communicate with each other using MQTT.
 Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi. This data is sent to the Python program provided and processed there. <br/>
@@ -81,9 +85,61 @@ Non-functional requirements: <br/>
 + Simple setup and handling of the operating system on the IndustrialPi <br/>
 
 The structure of the system and components is based on: <br/>
-
 [2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic) <br/>
 
-## 5. Setup MQTT
+## 5. First Steps to start IndustrialPi 
+
+### 5.1 Password 
+
++ First of all, connect the IndustrialPi to a monitor. A micro HDMI is available on the IndustrialPi.<br/>
++ Connect a keyboard via the USB ports on the IndustrialPi.<br/>
++ Start the IndustrialPi with the 24V DC supply. The Industrial then boots up.<br/>
+
+The first login of the IndustrialPi is:
+
+Username: pi
+
+Password: raspberry
+
+> [Tip]
+> Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
+
+Information comes:<br/>
+
+The device configuration was detected automatically. Manual configuration is therefore not necessary.<br/>
+
+Press okay<br/> 
+
+You will now be asked to use the password on the sticker.<br/>
+
+> [Tip]
+> Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.<br/>
+> The letter l (small L) can easily be confused with the number 1 (one). Make sure you use the correct character.<br/>
+
+### 5.2 Instructions for changing the keyboard settings
+
+Open the Raspberry Pi Software Configuration Tool (raspi-config)<br/>
+
+> [Tip]
+> On the English keyboard, the character - (hyphen) corresponds to the character ? (question mark). Make sure you take this into account when entering.
+
+```
+sudo raspi-config
+```
++ select localization options<br/>
++ then select L3 Keyboard<br/>
++ select the model of your keyboard<br/>
++ go to the sub-item other <br/>
++ select your language<br/>
++ select the default for the keyboard layout as the next step<br/>
++ deselect compose key in the last step<br/>
+
+Exit the configuration tool with the esc key.
+
+> [Tip]
+> Try whether the setting has worked. press Y or Z.
+
+
+
 
 
