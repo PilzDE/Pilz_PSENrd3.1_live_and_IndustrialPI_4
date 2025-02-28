@@ -1,6 +1,6 @@
 # Samples
 
-<p style="text-align: center;" dir="auto">
+<p style="text-align: center;">
 <a href="https://www.pilz.com" rel="notfollow">
     <img src="/img/pilz-logo.png" alt="Pilz Logo">
 </a><br/>
