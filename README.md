@@ -1,7 +1,7 @@
 # Samples
 Application IndustrialPi and PSENrd 3
 <a href="https://www.pilz.com/">
-    <div class="overlayContainer" aria-hidden="false" style="width: 376px; height: 147px;" data-bm="3143"><ul><li></li><li></li></ul></div>
+    <img src="/images/blob?bcid=qLzLeHGb9CgIhw" alt="Visuelles Suchabfragebild" class=" nofocus" tabindex="0" aria-label="Visuelles Suchabfragebild" role="link">
 </a>
 ## Contents and Setup steps
 
