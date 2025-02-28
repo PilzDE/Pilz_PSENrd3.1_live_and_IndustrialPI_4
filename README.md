@@ -1,7 +1,7 @@
 # Samples
 Application IndustrialPi and PSENrd 3
 <a href="https://www.pilz.com/">
-    <img src="/PilzDE/psen_scan_v2/raw/main/img/pilz-logo.png" alt="PILZ" style="max-width: 100%;">
+    <div class="overlayContainer" aria-hidden="false" style="width: 376px; height: 147px;" data-bm="3143"><ul><li></li><li></li></ul></div>
 </a>
 ## Contents and Setup steps
 
