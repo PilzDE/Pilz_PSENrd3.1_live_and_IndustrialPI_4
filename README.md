@@ -1,7 +1,7 @@
 # Samples
 Application IndustrialPi and PSENrd 3
 <a href="https://www.pilz.com/">
-    <img src="/images/blob?bcid=qLzLeHGb9CgIhw" alt="Visuelles Suchabfragebild" class=" nofocus" tabindex="0" aria-label="Visuelles Suchabfragebild" role="link">
+    <img src="/PilzDE/Samples/raw/main/img/pilz-logo.png" alt="Pilz Logo">
 </a>
 ## Contents and Setup steps
 
