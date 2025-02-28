@@ -1,11 +1,9 @@
 # Samples
 
-<!--<div style="text-align: center;">-->
-<a href="https://www.pilz.com" rel="notfollow">
-    <img src="/img/pilz-logo.png" alt="Pilz Logo" style="display : block; margin: auto;">
-</a>
-<!--</div>-->
 <div style="text-align: center;">
+<a href="https://www.pilz.com" rel="notfollow">
+    <img src="/img/pilz-logo.png" alt="Pilz Logo">
+</a>
 <strong>Application IndustrialPi and PSENrd 3</strong><br/>
 </div>
 
