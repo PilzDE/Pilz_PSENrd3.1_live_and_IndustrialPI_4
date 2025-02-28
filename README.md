@@ -1,13 +1,14 @@
 # Samples
 
-<div steyle="text-align: center;">
+<div style="text-align: center;">
 <a href="https://www.pilz.com" rel="notfollow">
     <img src="/img/pilz-logo.png" alt="Pilz Logo">
 </a>
 </div>
-<div steyle="text-align: center;">
-***Application IndustrialPi and PSENrd 3*** <br/>
+<div style="text-align: center;">
+<strong>Application IndustrialPi and PSENrd 3</strong><br/>
 </div>
+
 ## Contents and Setup steps
 
 1.  [Useful documentation](#1-useful-documentation)<br/>
