@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <a href="https://www.pilz.com" rel="notfollow">
     <img src="/img/pilz-logo.png" alt="Pilz Logo">
-</a>
+</a><br/>
 <strong>Application IndustrialPi and PSENrd 3</strong><br/>
 </div>
 
