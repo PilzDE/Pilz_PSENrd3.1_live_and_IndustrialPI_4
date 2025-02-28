@@ -1,11 +1,11 @@
 # Samples
 
-<div style="text-align: center;">
+<p style="text-align: center;" dir="auto">
 <a href="https://www.pilz.com" rel="notfollow">
     <img src="/img/pilz-logo.png" alt="Pilz Logo">
 </a><br/>
 <strong>Application IndustrialPi and PSENrd 3</strong><br/>
-</div>
+</p>
 
 ## Contents and Setup steps
 
