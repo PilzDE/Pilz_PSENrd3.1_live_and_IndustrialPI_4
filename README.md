@@ -1,11 +1,18 @@
 # Samples
 
-<p style="text-align: center;">
+<!--<p style="text-align: center;">
 <a href="https://www.pilz.com" rel="notfollow">
     <img src="/img/pilz-logo.png" alt="Pilz Logo">
 </a><br/>
 <strong>Application IndustrialPi and PSENrd 3</strong><br/>
-</p>
+</p>-->
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <a href="https://www.pilz.com" rel="nofollow">
+        <img src="/img/pilz-logo.png" alt="Pilz Logo">
+    </a>
+    <strong>Application IndustrialPi and PSENrd 3</strong>
+</div>
 
 ## Contents and Setup steps
 
