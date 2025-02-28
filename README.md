@@ -1,6 +1,8 @@
 # Samples
 Application IndustrialPi and PSENrd 3
-
+<a href="https://www.pilz.com/">
+    <img src="https://www.pilz.com/pilz-logo.png" alt="Pilz Logo">
+</a>
 ## Contents and Setup steps
 
 1.  [Useful documentation](#1-useful-documentation)<br/>
