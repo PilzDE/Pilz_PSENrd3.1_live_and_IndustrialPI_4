@@ -59,7 +59,7 @@
 5.4 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
 5.5 [Create certificates (optional)](#55-create-certificates-optional)<br/>
 5.6 [Configurate Mosquitto Broker](#56-configurate-mosquitto-broker)<br/>
-5.7 [Setup NTP Server]
+5.7 [Setup NTP Server](#57-setup-and-configuration-ntp-server)<br/>
 
 ## 1. Useful documentation
 
