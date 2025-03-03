@@ -136,11 +136,15 @@ The structure of the system and components is based on: <br/>
 + Connect a keyboard via the USB ports on the IndustrialPi.<br/>
 + Start the IndustrialPi with the 24V DC supply. The Industrial then boots up.<br/>
 
+<p> <span style="color: red;">(Installation after a new Image)</span> </p><br/>
 The first login of the IndustrialPi is:
 
 Username: pi
 
 Password: raspberry
+
+> [!Tip]
+> When you enter the password, the letters and special characters are not displayed.
 
 > [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
@@ -167,7 +171,7 @@ Open the Raspberry Pi Software Configuration Tool (raspi-config)<br/>
 ```
 sudo raspi-config
 ```
-+ select localization options<br/>
++ select localisation options<br/>
 + then select L3 Keyboard<br/>
 + select the model of your keyboard<br/>
 + go to the sub-item other <br/>
@@ -199,12 +203,18 @@ Exit the configuration tool with the esc key.
 ### 5.4 Install Mosquitto and Mosquitto-Clients
 
 + Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
-[Install Mosquittoand Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
+[Install Mosquitto and Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
 
 ### 5.5 Create certificates (optional)
 
-+ Also install the necessary additional conditions that require, among other things, creating certificates, creating access control lists.<br/>
++ Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
+including the creation of certificates and the creation of access control lists.<br/>
 [Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>
+
+### 5.6 Configurate Mosquitto Broker
+
++ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions.<br/>
+[Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>
 
 
 
