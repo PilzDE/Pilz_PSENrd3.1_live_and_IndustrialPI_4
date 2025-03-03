@@ -286,4 +286,4 @@ sudo nmtui
 sudo reboot
 ```
 > [!Tip]
- >Use a WiFi end device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
+ >Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
