@@ -55,7 +55,10 @@
 5.  [First steps to start IndustrialPi](#5-first-steps-to-start-industrialpi)<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
-5.3 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
+5.3 [Update System packages](#53-update-system-packages)<br/>
+5.4 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
+5.5 [Create certificates (optional)](#55-create-certificates-optional)<br/>
+5.6 [Configurate Mosquitto Broker](#56-configurate-mosquitto-broker)<br/>
 
 ## 1. Useful documentation
 
