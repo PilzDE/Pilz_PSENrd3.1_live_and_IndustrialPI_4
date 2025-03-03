@@ -250,7 +250,8 @@ sudo service start ntpsec
 ```
 sudo systemctl enable ntpsec
 ```
-
+> [!Tip]
+> To activate the NTPsec service automatically at system startup, you should use the systemctl command.
 
 
 
