@@ -253,5 +253,11 @@ sudo systemctl enable ntpsec
 > [!Tip]
 > To activate the NTPsec service automatically at system startup, you should use the systemctl command.
 
++ Control whether your system clock is synchronized
 
+```
+timedatectl status
+```
+> [!Tip]
+> All times should be displayed in the same way. “Yes” should be displayed behind the synchronized system clock.
 
