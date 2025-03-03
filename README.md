@@ -56,10 +56,11 @@
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
-5.4 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
-5.5 [Create certificates (optional)](#55-create-certificates-optional)<br/>
-5.6 [Configurate Mosquitto Broker](#56-configurate-mosquitto-broker)<br/>
-5.7 [Setup and Configuration NTP Server](#57-setup-and-configuration-ntp-server)<br/>
+6.  [Install Mosquitto and Mosquitto-Clients](#6-install-mosquitto-and-mosquitto-clients)<br/>
+6.1 [Create certificates (optional)](#61-create-certificates-optional)<br/>
+6.2 [Configurate Mosquitto Broker](#62-configurate-mosquitto-broker)<br/>
+7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
+8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 
 ## 1. Useful documentation
 
@@ -204,23 +205,23 @@ Exit the configuration tool with the esc key.
 > [!Tip]
 > Both commands will ask you to continue. confirm both commands with Y.
 
-### 5.4 Install Mosquitto and Mosquitto-Clients
+## 6. Install Mosquitto and Mosquitto-Clients
 
 + Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
 [Install Mosquitto and Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
 
-### 5.5 Create certificates (optional)
+### 6.1 Create certificates (optional)
 
 + Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
 including the creation of certificates and the creation of access control lists.<br/>
 [Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>
 
-### 5.6 Configurate Mosquitto Broker
+### 6.2 Configurate Mosquitto Broker
 
 + The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions.<br/>
 [Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>
 
-### 5.7 Setup and Configuration NTP Server
+## 7. Setup and Configuration NTP Server
 
 + Install NTP
 
@@ -261,3 +262,28 @@ timedatectl status
 > [!Tip]
 > All times should be displayed in the same way. “Yes” should be displayed behind the synchronized system clock.
 
+## 8. WiFi configuration 
+
++ Use this command
+
+```
+sudo nmtui
+```
++ Go to the menu item “edit a connection”
++ Navigate to the Add-button
++ Select: Wi-Fi
++ Assign a profile name
++ Next up assign the SSID. You can use the same name as in profile name
++ Select mode: Access Point
++ Selct security: WPA & WPA2 Personal
++ Assign your password
++ Selsct "Manual" for the IPv4 configuration
++ Assign the address for example 192.168.0.102/24
++ At the gateway, assign 192.168.0.1, for example
++ Then accept everything with OK
++ Restart your System 
+```
+sudo reboot
+```
+> [!Tip]
+ >Use a WiFi end device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
