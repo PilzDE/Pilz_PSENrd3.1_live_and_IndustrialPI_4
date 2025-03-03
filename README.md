@@ -59,6 +59,7 @@
 5.4 [Install Mosquitto and Mosquitto-Clients](#53-update-system-packages)<br/>
 5.5 [Create certificates (optional)](#55-create-certificates-optional)<br/>
 5.6 [Configurate Mosquitto Broker](#56-configurate-mosquitto-broker)<br/>
+5.7 [Setup NTP Server]
 
 ## 1. Useful documentation
 
@@ -218,6 +219,37 @@ including the creation of certificates and the creation of access control lists.
 
 + The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions.<br/>
 [Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>
+
+### 5.7 Setup and Configuration NTP Server
+
++ Install NTP
+
+```
+sudo apt-get install ntp
+```
++ Open the NTP config file
+
+```
+sudo nano /etc/ntpsec/ntp.conf
+```
++ Add the following configuration to the ntp.config file
+
+```
+server 127.127.1.0
+fudge 127.127.1.0 stratum 10
+```
++ Save the file and start the ntp service
+
+```
+sudo systemctl start ntpsec
+```
+or
+```
+sudo service start ntpsec
+```
+```
+sudo systemctl enable ntpsec
+```
 
 
 
