@@ -139,7 +139,7 @@ The structure of the system and components is based on: <br/>
 + Connect a keyboard via the USB ports on the IndustrialPi.<br/>
 + Start the IndustrialPi with the 24V DC supply. The Industrial then boots up.<br/>
 
-<p> <span style="color: red;">(Installation after a new Image)</span> </p><br/>
+<p><span style="color: red;">(Installation after a new Image)</span></p><br/>
 The first login of the IndustrialPi is:
 
 Username: pi
