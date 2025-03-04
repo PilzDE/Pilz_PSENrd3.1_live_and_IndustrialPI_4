@@ -270,7 +270,7 @@ timedatectl status
 sudo nmtui
 ```
 + Go to the menu item “edit a connection”
-+ Navigate to the Add-button
++ Navigate to the "Add"-button
 + Select: Wi-Fi
 + Assign a profile name
 + Next up assign the SSID. You can use the same name as in profile name
@@ -285,5 +285,9 @@ sudo nmtui
 ```
 sudo reboot
 ```
+>[!Tip]
+ >You can find the IP-Adrress in your previous settings in the PilzFowarder<br/>
 > [!Tip]
- >Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
+ >Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.<br/>
+
+
