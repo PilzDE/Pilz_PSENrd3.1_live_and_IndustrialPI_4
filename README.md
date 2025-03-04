@@ -246,7 +246,7 @@ sudo systemctl start ntpsec
 ```
 or
 ```
-sudo service start ntpsec
+sudo service ntpsec start
 ```
 ```
 sudo systemctl enable ntpsec
