@@ -286,8 +286,9 @@ sudo nmtui
 sudo reboot
 ```
 >[!Tip]
- >You can find the IP-Adrress in your previous settings in the PilzFowarder
+>You can find the IP-Adrress in your previous settings in the PilzFowarder
+
 > [!Tip]
- >Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
+>Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
 
 
