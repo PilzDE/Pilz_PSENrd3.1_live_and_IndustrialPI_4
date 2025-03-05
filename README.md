@@ -243,11 +243,11 @@ fudge 127.127.1.0 stratum 10
 + Save the file and start the ntp service
 
 ```
-sudo systemctl start ntpsec
+sudo systemctl restart ntpsec
 ```
 or
 ```
-sudo service ntpsec start
+sudo service ntpsec restart
 ```
 ```
 sudo systemctl enable ntpsec
