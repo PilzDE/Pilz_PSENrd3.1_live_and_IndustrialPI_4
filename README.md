@@ -236,6 +236,7 @@ sudo nano /etc/ntpsec/ntp.conf
 + Add the following configuration to the ntp.config file
 
 ```
+nts disable
 server 127.127.1.0
 fudge 127.127.1.0 stratum 10
 ```
@@ -269,26 +270,35 @@ timedatectl status
 ```
 sudo nmtui
 ```
-+ Go to the menu item “edit a connection”
-+ Navigate to the "Add"-button
-+ Select: Wi-Fi
-+ Assign a profile name
-+ Next up assign the SSID. You can use the same name as in profile name
-+ Select mode: Access Point
-+ Selct security: WPA & WPA2 Personal
-+ Assign your password
-+ Selsct "Manual" for the IPv4 configuration
-+ Assign the address for example 192.168.0.102/24
-+ At the gateway, assign 192.168.0.1, for example
-+ Then accept everything with OK
-+ Restart your System 
++ Go to the menu item “edit a connection”.
++ Navigate to the "Add"-button.
++ Select: Wi-Fi.
++ Assign a profile name.
++ Next up assign the SSID. You can use the same name as in profile name.
++ Select mode: Access Point.
++ Selct security: WPA & WPA2 Personal.
++ Assign your password.
++ Selsct "Manual" for the IPv4 configuration.
++ Assign the address for example 192.168.0.102/24.
++ At the gateway, assign 192.168.0.1, for example.
++ Then accept everything with OK.
++ Restart your System.
 ```
 sudo reboot
 ```
->[!Tip]
->You can find the IP-Adrress in your previous settings in the PilzFowarder
++ To connect a notebook to your Industrial Pi, use an Ethernet cable to connect the notebook to one of the Industrial Pi's Ethernet ports. Open your browser and enter http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the Industrial-Pi. You will find this number on the front of the Industrial Pi.
++ Log in with the data provided on the sticker on the side of the Indutrial Pi.
++ It will open a dashboard of your IndustrialPi.
++ Under Tools you will find the item RevPi Configuration. Click on it.
++ Now you will see various setting options.
++ To be on the safe side, please deactivate the bluetooth cennection.
++ Select the external antenna (SMA) under select antenna.
++ then restart the Industrial Pi.
+```
+sudo reboot
+```
+> [!Tip]
+> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. If you see a loading icon then click on Information or Settings of your WiFi- connection. Under configure IP select the manual option and use an address in this network.<br/> Example: your access point is 192.168.0.102, use the address 192.168.0.103 and the subnet mask 255.255.255.0 for your mobil phone, the Router (Gateway) in your mobil phone is 192.168.0.1..
 
 > [!Tip]
->Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings.
-
-
+> The next test is to try out the browser cockpit of your Industrial Pi. First connect your mobile phone or notebook to the existing Wifi connection. Then open any browser and enter the same host name as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
