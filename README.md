@@ -240,7 +240,7 @@ nts disable
 server 127.127.1.0
 fudge 127.127.1.0 stratum 10
 ```
-+ Save the file and start the ntp service
++ Save the file and restart the ntp service
 
 ```
 sudo systemctl restart ntpsec
