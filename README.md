@@ -265,3 +265,5 @@ sudo reboot
 
 > [!Tip]
 > The next test is to try out the browser cockpit of your Industrial Pi. First connect your mobile phone or notebook to the existing Wifi connection. Then open any browser and enter the same host name as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
+
+## Testing of Data exchange 
