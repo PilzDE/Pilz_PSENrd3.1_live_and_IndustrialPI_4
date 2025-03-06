@@ -64,10 +64,10 @@
 
 ## 1. Useful documentation
 
-### 1.1 Documentation from Pilz GmbH & Co. KG
+Reading the documentation listed below is necessary for understanding this Application Note.<br/>
+The availability of the software used, and its safe handling are also presupposed for the user.
 
-It is important to read the dokumentation below in order to unterstand this application.<br/>
-The availability of the software used and its safe handling are also assumed by the user.
+### 1.1 Documentation from Pilz GmbH & Co. KG
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
@@ -75,11 +75,11 @@ The availability of the software used and its safe handling are also assumed by 
 | 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE BA 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
 | 3 | operating manual of IndutrialPi 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE BA 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
 
-### 1.2 Documentation form other sources
+### 1.2 Documentation form other sources of information
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
-| 1 | Example     | [www.example.com](http://example.de) |
+| 1 | RevolutionPi Kunbus Homepage     | [www.revolutionpiDE.com](https://revolutionpi.com/documentation/de/)<br/>[www.revolutionpiEN.com](https://revolutionpi.com/documentation/) |
 
 ## 2. Hardware and software used
 
@@ -88,7 +88,7 @@ The availability of the software used and its safe handling are also assumed by 
 |Nr.| Discription | Order number| Version| Quantity|
 |---| ------------|-------------| -------| --------|
 | 1 | IndustrialPi| A1000003    |   4    |    1    |
-| 2 | PSEN rd3.1  | X           | XXXXXXX|    1    |
+| 2 | PSENrd 3.1  | X           | XXXXXXX|    1    |
 | 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
 ### 2.2 Third-party products
@@ -106,50 +106,50 @@ Bild [hier]
 
 ## 3. Preface
 
-This application basically describes the commissioning of a PSENrd 3.1 with an Industrial Pi. Both devices communicate with each other using MQTT.
-Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi. This data is sent to the Python program provided and processed there. <br/>
-The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. 
-basic configuration. <br/>
+This application basically describes the commissioning process of a PSENrd 3.1 with an Industrial Pi 4. Both devices communicate with each other using MQTT.
+Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi 4. This data is sent to the Python program provided and processed there. <br/>
+The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines.<br/> 
 
 > [!IMPORTANT]
-> This document only describes the procedure for using the IndustrialPi (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
+> This document only describes the procedure for using the IndustrialPi 4 (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
 
 ## 4. Application description
 
-The pattern here is people counting, to detect whether one or more people are in a monitored area, even if this area is not detected by the radar sensor. <br/>
+The sample here is people counting to detect whether one or more people are in a monitored area, even if this area is not detected by the radar sensor. <br/>
 
 There are several requirements for the realization of this application: <br/>
 
 + Data transmission takes place via MQTT <br/>
-+ Evaluation of the sensor data in the IndustrialPi in real time <br/>
++ Evaluation of the sensor data in the IndustrialPi 4 in real time <br/>
 + Recording of personal data in a specific area <br/>
-+ All persons detected by the PSENrd sensor are recorded and processed by the IndustrialPi <br/>
++ All persons detected by the PSENrd 3.1 sensor are recorded and processed by the IndustrialPi 4 <br/>
 
 Non-functional requirements: <br/>
 
 + Stability and reliability of the system <br/>
-+ Simple setup and handling of the operating system on the IndustrialPi <br/>
++ Simple setup and handling of the operating system on the IndustrialPi 4 <br/>
 
 The structure of the system and components is based on: <br/>
 [2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic) <br/>
 
-## 5. First Steps to start IndustrialPi 
+## 5. First Steps to start IndustrialPi 4 
 
 ### 5.1 Password 
 
-+ First of all, connect the IndustrialPi to a monitor. A micro HDMI is available on the IndustrialPi.<br/>
-+ Connect a keyboard via the USB ports on the IndustrialPi.<br/>
-+ Start the IndustrialPi with the 24V DC supply. The Industrial then boots up.<br/>
++ First of all, connect the IndustrialPi 4 to a monitor. A micro HDMI is available on the IndustrialPi 4.<br/>
++ Connect a keyboard via the IndustrialPi 4 USB ports.<br/>
++ Start the IndustrialPi 4 with the 24VDC supply. The Industrial Pi 4 then boots up.<br/>
 
-<ins>Installation after a new Image</ins><br/>
-The first login of the IndustrialPi is:
+> [!IMPORTANT]
+><ins>Installation after a new Image</ins><br/>
+  The first login of the IndustrialPi is:
 
-Username: pi
+  Username: pi
 
-Password: raspberry
+  Password: raspberry
 
 > [!Tip]
-> When you enter the password, the letters and special characters are not displayed.
+> When you enter password, the letters and special characters are not displayed.
 
 > [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
