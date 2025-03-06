@@ -1,45 +1,11 @@
 # Samples
 
-<!--<p style="text-align: center;">
-<a href="https://www.pilz.com" rel="notfollow">
-    <img src="/img/pilz-logo.png" alt="Pilz Logo">
-</a><br/>
-<strong>Application IndustrialPi and PSENrd 3</strong><br/>
-</p>-->
-
 <div style="display: flex; flex-direction: column; align-items: center;">
     <a href="https://www.pilz.com" rel="nofollow">
         <img src="/img/pilz-logo.png" alt="Pilz Logo">
     </a><br/>
     <strong>Application IndustrialPi and PSENrd 3</strong>
 </div>
-
-<!--<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zentrierter Inhalt</title>
-    <style>
-        .center-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; /* Optional: Höhe des Containers */
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="center-content">
-        <a href="https://www.pilz.com" rel="nofollow">
-            <img src="/img/pilz-logo.png" alt="Pilz Logo">
-        </a><br/>
-        <strong>Application IndustrialPi and PSENrd 3</strong>
-    </div>
-</body>
-</html>-->
 
 ## Contents and Setup steps
 
