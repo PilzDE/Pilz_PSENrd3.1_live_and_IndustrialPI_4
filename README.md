@@ -27,6 +27,7 @@
 6.2 [Configurate Mosquitto Broker](#62-configurate-mosquitto-broker)<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
+9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 
 ## 1. Useful documentation
 
@@ -266,4 +267,4 @@ sudo reboot
 > [!Tip]
 > The next test is to try out the browser cockpit of your Industrial Pi. First connect your mobile phone or notebook to the existing Wifi connection. Then open any browser and enter the same host name as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
 
-## Testing of Data exchange 
+## 9. Testing of Data exchange 
