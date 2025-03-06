@@ -142,11 +142,8 @@ The structure of the system and components is based on: <br/>
 
 > [!IMPORTANT]
 ><ins>Installation after a new Image</ins><br/>
-  The first login of the IndustrialPi is:
-
-  Username: pi
-
-  Password: raspberry
+  The first login of the IndustrialPi is:<br/>
+    Username: pi <br/> Password: raspberry
 
 > [!Tip]
 > When you enter password, the letters and special characters are not displayed.
