@@ -18,7 +18,7 @@
 2.3 [Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
 3.  [Preface](#3-preface)<br/>
 4.  [Application description](#4-application-description)<br/>
-5.  [First steps to start IndustrialPi](#5-first-steps-to-start-industrialpi)<br/>
+5.  [First steps to start IndustrialPI](#5-first-steps-to-start-industrialpi)<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
@@ -27,6 +27,9 @@
 6.2 [Configurate Mosquitto Broker](#62-configurate-mosquitto-broker)<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
+8.1 [Install dnsmasq](#81-install-dnsmasq)
+8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
+8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 
 ## 1. Useful documentation
@@ -40,13 +43,13 @@ The availability of the software used, and its safe handling are also presuppose
 |---| ------------| ---------------------|
 | 1 | Pilz international website, download area | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
 | 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE BA 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
-| 3 | operating manual of IndutrialPi 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE BA 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
+| 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE BA 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
 
 ### 1.2 Documentation form other sources of information
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
-| 1 | RevolutionPi Kunbus Homepage     | [www.revolutionpiDE.com](https://revolutionpi.com/documentation/de/)<br/>[www.revolutionpiEN.com](https://revolutionpi.com/documentation/) |
+| 1 |             |                      |
 
 ## 2. Hardware and software used
 
@@ -54,9 +57,12 @@ The availability of the software used, and its safe handling are also presuppose
 
 |Nr.| Discription | Order number| Version| Quantity|
 |---| ------------|-------------| -------| --------|
-| 1 | IndustrialPi| A1000003    |   4    |    1    |
+| 1 | IndustrialPI| A1000003    |   4    |    1    |
 | 2 | PSENrd 3.1  | X           | XXXXXXX|    1    |
 | 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
+
+> [!IMPORTANT]
+> wir brauchen WiFi
 
 ### 2.2 Third-party products
 
@@ -73,7 +79,7 @@ Bild [hier]
 
 ## 3. Preface
 
-This application basically describes the commissioning process of a PSENrd 3.1 with an Industrial Pi 4. Both devices communicate with each other using MQTT.
+This application basically describes the commissioning process of a PSENrd 3.1 with an Industrial PI 4. Both devices communicate with each other using MQTT.
 Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi 4. This data is sent to the Python program provided and processed there. <br/>
 The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines.<br/> 
 
@@ -99,32 +105,28 @@ Non-functional requirements: <br/>
 The structure of the system and components is based on: <br/>
 [2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic) <br/>
 
-## 5. First Steps to start IndustrialPi 4 
+## 5. First Steps to start IndustrialPI 4 
 
 ### 5.1 Password 
 
-+ First of all, connect the IndustrialPi 4 to a monitor. A micro HDMI is available on the IndustrialPi 4.<br/>
++ First of all, connect the IndustrialPi 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
 + Connect a keyboard via the IndustrialPi 4 USB ports.<br/>
 + Start the IndustrialPi 4 with the 24VDC supply. The Industrial Pi 4 then boots up.<br/>
 
 > [!IMPORTANT]
 ><ins>Installation after a new Image</ins><br/>
-  The first login of the IndustrialPi is:<br/>
-    Username: pi <br/> Password: raspberry
+The first login of the IndustrialPi is:<br/>
+Username: pi <br/> Password: raspberry<br/>
+Information comes:<br/>
+The device configuration was detected automatically. Manual configuration is therefore not necessary.
+Press okay<br/> 
+You will now be asked to use the password on the sticker.<br/>
 
 > [!Tip]
 > When you enter password, the letters and special characters are not displayed.
 
 > [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
-
-Information comes:<br/>
-
-The device configuration was detected automatically. Manual configuration is therefore not necessary.<br/>
-
-Press okay<br/> 
-
-You will now be asked to use the password on the sticker.<br/>
 
 > [!Tip]
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.<br/>
@@ -151,12 +153,14 @@ sudo raspi-config
 Exit the configuration tool with the esc key.
 
 > [!Tip]
-> Try whether the setting has worked. press Y or Z.
+> Try whether the setting has worked. for example press Y or Z.
 
 ### 5.3 Update System packages
 
 > [!Tip]
 > Connect your IndustrialPI to the Internet for the first time via the Ethernet interface. 
+> [!Tip]
+> If you connect your IndustrialPI with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)
 
 + get all updates with the commando
 
@@ -167,7 +171,8 @@ Exit the configuration tool with the esc key.
  sudo apt-get upgrade
  ```
 > [!Tip]
-> Both commands will ask you to continue. confirm both commands with Y.
+> Both commands will ask you to continue. confirm both commands with Y. Press q when requested for upgrade information.
+
 
 ## 6. Install Mosquitto and Mosquitto-Clients
 
@@ -200,7 +205,6 @@ sudo nano /etc/ntpsec/ntp.conf
 + Add the following configuration to the ntp.config file
 
 ```
-nts disable
 server 127.127.1.0
 fudge 127.127.1.0 stratum 10
 ```
@@ -209,12 +213,11 @@ fudge 127.127.1.0 stratum 10
 ```
 sudo systemctl restart ntpsec
 ```
-or
-```
-sudo service ntpsec restart
-```
 ```
 sudo systemctl enable ntpsec
+```
+```
+sudo service ntpsec restart
 ```
 > [!Tip]
 > To activate the NTPsec service automatically at system startup, you should use the systemctl command.
@@ -224,30 +227,52 @@ sudo systemctl enable ntpsec
 ```
 timedatectl status
 ```
++ If you need the list to find your correct time zone, enter the command:
+
+```
+timedatectl list-timezones
+```
++ For example, to set the time zone to Berlin:
+
+```
+sudo timedatectl set-timezone Europe/Berlin
+```
 > [!Tip]
-> All times should be displayed in the same way. “Yes” should be displayed behind the synchronized system clock.
+> The local time is now the same time as at your location. “Yes” should be displayed behind the synchronized system clock. Time zone was changed. 
+
+
 
 ## 8. WiFi configuration 
 
 ### 8.1 Install dnsmasq
 
-To enable the automatic connection of WiFi devices, we need the dnsmasq package, which acts as a DHCP server.
++ To enable the automatic connection of WiFi devices, we need the dnsmasq package, which acts as a DHCP server.
 
 Install package:
 ```
 sudo apt-get install dnsmasq
 ```
-Open the configuration file 
+>[!Tip]
+> confitm with y
+
++ Open the configuration file 
 ```
 sudo nano /etc/dnsmasq.conf
 ```
 
 Add the following configuration in this file: 
-(scroll with down-button down)
+(scroll all the way down with the down button)
 ```
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
++ Save the config.file and exit the file. to start dnsmasq
+```
+sudo systemctl restart dnsmasq
+```
 
+>[!Tip]
+> Beschreibung der WiFi 
+### 8.2 Set up Wifi Conncetion 
 + Use this command
 
 ```
@@ -257,8 +282,10 @@ sudo nmtui
 + Navigate to the "Add"-button.
 + Select: Wi-Fi.
 + Assign a profile name.
++ Write under device: wlan0.
 + Next up assign the SSID. You can use the same name as in profile name.
 + Select mode: Access Point.
++ Select Channel: Automatic.
 + Selct security: WPA & WPA2 Personal.
 + Assign your password.
 + Selsct "Manual" for the IPv4 configuration.
@@ -269,7 +296,8 @@ sudo nmtui
 ```
 sudo reboot
 ```
-+ To connect a notebook to your Industrial Pi, use an Ethernet cable to connect the notebook to one of the Industrial Pi's Ethernet ports. Open your browser and enter http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the Industrial-Pi. You will find this number on the front of the Industrial Pi.
+### 8.3 Set up Cockpit-IndustrialPI
++ To connect a notebook to your Industrial Pi, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the Industrial-Pi. You will find this number on the front of the Industrial Pi.
 + Log in with the data provided on the sticker on the side of the Indutrial Pi.
 + It will open a dashboard of your IndustrialPi.
 + Under Tools you will find the item RevPi Configuration. Click on it.
@@ -281,7 +309,7 @@ sudo reboot
 sudo reboot
 ```
 > [!Tip]
-> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. If you see a loading icon then click on Information or Settings of your WiFi- connection. Under configure IP select the manual option and use an address in this network.<br/> Example: your access point is 192.168.0.102, use the address 192.168.0.103 and the subnet mask 255.255.255.0 for your mobil phone, the Router (Gateway) in your mobil phone is 192.168.0.1..
+> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. If you see a loading icon then click on Information or Settings of your WiFi- connection. Under configure IP select the manual option and use an address in this network.<br/> Example: your access point is 192.168.0.102, use the address 192.168.0.103 and the subnet mask 255.255.255.0 for your mobil phone, the Router (Gateway) in your mobil phone is 192.168.0.1.
 
 > [!Tip]
 > The next test is to try out the browser cockpit of your Industrial Pi. First connect your mobile phone or notebook to the existing Wifi connection. Then open any browser and enter the same host name as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
