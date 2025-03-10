@@ -229,6 +229,25 @@ timedatectl status
 
 ## 8. WiFi configuration 
 
+### 8.1 Install dnsmasq
+
+To enable the automatic connection of WiFi devices, we need the dnsmasq package, which acts as a DHCP server.
+
+Install package:
+```
+sudo apt-get install dnsmasq
+```
+Open the configuration file 
+```
+sudo nano /etc/dnsmasq.conf
+```
+
+Add the following configuration in this file: 
+(scroll with down-button down)
+```
+dhcp-range=192.168.0.50,192.168.0.150,12h
+```
+
 + Use this command
 
 ```
