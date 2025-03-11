@@ -4,7 +4,7 @@
     <a href="https://www.pilz.com" rel="nofollow">
         <img src="/img/pilz-logo.png" alt="Pilz Logo">
     </a><br/>
-    <strong>Application IndustrialPi and PSENrd 3</strong>
+    <strong>Application IndustrialPI 4 and PSENrd 3</strong>
 </div>
 
 ## Contents and Setup steps
@@ -27,7 +27,7 @@
 6.2 [Configurate Mosquitto Broker](#62-configurate-mosquitto-broker)<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
-8.1 [Install dnsmasq](#81-install-dnsmasq)
+8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
 8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
@@ -62,7 +62,7 @@ The availability of the software used, and its safe handling are also presuppose
 | 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
 > [!IMPORTANT]
-> wir brauchen WiFi
+> We only use the IndustrialPI 4 here for the application with WiFi network. Because only the IndustrialPI 4 has a WiFi antenna connection.<br/> 
 
 ### 2.2 Third-party products
 
@@ -79,23 +79,23 @@ Bild [hier]
 
 ## 3. Preface
 
-This application basically describes the commissioning process of a PSENrd 3.1 with an Industrial PI 4. Both devices communicate with each other using MQTT.
-Data is sent from the PSENrd 3.1 to the internal access point of the Industrial Pi 4. This data is sent to the Python program provided and processed there. <br/>
+This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
+Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there. <br/>
 The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines.<br/> 
 
 > [!IMPORTANT]
-> This document only describes the procedure for using the IndustrialPi 4 (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
+> This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
 
 ## 4. Application description
 
-The sample here is people counting to detect whether one or more people are in a monitored area, even if this area is not detected by the radar sensor. <br/>
+The example here shows people counting to determine whether one or more people are present in a monitored area. <br/>
 
 There are several requirements for the realization of this application: <br/>
 
-+ Data transmission takes place via MQTT <br/>
-+ Evaluation of the sensor data in the IndustrialPi 4 in real time <br/>
-+ Recording of personal data in a specific area <br/>
-+ All persons detected by the PSENrd 3.1 sensor are recorded and processed by the IndustrialPi 4 <br/>
++ Data transmission takes place via MQTT. <br/>
++ Evaluation of the sensor data in the IndustrialPI 4 in real time. <br/>
++ Recording of personal data in a specific area. <br/>
++ All persons detected by the PSENrd 3.1 sensor are recorded and processed by the IndustrialPI 4. <br/>
 
 Non-functional requirements: <br/>
 
@@ -109,16 +109,15 @@ The structure of the system and components is based on: <br/>
 
 ### 5.1 Password 
 
-+ First of all, connect the IndustrialPi 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
-+ Connect a keyboard via the IndustrialPi 4 USB ports.<br/>
-+ Start the IndustrialPi 4 with the 24VDC supply. The Industrial Pi 4 then boots up.<br/>
++ First of all, connect the IndustrialPI 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
++ Connect a keyboard via the IndustrialPI 4 USB ports.<br/>
++ Start the IndustrialPI 4 with the 24VDC supply. The IndustrialPI 4 then boots up.<br/>
 
 > [!IMPORTANT]
-><ins>Installation after a new Image</ins><br/>
-The first login of the IndustrialPi is:<br/>
+><ins>Installation after a new Image:</ins><br/>
+The first login of the IndustrialPI 4 is:<br/>
 Username: pi <br/> Password: raspberry<br/>
-Information comes:<br/>
-The device configuration was detected automatically. Manual configuration is therefore not necessary.
+Information comes: The device configuration was detected automatically. Manual configuration is therefore not necessary.<br/>
 Press okay<br/> 
 You will now be asked to use the password on the sticker.<br/>
 
@@ -134,23 +133,21 @@ You will now be asked to use the password on the sticker.<br/>
 
 ### 5.2 Instructions for changing the keyboard settings
 
-Open the Raspberry Pi Software Configuration Tool (raspi-config)<br/>
+Open the RaspberryPI Software Configuration Tool (raspi-config)<br/>
 
 > [!Tip]
 > On the English keyboard, the character - (hyphen) corresponds to the character ? (question mark). Make sure you take this into account when entering.
-
 ```
 sudo raspi-config
 ```
-+ select localisation options<br/>
-+ then select L3 Keyboard<br/>
-+ select the model of your keyboard<br/>
-+ go to the sub-item other <br/>
-+ select your language<br/>
-+ select the default for the keyboard layout as the next step<br/>
-+ deselect compose key in the last step<br/>
-
-Exit the configuration tool with the esc key.
++ select localisation options.<br/>
++ then select L3 Keyboard.<br/>
++ select the model of your keyboard.<br/>
++ go to the sub-item other.<br/>
++ select your language.<br/>
++ select the default for the keyboard layout as the next step.<br/>
++ deselect compose key in the last step.<br/>
++ Exit the configuration tool with the esc key.<br/>
 
 > [!Tip]
 > Try whether the setting has worked. for example press Y or Z.
@@ -158,20 +155,18 @@ Exit the configuration tool with the esc key.
 ### 5.3 Update System packages
 
 > [!Tip]
-> Connect your IndustrialPI to the Internet for the first time via the Ethernet interface. 
-> [!Tip]
-> If you connect your IndustrialPI with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)
+> + Connect your IndustrialPI to the Internet for the first time via the Ethernet interface.
+> + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi).
 
 + get all updates with the commando
-
- ```
- sudo apt-get update
- ```
- ```
- sudo apt-get upgrade
- ```
+```
+sudo apt-get update
+```
+```
+sudo apt-get upgrade
+```
 > [!Tip]
-> Both commands will ask you to continue. confirm both commands with Y. Press q when requested for upgrade information.
+> Both commands will ask you to continue. Confirm both commands with Y. Press q when requested for upgrade information.
 
 
 ## 6. Install Mosquitto and Mosquitto-Clients
@@ -193,54 +188,54 @@ including the creation of certificates and the creation of access control lists.
 ## 7. Setup and Configuration NTP Server
 
 + Install NTP
-
 ```
 sudo apt-get install ntp
 ```
-+ Open the NTP config file
+> [!Note]
+> An additional security package is automatically installed in this Linux system. The next steps are therefore carried out with an ntpsec command.  
 
++ Open the NTP config file.
 ```
 sudo nano /etc/ntpsec/ntp.conf
 ```
-+ Add the following configuration to the ntp.config file
-
++ Add the following configuration to the ntp.config file.
 ```
+statsdir /var/log/ntpsec/
 server 127.127.1.0
 fudge 127.127.1.0 stratum 10
 ```
-+ Save the file and restart the ntp service
-
++ Save the file and restart the ntp service.
++ add a new folder unter the directory: /var/log/ntpsec
+```
+sudo mkdir /var/log/ntpsec
+```
 ```
 sudo systemctl restart ntpsec
 ```
 ```
 sudo systemctl enable ntpsec
 ```
-```
+<!--```
 sudo service ntpsec restart
-```
+```-->
+
 > [!Tip]
 > To activate the NTPsec service automatically at system startup, you should use the systemctl command.
 
-+ Control whether your system clock is synchronized
-
++ Control whether your system clock is synchronized.
 ```
 timedatectl status
 ```
-+ If you need the list to find your correct time zone, enter the command:
-
++ If you need the list to find your correct time zone, enter the following command:
 ```
 timedatectl list-timezones
 ```
 + For example, to set the time zone to Berlin:
-
 ```
 sudo timedatectl set-timezone Europe/Berlin
 ```
 > [!Tip]
-> The local time is now the same time as at your location. “Yes” should be displayed behind the synchronized system clock. Time zone was changed. 
-
-
+> The local time is now the same time as at your location. “Yes” should be displayed behind the synchronized system clock. The time zone has been changed to Europe/Berlin for this example. 
 
 ## 8. WiFi configuration 
 
@@ -253,28 +248,27 @@ Install package:
 sudo apt-get install dnsmasq
 ```
 >[!Tip]
-> confitm with y
+> Confirm with Y.
 
-+ Open the configuration file 
++ Open the configuration file. 
 ```
 sudo nano /etc/dnsmasq.conf
 ```
 
-Add the following configuration in this file: 
-(scroll all the way down with the down button)
++ Add the following configuration in this file: (scroll all the way down with the down button)
 ```
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
-+ Save the config.file and exit the file. to start dnsmasq
++ Save the config.file and exit to start dnsmasq.
 ```
 sudo systemctl restart dnsmasq
 ```
 
->[!Tip]
-> Beschreibung der WiFi 
-### 8.2 Set up Wifi Conncetion 
-+ Use this command
+>[!Note]
+> The further procedures describe the WiFi setting.
 
+### 8.2 Set up Wifi Conncetion 
++ Use this command:
 ```
 sudo nmtui
 ```
@@ -296,22 +290,23 @@ sudo nmtui
 ```
 sudo reboot
 ```
-### 8.3 Set up Cockpit-IndustrialPI
-+ To connect a notebook to your Industrial Pi, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the Industrial-Pi. You will find this number on the front of the Industrial Pi.
-+ Log in with the data provided on the sticker on the side of the Indutrial Pi.
-+ It will open a dashboard of your IndustrialPi.
-+ Under Tools you will find the item RevPi Configuration. Click on it.
+### 8.3 Set up Cockpit-IndustrialPI 4
++ To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
+http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
++ Log in with the data provided on the sticker on the side of the IndutrialPI 4.
++ It will open a dashboard of your IndustrialPI 4.
++ Under Tools you will find the item IndustrialPI Configuration. Click on it.
 + Now you will see various setting options.
 + To be on the safe side, please deactivate the bluetooth cennection.
 + Select the external antenna (SMA) under select antenna.
-+ then restart the Industrial Pi.
++ then restart the IndustrialPI 4.
 ```
 sudo reboot
 ```
 > [!Tip]
-> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. If you see a loading icon then click on Information or Settings of your WiFi- connection. Under configure IP select the manual option and use an address in this network.<br/> Example: your access point is 192.168.0.102, use the address 192.168.0.103 and the subnet mask 255.255.255.0 for your mobil phone, the Router (Gateway) in your mobil phone is 192.168.0.1.
+> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. Click on it and connect and see if you are then in the WiFi. You can see this by the checkmark and the WiFi icon.
 
 > [!Tip]
-> The next test is to try out the browser cockpit of your Industrial Pi. First connect your mobile phone or notebook to the existing Wifi connection. Then open any browser and enter the same host name as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
+> The next test is to try out the browser cockpit of your IndustrialPI 4. First connect your mobile phone or notebook to the existing Wifi connection as described in the previous tip. Then open any browser and enter the same hostname as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
 
 ## 9. Testing of Data exchange 
