@@ -117,8 +117,9 @@ The structure of the system and components is based on: <br/>
 ><ins>Installation after a new Image:</ins><br/>
 The first login of the IndustrialPI 4 is:<br/>
 Username: pi <br/> Password: raspberry<br/>
-Information comes: The device configuration was detected automatically. Manual configuration is therefore not necessary.<br/>
-Press okay<br/> 
+Information comes: The device configuration was detected automatically.<br/>
+Manual configuration is therefore not necessary.<br/>
+Press okay.<br/> 
 You will now be asked to use the password on the sticker.<br/>
 
 > [!Tip]
