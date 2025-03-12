@@ -134,7 +134,7 @@ You will now be asked to use the password on the sticker.<br/>
 
 ### 5.2 Instructions for changing the keyboard settings
 
-Open the RaspberryPI Software Configuration Tool (raspi-config)<br/>
+Open the RaspberryPI Software Configuration Tool (raspi-config):<br/>
 
 > [!Tip]
 > On the English keyboard, the character - (hyphen) corresponds to the character ? (question mark). Make sure you take this into account when entering.
@@ -159,7 +159,7 @@ sudo raspi-config
 > + Connect your IndustrialPI to the Internet for the first time via the Ethernet interface.
 > + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi).
 
-+ get all updates with the commando
++ get all updates with the commando:
 ```
 sudo apt-get update
 ```
@@ -178,52 +178,45 @@ sudo apt-get upgrade
 ### 6.1 Create certificates (optional)
 
 + Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
-including the creation of certificates and the creation of access control lists.<br/>
+including the creation of certificates and the creation of access control lists:<br/>
 [Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>
 
 ### 6.2 Configurate Mosquitto Broker
 
-+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions.<br/>
++ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
 [Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>
 
 ## 7. Setup and Configuration NTP Server
 
-+ Install NTP
++ Install NTP:
 ```
 sudo apt-get install ntp
 ```
 > [!Note]
 > An additional security package is automatically installed in this Linux system. The next steps are therefore carried out with an ntpsec command.  
 
-+ Open the NTP config file.
++ Open the NTP config file:
 ```
 sudo nano /etc/ntpsec/ntp.conf
 ```
-+ Add the following configuration to the ntp.config file.
++ Add the following configuration to the ntp.config file:
 ```
-statsdir /var/log/ntpsec/
 server 127.127.1.0
 fudge 127.127.1.0 stratum 10
+restrict 127.0.0.1
+restrict ::1
 ```
-+ Save the file and restart the ntp service.
-+ add a new folder unter the directory: /var/log/ntpsec
-```
-sudo mkdir /var/log/ntpsec
-```
-```
-sudo systemctl restart ntpsec
-```
-```
-sudo systemctl enable ntpsec
-```
-<!--```
-sudo service ntpsec restart
-```-->
-
 > [!Tip]
-> To activate the NTPsec service automatically at system startup, you should use the systemctl command.
+> Comment all other standard commands from.
 
-+ Control whether your system clock is synchronized.
++ Save the file and restart the ntp:
+```
+sudo systemctl restart ntp
+```
+```
+sudo systemctl enable ntp
+```
++ Control whether your system clock is synchronized:
 ```
 timedatectl status
 ```
@@ -251,7 +244,7 @@ sudo apt-get install dnsmasq
 >[!Tip]
 > Confirm with Y.
 
-+ Open the configuration file. 
++ Open the configuration file: 
 ```
 sudo nano /etc/dnsmasq.conf
 ```
@@ -260,7 +253,7 @@ sudo nano /etc/dnsmasq.conf
 ```
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
-+ Save the config.file and exit to start dnsmasq.
++ Save the config.file and exit to start dnsmasq:
 ```
 sudo systemctl restart dnsmasq
 ```
@@ -300,7 +293,7 @@ http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-di
 + Now you will see various setting options.
 + To be on the safe side, please deactivate the bluetooth cennection.
 + Select the external antenna (SMA) under select antenna.
-+ then restart the IndustrialPI 4.
++ then restart the IndustrialPI 4:
 ```
 sudo reboot
 ```
