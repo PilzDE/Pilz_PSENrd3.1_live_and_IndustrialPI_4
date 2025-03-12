@@ -81,7 +81,7 @@ Bild [hier]
 
 This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
 Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there. <br/>
-The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines.<br/> 
+The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12.<br/> 
 
 > [!IMPORTANT]
 > This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
