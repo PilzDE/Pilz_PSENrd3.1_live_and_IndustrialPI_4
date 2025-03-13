@@ -33,7 +33,7 @@
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
 10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
-10.2[Work with GitHub direktly](#102-work-with-github-directly)<br/>
+10.2[Work with GitHub directly](#102-work-with-github-directly)<br/>
 
 ## 1. Useful documentation
 
@@ -247,7 +247,7 @@ An asterisk (*) at the beginning of a line indicates that this NTP server is the
 ntpq -p
 ```
 >[!Tip]
->This synchronization can take a long time after restarting the IndustrialPI 4. (5-6 min).
+>This synchronization can take a long time after restarting the IndustrialPI 4. (it can take up to 6 minutes).
 
 ## 8. WiFi configuration 
 
@@ -266,7 +266,7 @@ sudo apt install dnsmasq
 ```
 sudo nano /etc/dnsmasq.conf
 ```
-+ Add the following configuration in this file: (scroll all the way down with the down button)
++ Add the following example configuration in this file: (scroll all the way down with the down button)
 ```
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
@@ -338,11 +338,11 @@ sudo reboot
 ```
 sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
-+ You can find for example the information: New connection from <IP-Address:Portnumber> as <MAC-Address of your Sensor> (p2, c1, k120).
++ You can find for example the information: New connection from IP-Address:Portnumber as MAC-Address of your Sensor (p2, c1, k120).
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial Pi 4.
 ```
-mosquitto_sub -p 8883 -h <IP-Address> --cafile <Pfad-zur-CA-Datei> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
+mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
 ```
 +  Position data should then come gradually on your shell.
 
@@ -368,7 +368,7 @@ cd /home/pi/my_python_program
 python3 hello_world.py
 ```
 >[!Tip]
->This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI system.
+>This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system.
 
 ### 10.2 work with GitHub directly
 + An other way is to copy the python program from GitHub directly. Provided you are connected to the IndustrialPI 4 in your network and you have Ethernet connection.
