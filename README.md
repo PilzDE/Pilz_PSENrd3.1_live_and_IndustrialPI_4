@@ -207,7 +207,7 @@ restrict 127.0.0.1
 restrict ::1
 ```
 > [!Tip]
-> Comment all other standard commands from.
+> Comment out all other commands.
 
 + Save the file and restart the ntp:
 ```
@@ -231,6 +231,14 @@ sudo timedatectl set-timezone Europe/Berlin
 > [!Tip]
 > The local time is now the same time as at your location. “Yes” should be displayed behind the synchronized system clock. The time zone has been changed to Europe/Berlin for this example. 
 
++ To check the synchronization of the local system:<br/>
+> [!Note]
+> The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
+An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system.
+```
+ntpq -p
+```
+
 ## 8. WiFi configuration 
 
 ### 8.1 Install dnsmasq
@@ -239,7 +247,7 @@ sudo timedatectl set-timezone Europe/Berlin
 
 Install package:
 ```
-sudo apt-get install dnsmasq
+sudo apt install dnsmasq
 ```
 >[!Tip]
 > Confirm with Y.
@@ -248,16 +256,21 @@ sudo apt-get install dnsmasq
 ```
 sudo nano /etc/dnsmasq.conf
 ```
-
 + Add the following configuration in this file: (scroll all the way down with the down button)
 ```
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
 + Save the config.file and exit to start dnsmasq:
 ```
+sudo systemctl enable dnsmasq
+```
+```
 sudo systemctl restart dnsmasq
 ```
-
++ Control the dnsmasq.service via status:
+```
+sudo systemctl status dnsmasq
+```
 >[!Note]
 > The further procedures describe the WiFi setting.
 
