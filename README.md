@@ -237,7 +237,7 @@ sudo timedatectl set-timezone Europe/Berlin
 An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system. For example:
  
  |remote         |refid |     |st| t| when| poll| reach|   delay|   offset|  jitter|
-=========================================================================
+ |---------------|------|-----|--|--|-----|-----|------|--------|---------|--------|
  |*ntp.example.LOCAL| .LOCL.|  10| l |  18 |  64 | 377 |   0.000 |  0.000 |  0.000|
 
 ```
