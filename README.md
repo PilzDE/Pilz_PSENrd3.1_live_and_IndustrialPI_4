@@ -392,5 +392,6 @@ python3 programm.py
 ```
 >[!Tip]
 >Replace program.py with the name of the Python file you want to execute.<br/>
+
 >[!Note]
 >The prerequisite here is that you have to install git and pip for this method.<br/>
