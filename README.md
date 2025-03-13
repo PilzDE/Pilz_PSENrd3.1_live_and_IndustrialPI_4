@@ -31,6 +31,9 @@
 8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
+10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
+10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
+10.2[Work with GitHub direktly](#102-work-with-github-directly)<br/>
 
 ## 1. Useful documentation
 
@@ -234,7 +237,7 @@ sudo timedatectl set-timezone Europe/Berlin
 + To check the synchronization of the local system:<br/>
 > [!Note]
 > The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
-An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system. For example:
+An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system. You will find an example of this in the following table:
  
  |remote         |refid       |st| t| when| poll| reach|   delay|   offset|  jitter|
  |---------------|------------|--|--|------|---- |-----|--------|---------|--------|
@@ -243,6 +246,8 @@ An asterisk (*) at the beginning of a line indicates that this NTP server is the
 ```
 ntpq -p
 ```
+>[!Tip]
+>This synchronization can take a long time after restarting the IndustrialPI 4. (5-6 min).
 
 ## 8. WiFi configuration 
 
@@ -322,3 +327,70 @@ sudo reboot
 > The next test is to try out the browser cockpit of your IndustrialPI 4. First connect your mobile phone or notebook to the existing Wifi connection as described in the previous tip. Then open any browser and enter the same hostname as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
 
 ## 9. Testing of Data exchange 
+
++ You can start by checking whether you can connect the IndustrialPI 4 system to the PSENrd 3.1. First restart the IndustrialPI 4:<br/>
+```
+sudo reboot
+```
+>[!Tip]
+> General tip, restarting the system is very important for many new installations.
++ The tail -f command is used to display the last lines of a file in real time. If you use it with Mosquitto, you can monitor the log file of the Mosquitto broker to see current activities and messages.<br/>
+```
+sudo tail -f /var/log/mosquitto/mosquitto.log
+```
++ You can find for example the information: New connection from <IP-Address:Portnumber> as <MAC-Address of your Sensor> (p2, c1, k120).
++ The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
++ We need the first test whether the sensor sends data to the Industrial Pi 4.
+```
+mosquitto_sub -p 8883 -h <IP-Address> --cafile <Pfad-zur-CA-Datei> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
+```
++  Position data should then come gradually on your shell.
+
+## 10. Integration of the supplied python program example
+
+### 10.1 work with USB-stick
+>[!Note]
+>Python is available on this Lite version. You can view the current Python version with the following command.
+```
+python3 --version
+```
++ Create a new folder for your python-program for example in your home directory:
+```
+mkdir ~/my_python_program
+```
++ copy the supplied program in this new folder for example from a stick:
+```
+sudo cp /media/usb/hello_world.py /home/pi/my_python_program
+```
++ change the directory and execute the python program:
+```
+cd /home/pi/my_python_program
+python3 hello_world.py
+```
+>[!Tip]
+>This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI system.
+
+### 10.2 work with GitHub directly
++ An other way is to copy the python program from GitHub directly. Provided you are connected to the IndustrialPI 4 in your network and you have Ethernet connection.
+```
+git clone https://github.com/benutzername/repository.git
+```
+```
+cd repository
+```
++ Run program on the remote system:
+```
+cd /pfad/zu/repository
+```
++ If the program has dependencies, install them with pip:
+```
+pip install -r requirements.txt
+```
++ Execute the Python program:
+```
+python3 programm.py
+```
+>[!Tip]
+>Replace program.py with the name of the Python file you want to execute.
+>[!Note]
+>The prerequisite here is that you have to install git and pip for this method.
