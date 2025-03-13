@@ -236,9 +236,9 @@ sudo timedatectl set-timezone Europe/Berlin
 > The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
 An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system. For example:
  
- |remote         |refid |     |st| t| when| poll| reach|   delay|   offset|  jitter|
- |---------------|------|-----|--|--|-----|-----|------|--------|---------|--------|
- |*ntp.example.LOCAL| .LOCL.|  10| l |  18 |  64 | 377 |   0.000 |  0.000 |  0.000|
+ |remote         |refid       |st| t| when| poll| reach|   delay|   offset|  jitter|
+ |---------------|------------|--|--|------|---- |-----|--------|---------|--------|
+ |*ntp.example.LOCAL| .LOCL.  |10| l |  18 |  64 | 377 |   0.000|   0.000 |   0.000|
 
 ```
 ntpq -p
