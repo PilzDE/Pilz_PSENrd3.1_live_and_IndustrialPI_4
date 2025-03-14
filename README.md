@@ -87,7 +87,7 @@ The availability of the software used, and its safe handling are also presuppose
 ## 3. Preface
 
 This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
-Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there. <br/>
+Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there.<br/>
 The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12.<br/> 
 
 > [!IMPORTANT]
@@ -95,22 +95,22 @@ The basic procedure for successful basic configuration is shown here step-by-ste
 
 ## 4. Application description
 
-The example here shows people counting to determine whether one or more people are present in a monitored area. <br/>
+The example here shows people counting to determine whether one or more people are present in a monitored area. br/>
 
-There are several requirements for the realization of this application: <br/>
+There are several requirements for the realization of this application:<br/>
 
-+ Data transmission takes place via MQTT. <br/>
-+ Evaluation of the sensor data in the IndustrialPI 4 in real time. <br/>
-+ Recording of personal data in a specific area. <br/>
-+ All persons detected by the PSENrd 3.1 sensor are recorded and processed by the IndustrialPI 4. <br/>
++ Data transmission takes place via MQTT.<br/>
++ Evaluation of the sensor data in the IndustrialPI 4 in real time.<br/>
++ Recording of personal data in a specific area.<br/>
++ All persons detected by the PSENrd 3.1 sensor are recorded and processed by the IndustrialPI 4.<br/>
 
-Non-functional requirements: <br/>
+Non-functional requirements:<br/>
 
-+ Stability and reliability of the system <br/>
-+ Simple setup and handling of the operating system on the IndustrialPi 4 <br/>
++ Stability and reliability of the system<br/>
++ Simple setup and handling of the operating system on the IndustrialPi 4<br/>
 
-The structure of the system and components is based on: <br/>
-[2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic) <br/>
+The structure of the system and components is based on:<br/>
+[2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
 
 ## 5. First Steps to start IndustrialPI 4 
 
