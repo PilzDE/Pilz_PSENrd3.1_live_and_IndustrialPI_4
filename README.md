@@ -251,7 +251,7 @@ An asterisk (*) at the beginning of a line indicates that this NTP server is the
 ntpq -p
 ```
 >[!Tip]
->This synchronization can take a long time after restarting the IndustrialPI 4. (it can take up to 6 minutes).
+>This synchronization can take a long time after a restart of the IndustrialPI 4 and the PSENrd 3.1. (It can take up to 6 minutes).
 
 ## 8. WiFi configuration 
 
