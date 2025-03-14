@@ -75,12 +75,12 @@ The availability of the software used, and its safe handling are also presuppose
 | 2 |   Keyboard  |      -      |    -   |    1    |
 | 3 | Micro-HDMI adapter |  -   |    -   |    1    |
 | 4 | HDMI cable for the Monitor| -  | - |    1    |
-| 5 | Delock Antenna|  88913    |    -   |    1    | (optional)
+| 5 | Delock Antenna (optional)|  88913    |    -   |    1    | 
 
 ### 2.3 Stucture of the appliction (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/IndstrialPI_4_and_PSENrd_3_1" alt="Structure of the application (schematic)" width="200">
+        <img src="/img/IndstrialPI_4_and_PSENrd_3_1.png" alt="Structure of the application (schematic)" width="400">
     </a><br/>
 </div>
 
