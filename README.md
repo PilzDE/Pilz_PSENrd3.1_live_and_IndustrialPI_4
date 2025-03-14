@@ -110,7 +110,7 @@ Non-functional requirements:<br/>
 + Simple setup and handling of the operating system on the IndustrialPi 4<br/>
 
 The structure of the system and components is based on:<br/>
-[2.3 Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
+[2.3 Stucture of the appliction (schematic)](#23-stucture-of-the-appliction-schematic)<br/>
 
 ## 5. First Steps to start IndustrialPI 4 
 
