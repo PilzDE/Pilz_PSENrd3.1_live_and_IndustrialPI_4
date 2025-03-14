@@ -349,7 +349,7 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
 + You can find for example the information in the table:
 
-New connection from IP-Address:Portnumber as MAC-Address(of your Sensor) (p2, c1, k120).
+New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial Pi 4.
@@ -362,7 +362,7 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 
 ### 10.1 work with USB-stick
 >[!Note]
->Python is available on this Lite version. You can view the current Python version with the following command.
+>Python is already available on this oparting system. You can view the current Python version with the following command.
 ```
 python3 --version
 ```
@@ -380,12 +380,12 @@ cd /home/pi/my_python_program
 python3 hello_world.py
 ```
 >[!Tip]
->This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system.
+>This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please note that the USB stick must first be mounted in a Linux system before the data can be accessed.
 
 ### 10.2 work with GitHub directly
-+ An other way is to copy the python program from GitHub directly. Provided you are connected to the IndustrialPI 4 in your network and you have Ethernet connection.
++ An other way is to copy the python program from GitHub directly. The prerequisite is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
 ```
-git clone https://github.com/benutzername/repository.git
+git clone https://github.com/PilzDE/Samples.git
 ```
 ```
 cd repository
