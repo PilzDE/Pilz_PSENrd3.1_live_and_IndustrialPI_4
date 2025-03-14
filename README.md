@@ -62,7 +62,7 @@ The availability of the software used, and its safe handling are also presuppose
 |---| ------------|-------------| -------| --------|
 | 1 | IndustrialPI| A1000003    |   4    |    1    |
 | 2 | PSENrd      | 6B000017    |  3.1   |    1    |
-| 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
+| 3 | PSEN op cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
 > [!IMPORTANT]
 > We only use the IndustrialPI 4 here for the application with WiFi network. Because only the IndustrialPI 4 has a WiFi antenna connection.<br/> 
