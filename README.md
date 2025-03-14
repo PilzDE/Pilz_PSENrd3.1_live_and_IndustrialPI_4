@@ -80,7 +80,7 @@ The availability of the software used, and its safe handling are also presuppose
 ### 2.3 Stucture of the appliction (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/IndstrialPI_4_and_PSENrd_3_1.png" alt="Structure of the application (schematic)" width="400">
+        <img src="/img/IndustrialPI_4_and_PSENrd_3_1.png" alt="Structure of the application (schematic)" width="400">
     </a><br/>
 </div>
 
