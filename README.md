@@ -4,7 +4,7 @@
     <a href="https://www.pilz.com" rel="nofollow">
         <img src="/img/pilz-logo.png" alt="Pilz Logo">
     </a><br/>
-    <strong>Application IndustrialPI 4 and PSENrd 3</strong>
+    <strong>Application IndustrialPI 4 and PSENrd 3.1</strong>
 </div>
 
 ## Contents and Setup steps
@@ -37,7 +37,7 @@
 
 ## 1. Useful documentation
 
-Reading the documentation listed below is necessary for understanding this Application Note.<br/>
+Reading the documentations listed below is necessary for understanding this Application.<br/>
 The availability of the software used, and its safe handling are also presupposed for the user.
 
 ### 1.1 Documentation from Pilz GmbH & Co. KG
@@ -91,11 +91,11 @@ Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialP
 The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12.<br/> 
 
 > [!IMPORTANT]
-> This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (XXX) and does not constitute technical documentation on the general use of the operating system Linux and Python.
+> This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (6B000017) and does not constitute technical documentation on the general use of the operating system Linux and the program language Python. The operating system and the programming language are basic requirements for this application.
 
 ## 4. Application description
 
-The example here shows people counting to determine whether one or more people are present in a monitored area. br/>
+The example here shows people counting to determine whether one or more people are present in a monitored area.<br/>
 
 There are several requirements for the realization of this application:<br/>
 
@@ -106,8 +106,8 @@ There are several requirements for the realization of this application:<br/>
 
 Non-functional requirements:<br/>
 
-+ Stability and reliability of the system<br/>
-+ Simple setup and handling of the operating system on the IndustrialPi 4<br/>
++ Stability and reliability of the system.<br/>
++ Simple setup and handling of the operating system on the IndustrialPi 4.<br/>
 
 The structure of the system and components is based on:<br/>
 [2.3 Stucture of the appliction (schematic)](#23-stucture-of-the-appliction-schematic)<br/>
@@ -124,7 +124,7 @@ The structure of the system and components is based on:<br/>
 ><ins>Installation after a new Image:</ins><br/>
 The first login of the IndustrialPI 4 is:<br/>
 Username: pi <br/> Password: raspberry<br/>
-Information comes: The device configuration was detected automatically.<br/>
+Information comes: The device configuration was detected automatically.
 Manual configuration is therefore not necessary.<br/>
 Press okay.<br/> 
 You will now be asked to use the password on the sticker.<br/>
@@ -136,7 +136,6 @@ You will now be asked to use the password on the sticker.<br/>
 > Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
 
 > [!Tip]
-> Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.<br/>
 > The letter l (small L) can easily be confused with the number 1 (one). Make sure you use the correct character.<br/>
 
 ### 5.2 Instructions for changing the keyboard settings
@@ -163,8 +162,8 @@ sudo raspi-config
 ### 5.3 Update System packages
 
 > [!Tip]
-> + Connect your IndustrialPI to the Internet for the first time via the Ethernet interface.
-> + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi).
+> + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface.
+> + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
 
 + get all updates with the commando:
 ```
@@ -241,7 +240,7 @@ sudo timedatectl set-timezone Europe/Berlin
 + To check the synchronization of the local system:<br/>
 > [!Note]
 > The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
-An asterisk (*) at the beginning of a line indicates that this NTP server is the main synchronization partner of your system. You will find an example of this in the following table:
+An asterisk (*) at the beginning of a line means that this NTP server is the main synchronization partner of your system. You can find an example of this in the following table:
  
  |remote         |refid       |st| t| when| poll| reach|   delay|   offset|  jitter|
  |---------------|------------|--|--|------|---- |-----|--------|---------|--------|
@@ -264,7 +263,7 @@ Install package:
 sudo apt install dnsmasq
 ```
 >[!Tip]
-> Confirm with Y.
+> Confirm with Y key.
 
 + Open the configuration file: 
 ```
@@ -276,15 +275,17 @@ dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
 + Save the config.file and exit to start dnsmasq:
 ```
-sudo systemctl enable dnsmasq
-```
-```
 sudo systemctl restart dnsmasq
+```
+```
+sudo systemctl enable dnsmasq
 ```
 + Control the dnsmasq.service via status:
 ```
 sudo systemctl status dnsmasq
 ```
++ The status shows you that the dnsmasq service is active.
+
 >[!Note]
 > The further procedures describe the WiFi setting.
 
@@ -300,10 +301,10 @@ sudo nmtui
 + Write under device: wlan0.
 + Next up assign the SSID. You can use the same name as in profile name.
 + Select mode: Access Point.
-+ Select Channel: Automatic.
-+ Selct security: WPA & WPA2 Personal.
++ Select channel: Automatic.
++ Select security: WPA & WPA2 Personal.
 + Assign your password.
-+ Selsct "Manual" for the IPv4 configuration.
++ Select "Manual" for the IPv4 configuration.
 + Assign the address for example 192.168.0.102/24.
 + At the gateway, assign 192.168.0.1, for example.
 + Then accept everything with OK.
@@ -315,7 +316,7 @@ sudo reboot
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
 http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
 + Log in with the data provided on the sticker on the side of the IndutrialPI 4.
-+ It will open a dashboard of your IndustrialPI 4.
++ The dashboard of your IndustrialPI 4 will open and is called Cockpit.
 + Under Tools you will find the item IndustrialPI Configuration. Click on it.
 + Now you will see various setting options.
 + To be on the safe side, please deactivate the bluetooth cennection.
@@ -337,12 +338,19 @@ sudo reboot
 sudo reboot
 ```
 >[!Tip]
-> General tip, restarting the system is very important for many new installations.
+> General tip, restarting the system is very important for many new installations. Restart the IndustrialPI 4 from time to time.
+
+>[!Tip]
+> Again, remember the synchronization time of the NTP service.
+
 + The tail -f command is used to display the last lines of a file in real time. If you use it with Mosquitto, you can monitor the log file of the Mosquitto broker to see current activities and messages.<br/>
 ```
 sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
-+ You can find for example the information: New connection from IP-Address:Portnumber as MAC-Address of your Sensor (p2, c1, k120).
++ You can find for example the information:
+```` 
+New connection from <IP-Address:Portnumber> as <MAC-Address of your Sensor> of your Sensor (p2, c1, k120).
+````
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial Pi 4.
 ```
