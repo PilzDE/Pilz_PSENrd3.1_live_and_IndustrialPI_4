@@ -15,7 +15,7 @@
 2.  [Hardware and software used](#2-hardware-and-software-used)<br/>
 2.1 [Pilz products](#21-pilz-products)<br/>
 2.2 [Third-party products](#22-third-party-products)<br/>
-2.3 [Stucture of the applaction (schematic)](#23-stucture-of-the-applaction-schematic)<br/>
+2.3 [Stucture of the appliction (schematic)](#23-stucture-of-the-appliction-schematic)<br/>
 3.  [Preface](#3-preface)<br/>
 4.  [Application description](#4-application-description)<br/>
 5.  [First steps to start IndustrialPI](#5-first-steps-to-start-industrialpi)<br/>
