@@ -347,10 +347,10 @@ sudo reboot
 ```
 sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
-+ You can find for example the information:
-```` 
-New connection from <IP-Address:Portnumber> as <MAC-Address of your Sensor> of your Sensor (p2, c1, k120).
-````
++ You can find for example the information in the table:
+
+New connection from IP-Address:Portnumber as MAC-Address(of your Sensor of your Sensor) (p2, c1, k120).
+
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial Pi 4.
 ```
