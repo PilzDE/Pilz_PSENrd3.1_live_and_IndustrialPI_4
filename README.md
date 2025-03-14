@@ -61,7 +61,7 @@ The availability of the software used, and its safe handling are also presuppose
 |Nr.| Discription | Order number| Version| Quantity|
 |---| ------------|-------------| -------| --------|
 | 1 | IndustrialPI| A1000003    |   4    |    1    |
-| 2 | PSENrd 3.1  | X           | XXXXXXX|    1    |
+| 2 | PSENrd      | 6B000017    |  3.1   |    1    |
 | 3 | PSEN cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
 > [!IMPORTANT]
@@ -75,10 +75,14 @@ The availability of the software used, and its safe handling are also presuppose
 | 2 |   Keyboard  |      -      |    -   |    1    |
 | 3 | Micro-HDMI adapter |  -   |    -   |    1    |
 | 4 | HDMI cable for the Monitor| -  | - |    1    |
+| 5 | Delock Antenna|  88913    |    -   |    1    | (optional)
 
 ### 2.3 Stucture of the applaction (schematic)
 
-Bild [hier]
+<div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="/img/IndstrialPI_4_and_PSENrd_3_1" alt="Pilz Logo">
+    </a><br/>
+</div>
 
 ## 3. Preface
 
