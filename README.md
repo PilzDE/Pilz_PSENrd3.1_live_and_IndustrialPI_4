@@ -32,8 +32,10 @@
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
-10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
-10.2[Work with GitHub directly](#102-work-with-github-directly)<br/>
+10.1[Install additional Python package for the Version V3](#101-install-additional-python-package-for-the-version-v3)<br/>
+10.2[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>
+10.3[Work with USB-Stick](#103-work-with-usb-stick)<br/>
+10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>
 
 ## 1. Useful documentation
 
@@ -358,11 +360,34 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 ```
 +  Position data should then come gradually on your shell.
 
-## 10. Integration of the supplied python program example
+## 10. Integration of the supplied python program examples
 
-### 10.1 work with USB-stick
+### 10.1 Install additional Python package for the Version V3 
+For the program Version 3 you need a package for installation for execution.
++ Install tkinter:
+```
+sudo apt-get install python3-tk
+```
+>[!Tip]
+>Confirm with Y.
+
+<!-- Hier weiter machen bezüglich graphische oberfläche><!-->
+### 10.2 Install additional Python packages for the Version V4 
+
+First of all, we need packages of Python before we start the python program in the lite version of the IndustrialPI4. Pip3 is a package management tool for Python that is used specifically for Python 3. It allows you to install, manage and update Python packages from the Python Package Index (PyPI). It is a central repository where Python packages are stored and distributed.
+
++ Install pip3:
+```
+sudo apt-get install python3-pip
+```
+>[!Tip]
+>Confirm with Y.
+
+
+
+### 10.3 Work with USB-stick
 >[!Note]
->Python is already available on this oparting system. You can view the current Python version with the following command.
+>This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Python is already available on this oparting system. You can view the current Python version with the following command.
 ```
 python3 --version
 ```
@@ -370,20 +395,33 @@ python3 --version
 ```
 mkdir ~/my_python_program
 ```
-+ copy the supplied program in this new folder for example from a stick:
++ Insert your USB stick into one of the two USB ports. Check the name of the USB with the command:
+```
+lsblk
+```
+>[!Tip]
+>In the last column of this table you will see the name of the mount point for your USB device, e.g. /media/usb.
+
++ Mount the example USB into your system:
+```
+sudo mount /dev/sda1 /media/usb
+```
++ Copy the supplied program in this new folder for example from a stick:
 ```
 sudo cp /media/usb/hello_world.py /home/pi/my_python_program
 ```
-+ change the directory and execute the python program:
++ After you have copied your program you could umount the USB stick:
+```
+sudo umount /dev/sda1
+```
++ Change into the directory and execute the python program:
 ```
 cd /home/pi/my_python_program
 python3 hello_world.py
 ```
->[!Tip]
->This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please note that the USB stick must first be mounted in a Linux system before the data can be accessed.
 
-### 10.2 work with GitHub directly
-+ An other way is to copy the python program from GitHub directly. The prerequisite is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
+### 10.4 Work with GitHub directly
++ An other way is to copy the python program from GitHub directly. The condition is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
 ```
 git clone https://github.com/PilzDE/Samples.git
 ```
@@ -406,4 +444,4 @@ python3 programm.py
 >Replace program.py with the name of the Python file you want to execute.<br/>
 
 >[!Note]
->The prerequisite here is that you have to install git and pip for this method.<br/>
+>The condition here is that you have to install git and pip for this method.<br/>
