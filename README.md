@@ -35,7 +35,6 @@
 10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2[Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>
-
 10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>
 
 ## 1. Useful documentation
