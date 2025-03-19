@@ -31,10 +31,11 @@
 8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
-10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
-10.1[Install additional Python package for the Version V3](#101-install-additional-python-package-for-the-version-v3)<br/>
-10.2[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>
-10.3[Work with USB-Stick](#103-work-with-usb-stick)<br/>
+10. [Integration of the supplied python program examples](#10-integration-of-the-supplied-python-program-examples)<br/>
+10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
+10.2[Install additional Python package and graphical packages for the Version V3](#101-install-additional-python-package-and-graphical-packages-for-the-version-v3)<br/>
+10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>
+
 10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>
 
 ## 1. Useful documentation
@@ -75,9 +76,10 @@ The availability of the software used, and its safe handling are also presuppose
 |---| ------------|-------------| -------| --------|
 | 1 |   Monitor   |      -      |    -   |    1    |
 | 2 |   Keyboard  |      -      |    -   |    1    |
-| 3 | Micro-HDMI adapter |  -   |    -   |    1    |
-| 4 | HDMI cable for the Monitor| -  | - |    1    |
-| 5 | Delock Antenna (optional)|  88913    |    -   |    1    | 
+| 3 |   Mouse     |      -      |    -   |    1    |
+| 4 | Micro-HDMI adapter |  -   |    -   |    1    |
+| 5 | HDMI cable for the Monitor| -  | - |    1    |
+| 6 | Delock Antenna (optional)|  88913    |    -   |    1    | 
 
 ### 2.3 Structure of the application (schematic)
 
@@ -112,7 +114,7 @@ Non-functional requirements:<br/>
 + Simple setup and handling of the operating system on the IndustrialPi 4.<br/>
 
 The structure of the system and components is based on:<br/>
-[2.3 Stucture of the appliction (schematic)](#23-stucture-of-the-appliction-schematic)<br/>
+[2.3 Structure of the application (schematic)](#23-structure-of-the-application-schematic)<br/>
 
 ## 5. First Steps to start IndustrialPI 4 
 
@@ -335,7 +337,7 @@ sudo reboot
 
 ## 9. Testing of Data exchange 
 
-+ You can start by checking whether you can connect the IndustrialPI 4 system to the PSENrd 3.1. First restart the IndustrialPI 4:<br/>
++ You can start by checking whether you can connect the IndustrialPI 4 system to the PSENrd 3.1. First restart the IndustrialPI 4:
 ```
 sudo reboot
 ```
@@ -345,7 +347,7 @@ sudo reboot
 >[!Tip]
 > Again, remember the synchronization time of the NTP service.
 
-+ The tail -f command is used to display the last lines of a file in real time. If you use it with Mosquitto, you can monitor the log file of the Mosquitto broker to see current activities and messages.<br/>
++ The tail -f command is used to display the last lines of a file in real time. If you use it with Mosquitto, you can monitor the log file of the Mosquitto broker to see current activities and messages.
 ```
 sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
@@ -358,34 +360,17 @@ New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1
 ```
 mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
 ```
+>[!Tip]
+>You will find the 12-digit Mac address on the back of the sensor.
+
 +  Position data should then come gradually on your shell.
 
 ## 10. Integration of the supplied python program examples
 
-### 10.1 Install additional Python package for the Version V3 
-For the program Version 3 you need a package for installation for execution.
-+ Install tkinter:
-```
-sudo apt-get install python3-tk
-```
->[!Tip]
->Confirm with Y.
+>[!Note]
+>We have two defrent programs to the selection. One of them can is a pure people counter with a graphical user interface (Version 3). The other is a through way counter with a graphical user interface as well (Version 4). Both programs can be found in the table at the top of this repository.
 
-<!-- Hier weiter machen bezüglich graphische oberfläche><!-->
-### 10.2 Install additional Python packages for the Version V4 
-
-First of all, we need packages of Python before we start the python program in the lite version of the IndustrialPI4. Pip3 is a package management tool for Python that is used specifically for Python 3. It allows you to install, manage and update Python packages from the Python Package Index (PyPI). It is a central repository where Python packages are stored and distributed.
-
-+ Install pip3:
-```
-sudo apt-get install python3-pip
-```
->[!Tip]
->Confirm with Y.
-
-
-
-### 10.3 Work with USB-stick
+### 10.1 Work with USB-stick
 >[!Note]
 >This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Python is already available on this oparting system. You can view the current Python version with the following command.
 ```
@@ -408,17 +393,99 @@ sudo mount /dev/sda1 /media/usb
 ```
 + Copy the supplied program in this new folder for example from a stick:
 ```
-sudo cp /media/usb/hello_world.py /home/pi/my_python_program
+sudo cp /media/usb/PSENrd3_DetectPeople_GUI_V1.py /home/pi/my_python_program
 ```
 + After you have copied your program you could umount the USB stick:
 ```
 sudo umount /dev/sda1
 ```
+The next step is to change the correct mac-address and path.<br/>
++ Open the python program:
+```
+sudo nano /home/pi/my_python_program/PSENrd3_DetectPeople_GUI_V1.py
+```
++ Change the mac-address where the "XXXXXXXXXXXX" are located.
+
+>[!Tip]
+>You will find the 12-digit Mac address on the back of the sensor.
+
++ Change the path of your certificates markes with "XXX/XXX/XXX" as well.
+
++ Save the file and exit.
+
+<!-- Hier weiter machen bezüglich graphische oberfläche><!-->
+### 10.2 Install additional Python package and graphical packages for the Version V1 
+For the program Version 3 you need a Python package for installation for execution.<br/>
++ Install tkinter:
+```
+sudo apt-get install python3-tk
+```
+>[!Tip]
+>Confirm with Y.
+
+Several steps are required for the graphical interface.
+
++ Open the file bash.bashrc:
+```
+sudo nano /etc/bash.bashrs
+```
++ Write the line "export DISPLAY=:0.0" at the bottom after the content of this file.<br/>
+```
+export DISPLAY=:0.0
+```
++ Save the file and exit.
++ Restart this file:
+```
+source /etc/bash.bashrc
+```
++ Control whether the $DISPLAY varibale is set correctly:
+```
+echo $DISPLAY
+```
++ This Commando should return :0.0.
+
++ Next step is to install the so called x Sever for the graphical window of your Linux system.
+```
+sudo apt update
+```
+```
+sudo apt upgrade
+```
+```
+sudo apt install xorg
+```
+>[!Tip]
+>requests that are answered with y or n must continue with y. Press q if when asked.
+
++ Start the graphical interface with:
+```
+startx
+```
++ There will oben a new window with a new commando line. Now you can use a mouse in this shell. Click behind the Commoando line.
++ Change your keyboard language again. For example Germany (de):
+```
+setxkbmap de
+```
+> [!Tip]
+> Try whether the setting has worked. For example press Y or Z.
+
 + Change into the directory and execute the python program:
 ```
 cd /home/pi/my_python_program
 python3 hello_world.py
 ```
+
+
+### 10.3 Install additional Python packages for the Version V4 
+
+First of all, we need packages of Python before we start the python program in the lite version of the IndustrialPI4. Pip3 is a package management tool for Python that is used specifically for Python 3. It allows you to install, manage and update Python packages from the Python Package Index (PyPI). It is a central repository where Python packages are stored and distributed.
+
++ Install pip3:
+```
+sudo apt-get install python3-pip
+```
+>[!Tip]
+>Confirm with Y.
 
 ### 10.4 Work with GitHub directly
 + An other way is to copy the python program from GitHub directly. The condition is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
