@@ -467,7 +467,7 @@ setxkbmap de
 > [!Tip]
 > Try whether the setting has worked. For example press Y or Z.
 Enlarge the display:<br/>
-+ with ctrl and hold right mouse button, then a menu with unicode fonts.
++ with ctrl and hold right mouse button, a menu with unicode fonts will appear.
 + navigate with the mouse to your desired font size.
 
 + Change into the directory: 
