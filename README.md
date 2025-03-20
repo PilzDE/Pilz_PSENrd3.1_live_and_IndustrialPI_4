@@ -367,7 +367,7 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 ## 10. Integration of the supplied python program examples
 
 >[!Note]
->We have two defrent programs to the selection. One of them can is a pure people counter with a graphical user interface (Version 3). The other is a through way counter with a graphical user interface as well (Version 4). Both programs can be found in the table at the top of this repository.
+>We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.
 
 ### 10.1 Work with USB-stick
 >[!Note]
@@ -408,13 +408,13 @@ sudo nano /home/pi/my_python_program/PSENrd3_DetectPeople_GUI_V1.py
 >[!Tip]
 >You will find the 12-digit Mac address on the back of the sensor.
 
-+ Change the path of your certificates markes with "XXX/XXX/XXX" as well.
++ Change the path of your certificates markes with "/XXX/XXX/XXX/XXX" as well.
 
 + Save the file and exit.
 
 <!-- Hier weiter machen bezüglich graphische oberfläche><!-->
 ### 10.2 Install additional Python package and graphical packages for the Version V1 
-For the program Version 3 you need a Python package for installation for execution.<br/>
+For the program Version 1 you need a Python package for installation for execution.<br/>
 + Install tkinter:
 ```
 sudo apt-get install python3-tk
@@ -460,22 +460,30 @@ sudo apt install xorg
 ```
 startx
 ```
-+ There will oben a new window with a new commando line. Now you can use a mouse in this shell. Click behind the Commoando line.
-+ Change your keyboard language again. For example Germany (de):
++ There will open a new window with a new commando line. Now you can use a mouse in this shell. Click behind the Commoando line.
++ Change at first your keyboard language again. For example Germany (de):
 ```
 setxkbmap de
 ```
 > [!Tip]
 > Try whether the setting has worked. For example press Y or Z.
+<!--+ The next step is to customize your own screen resolution. You find the available screen resolution under:
+```
+xrandr
+```-->
 
-+ Change into the directory and execute the python program:
++ Change into the directory: 
 ```
 cd /home/pi/my_python_program
-python3 hello_world.py
 ```
++ Execute the python program:
+```
+python3 PSENrd3_DetectPeople_GUI_V1.py
+```
++ You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.
 
 
-### 10.3 Install additional Python packages for the Version V4 
+<!--### 10.3 Install additional Python packages for the Version V4 
 
 First of all, we need packages of Python before we start the python program in the lite version of the IndustrialPI4. Pip3 is a package management tool for Python that is used specifically for Python 3. It allows you to install, manage and update Python packages from the Python Package Index (PyPI). It is a central repository where Python packages are stored and distributed.
 
@@ -484,7 +492,7 @@ First of all, we need packages of Python before we start the python program in t
 sudo apt-get install python3-pip
 ```
 >[!Tip]
->Confirm with Y.
+>Confirm with Y.-->
 
 ### 10.4 Work with GitHub directly
 + An other way is to copy the python program from GitHub directly. The condition is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
