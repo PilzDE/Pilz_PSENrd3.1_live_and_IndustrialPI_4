@@ -412,7 +412,6 @@ sudo nano /home/pi/my_python_program/PSENrd3_DetectPeople_GUI_V1.py
 
 + Save the file and exit.
 
-<!-- Hier weiter machen bezüglich graphische oberfläche><!-->
 ### 10.2 Install additional Python package and graphical packages for the Version V1 
 For the program Version 1 you need a Python package for installation for execution.<br/>
 + Install tkinter:
@@ -467,10 +466,9 @@ setxkbmap de
 ```
 > [!Tip]
 > Try whether the setting has worked. For example press Y or Z.
-<!--+ The next step is to customize your own screen resolution. You find the available screen resolution under:
-```
-xrandr
-```-->
+Enlarge the display:<br/>
++ with ctrl and hold right mouse button, then a menu with unicode fonts.
++ navigate with the mouse to your desired font size.
 
 + Change into the directory: 
 ```
