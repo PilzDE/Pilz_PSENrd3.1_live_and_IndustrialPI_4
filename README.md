@@ -11,7 +11,7 @@
 
 1.  [Useful documentation](#1-useful-documentation)<br/>
 1.1 [Documentation form Pilz GmbH & Co. KG](#11-documentation-from-pilz-gmbh--co-kg)<br/>
-1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>
+<!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
 2.  [Hardware and software used](#2-hardware-and-software-used)<br/>
 2.1 [Pilz products](#21-pilz-products)<br/>
 2.2 [Third-party products](#22-third-party-products)<br/>
@@ -31,11 +31,11 @@
 8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
-10. [Integration of the supplied python program examples](#10-integration-of-the-supplied-python-program-examples)<br/>
+10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
 10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2[Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3[Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
-10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>
+<!--10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>-->
 <!--10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>-->
 ## 1. Useful documentation
 
@@ -46,15 +46,15 @@ The availability of the software used, and its safe handling are also presuppose
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
-| 1 | Pilz international website, download area | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
+| 1 | Pilz international website, download section | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
 | 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE BA 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
 | 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE BA 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
 
-### 1.2 Documentation form other sources of information
+<!--### 1.2 Documentation form other sources of information
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
-| 1 |             |                      |
+| 1 |             |                      |-->
 
 ## 2. Hardware and software used
 
@@ -78,7 +78,8 @@ The availability of the software used, and its safe handling are also presuppose
 | 3 |   Mouse     |      -      |    -   |    1    |
 | 4 | Micro-HDMI adapter |  -   |    -   |    1    |
 | 5 | HDMI cable for the Monitor| -  | - |    1    |
-| 6 | Delock Antenna (optional)|  88913    |    -   |    1    | 
+| 6 | Antenna (optional)|   -   |    -   |    1    |
+| 7 | Ethernet cable |      -   |    -   |    1    |
 
 ### 2.3 Structure of the application (schematic)
 
@@ -110,7 +111,7 @@ There are several requirements for the realization of this application:<br/>
 Non-functional requirements:<br/>
 
 + Stability and reliability of the system.<br/>
-+ Simple setup and handling of the operating system on the IndustrialPi 4.<br/>
++ Simple setup and handling of the operating system on the IndustrialPI 4.<br/>
 
 The structure of the system and components is based on:<br/>
 [2.3 Structure of the application (schematic)](#23-structure-of-the-application-schematic)<br/>
@@ -136,7 +137,7 @@ You will now be asked to use the password on the sticker.<br/>
 > When you enter password, the letters and special characters are not displayed.
 
 > [!Tip]
-> Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed. Please note this when entering the first password.
+> Please note that the standard keyboard is set to English (US). This means that the Z and Y keys are reversed, for example on German keyboards. Please note this when entering the password.
 
 > [!Tip]
 > The letter l (small L) can easily be confused with the number 1 (one). Make sure you use the correct character.<br/>
@@ -150,13 +151,13 @@ Open the RaspberryPI Software Configuration Tool (raspi-config):<br/>
 ```
 sudo raspi-config
 ```
-+ select localisation options.<br/>
-+ then select L3 Keyboard.<br/>
-+ select the model of your keyboard.<br/>
-+ go to the sub-item other.<br/>
-+ select your language.<br/>
-+ select the default for the keyboard layout as the next step.<br/>
-+ deselect compose key in the last step.<br/>
++ Select localisation options.<br/>
++ Then select L3 Keyboard.<br/>
++ Select the model of your keyboard.<br/>
++ Go to the sub-item other.<br/>
++ Select your language.<br/>
++ Select the default for the keyboard layout as the next step.<br/>
++ Deselect compose key in the last step.<br/>
 + Exit the configuration tool with the esc key.<br/>
 
 > [!Tip]
@@ -202,7 +203,7 @@ including the creation of certificates and the creation of access control lists:
 sudo apt-get install ntp
 ```
 > [!Note]
-> An additional security package is automatically installed in this Linux system. The next steps are therefore carried out with an ntpsec command.  
+> An additional security package is automatically installed in this Linux system (Debain GNU/Linux 12). The next steps are therefore carried out with an ntpsec command.  
 
 + Open the NTP config file:
 ```
@@ -241,6 +242,9 @@ sudo timedatectl set-timezone Europe/Berlin
 > The local time is now the same time as at your location. “Yes” should be displayed behind the synchronized system clock. The time zone has been changed to Europe/Berlin for this example. 
 
 + To check the synchronization of the local system:<br/>
+```
+ntpq -p
+```
 > [!Note]
 > The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
 An asterisk (*) at the beginning of a line means that this NTP server is the main synchronization partner of your system. You can find an example of this in the following table:
@@ -249,9 +253,6 @@ An asterisk (*) at the beginning of a line means that this NTP server is the mai
  |---------------|------------|--|--|------|---- |-----|--------|---------|--------|
  |*ntp.example.LOCAL| .LOCL.  |10| l |  18 |  64 | 377 |   0.000|   0.000 |   0.000|
 
-```
-ntpq -p
-```
 >[!Tip]
 >This synchronization can take a long time after a restart of the IndustrialPI 4 and the PSENrd 3.1. (It can take up to 6 minutes).
 
@@ -288,9 +289,6 @@ sudo systemctl enable dnsmasq
 sudo systemctl status dnsmasq
 ```
 + The status shows you that the dnsmasq service is active.
-
->[!Note]
-> The further procedures describe the WiFi setting.
 
 ### 8.2 Set up Wifi Conncetion 
 + Use this command:
@@ -329,6 +327,9 @@ http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-di
 sudo reboot
 ```
 > [!Tip]
+> When you connect the WiFi the first time, please control in your Network Mangager "sudo nmtui" whether the IndustrialPI 4 find your desired WiFi. This Tip belongs to the subitem [5.3 Update System packages](#53-update-system-packages).
+
+> [!Tip]
 > Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. Click on it and connect and see if you are then in the WiFi. You can see this by the checkmark and the WiFi icon.
 
 > [!Tip]
@@ -355,23 +356,25 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
-+ We need the first test whether the sensor sends data to the Industrial Pi 4.
++ We need the first test whether the sensor sends data to the Industrial PI 4.
 ```
 mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
 ```
 >[!Tip]
 >You will find the 12-digit Mac address on the back of the sensor.
 
-+  Position data should then come gradually on your shell.
++  Position data should then gradually appear on your shell.
 
-## 10. Integration of the supplied python program examples
+## 10. Integration of the supplied python program example
 
 >[!Note]
 >We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.
 
 ### 10.1 Work with USB-stick
 >[!Note]
->This path shows how to copy the Python program from the GitHub homepage of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Python is already available on this oparting system. You can view the current Python version with the following command.
+>The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/Samples) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.
+
++ Python is already available on this oparting system. You can view the current Python version with the following command:
 ```
 python3 --version
 ```
@@ -425,7 +428,7 @@ Several steps are required for the graphical interface.
 
 + Open the file bash.bashrc:
 ```
-sudo nano /etc/bash.bashrs
+sudo nano /etc/bash.bashrc
 ```
 + Write the line "export DISPLAY=:0.0" at the bottom after the content of this file.<br/>
 ```
@@ -453,7 +456,8 @@ sudo apt upgrade
 sudo apt install xorg
 ```
 >[!Tip]
->requests that are answered with y or n must continue with y. Press q if when asked.
+>Requests that are answered with y or n must continue with y. Press q if when asked.
+
 ### 10.3 Start the GUI in the graphical interface
 + Start the graphical interface with:
 ```
@@ -466,9 +470,10 @@ setxkbmap de
 ```
 > [!Tip]
 > Try whether the setting has worked. For example press Y or Z.
+
 Enlarge the display:<br/>
 + Held down with the ctrl key and right mouse button, a menu with unicode fonts will appear.
-+ Navigate with the mouse to your desired font size.<br/>(Hold down the ctrl key and the right mouse button the whole time)
++ Navigate with the mouse to your desired font size.<br/>(Hold down the ctrl key and the right mouse button the whole time.)
 
 + Change into the directory: 
 ```
@@ -492,7 +497,7 @@ sudo apt-get install python3-pip
 >[!Tip]
 >Confirm with Y.-->
 
-### 10.4 Work with GitHub directly
+<!--### 10.4 Work with GitHub directly
 + An other way is to copy the python program from GitHub directly. The condition is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
 ```
 git clone https://github.com/PilzDE/Samples.git
@@ -516,4 +521,4 @@ python3 programm.py
 >Replace program.py with the name of the Python file you want to execute.<br/>
 
 >[!Note]
->The condition here is that you have to install git and pip for this method.<br/>
+>The condition here is that you have to install git and pip for this method.<br/>-->
