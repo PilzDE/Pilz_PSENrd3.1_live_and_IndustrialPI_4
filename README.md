@@ -11,7 +11,6 @@
 
 1.  [Useful documentation](#1-useful-documentation)<br/>
 1.1 [Documentation form Pilz GmbH & Co. KG](#11-documentation-from-pilz-gmbh--co-kg)<br/>
-<!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
 2.  [Hardware and software used](#2-hardware-and-software-used)<br/>
 2.1 [Pilz products](#21-pilz-products)<br/>
 2.2 [Third-party products](#22-third-party-products)<br/>
@@ -35,6 +34,7 @@
 10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2[Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3[Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
+<!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
 <!--10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>-->
 <!--10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>-->
 ## 1. Useful documentation
