@@ -17,7 +17,7 @@
 2.3 [Structure of the application (schematic)](#23-structure-of-the-application-schematic)<br/>
 3.  [Preface](#3-preface)<br/>
 4.  [Application description](#4-application-description)<br/>
-5.  [First steps to start IndustrialPI](#5-first-steps-to-start-industrialpi-4)<br/>
+5.  [First steps to start IndustrialPI 4](#5-first-steps-to-start-industrialpi-4)<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
