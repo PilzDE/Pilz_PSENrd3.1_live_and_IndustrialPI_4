@@ -7,6 +7,21 @@
     <strong>Application IndustrialPI 4 and PSENrd 3.1</strong>
 </div>
 
+## Exclusion of Liability
+
+We have taken great care in compiling our application note. It contains information about our company and our products. All statements are made in accordance with the current status of technology and to the best of our knowledge and belief.
+While every effort has been made to ensure the information provided is accurate, we cannot accept liability for the accuracy and entirety of the information provided, except in the case of gross negligence. In particular, all information on applicable standards, safety-related classifications and time characteristics should be viewed as provisional. In particular it should be noted that statements do not have the legal quality of assurances or assured properties.
+We are grateful for any feedback on the contents.
+February 2025
+All rights to this publication are reserved by Pilz GmbH & Co. KG.
+We reserve the right to amend specifications without prior notice. Copies may be made for the user’s internal purposes.
+The names of products, goods and technologies used in this manual are trademarks of the respective companies. Please note the current information about the products, their licenses and registered trademarks in the documents listed in [Useful documentation](#1-useful-documentation).<br/>
+
+## Industrial Security
+
+To secure plants, systems, machines and networks against cyberthreats it is necessary to implement (and continuously maintain) an overall [Industrial Security concept](https://www.pilz.com/en-INT/products/industrial-security) that is state of the art.
+Perform a risk assessment in accordance with VDI/VDE 2182 or IEC 62443-3-2 and plan the security measures with care. If necessary, seek advice from [Pilz Customer Support](https://www.pilz.com/en-INT/support/technical-support).<br/>
+
 ## Contents and Setup steps
 
 1.  [Useful documentation](#1-useful-documentation)<br/>
@@ -34,6 +49,8 @@
 10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2[Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3[Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
+11. [License Inforamtion](#11-license-inforamtion)<br/>
+
 <!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
 <!--10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>-->
 <!--10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>-->
@@ -305,6 +322,8 @@ sudo nmtui
 + Select channel: Automatic.
 + Select security: WPA & WPA2 Personal.
 + Assign your password.
+>[!Note]
+>In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
 + Select "Manual" for the IPv4 configuration.
 + Assign the address for example 192.168.0.102/24.
 + At the gateway, assign 192.168.0.1, for example.
@@ -484,6 +503,11 @@ cd /home/pi/my_python_program
 python3 PSENrd3_DetectPeople_GUI_V1.py
 ```
 + You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.
+
+## 11. License Inforamtion
+
+> [!Note]
+> This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details. You find the LICENSE file in the main branch.
 
 
 <!--### 10.3 Install additional Python packages for the Version V4 
