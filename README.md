@@ -9,10 +9,10 @@
 
 ## Exclusion of Liability
 
-We have taken great care in compiling our application note. It contains information about our company and our products. All statements are made in accordance with the current status of technology and to the best of our knowledge and belief.
+We have taken great care in compiling our documentation. It contains information about our company and our products. All statements are made in accordance with the current status of technology and to the best of our knowledge and belief.
 While every effort has been made to ensure the information provided is accurate, we cannot accept liability for the accuracy and entirety of the information provided, except in the case of gross negligence. In particular, all information on applicable standards, safety-related classifications and time characteristics should be viewed as provisional. In particular it should be noted that statements do not have the legal quality of assurances or assured properties.
-We are grateful for any feedback on the contents.
-February 2025
+We are grateful for any feedback on the contents.<br/>
+February 2025<br/>
 All rights to this publication are reserved by Pilz GmbH & Co. KG.
 We reserve the right to amend specifications without prior notice. Copies may be made for the user’s internal purposes.
 The names of products, goods and technologies used in this manual are trademarks of the respective companies. Please note the current information about the products, their licenses and registered trademarks in the documents listed in [Useful documentation](#1-useful-documentation).<br/>
@@ -20,7 +20,24 @@ The names of products, goods and technologies used in this manual are trademarks
 ## Industrial Security
 
 To secure plants, systems, machines and networks against cyberthreats it is necessary to implement (and continuously maintain) an overall [Industrial Security concept](https://www.pilz.com/en-INT/products/industrial-security) that is state of the art.
-Perform a risk assessment in accordance with VDI/VDE 2182 or IEC 62443-3-2 and plan the security measures with care. If necessary, seek advice from [Pilz Customer Support](https://www.pilz.com/en-INT/support/technical-support).<br/>
+Perform a risk assessment in accordance with VDI/VDE 2182 or IEC 62443-3-2 and plan the security measures with care. If necessary, seek advice from<br/>
+[Pilz Customer Support](https://www.pilz.com/en-INT/support/technical-support).<br/>
+
+## Definition of Symbols
+
+Information that is particularly important is identified as follows:<br/>
+
+>[!Caution]
+>Advises about risks or negative outcomes of certain actions.
+
+>[!Important]
+>Key information users need to know to achieve their goal.
+
+>[!Tip]
+>Helpful advice for doing things better or more easily.
+
+>[!Note]
+>Useful information that users should know, even when skimming content.
 
 ## Contents and Setup steps
 
@@ -137,11 +154,14 @@ The structure of the system and components is based on:<br/>
 
 ### 5.1 Password 
 
+>[!Important]
+>If network access is available, the IndustrialPI 4 can be accessed via the Internet. Depending on how this network access is secured, in certain circumstances it may also allow strangers to log on to the device and thus gain access to data and all the functions. For this reason you should always choose a "strong" password and work in "headless" mode, i.e. access across the network only from devices that you know. For example, unknown devices could log keystrokes and thereby spy on your login information.
+
 + First of all, connect the IndustrialPI 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
 + Connect a keyboard via the IndustrialPI 4 USB ports.<br/>
 + Start the IndustrialPI 4 with the 24VDC supply. The IndustrialPI 4 then boots up.<br/>
 
-> [!IMPORTANT]
+> [!Tip]
 ><ins>Installation after a new Image:</ins><br/>
 The first login of the IndustrialPI 4 is:<br/>
 Username: pi <br/> Password: raspberry<br/>
