@@ -81,8 +81,8 @@ The availability of the software used, and its safe handling are also presuppose
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
 | 1 | Pilz international website, download section | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
-| 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE BA 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
-| 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE BA 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
+| 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE Bed.anl. 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
+| 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE Bed.anl. 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
 
 <!--### 1.2 Documentation form other sources of information
 
@@ -101,7 +101,7 @@ The availability of the software used, and its safe handling are also presuppose
 | 3 | PSEN op cable axial M12 5-pole, 3m| 630310 | - | 1 |
 
 > [!IMPORTANT]
-> We only use the IndustrialPI 4 here for the application with WiFi network. Because only the IndustrialPI 4 has a WiFi antenna connection.<br/> 
+> We only use the IndustrialPI 4 (A1000003) here for the application with WiFi network. Because only the IndustrialPI 4 has a WiFi antenna connection.<br/> 
 
 ### 2.2 Third-party products
 
@@ -155,7 +155,7 @@ The structure of the system and components is based on:<br/>
 ### 5.1 Password 
 
 >[!Important]
->If network access is available, the IndustrialPI 4 can be accessed via the Internet. Depending on how this network access is secured, in certain circumstances it may also allow strangers to log on to the device and thus gain access to data and all the functions. For this reason you should always choose a "strong" password and work in "headless" mode, i.e. access across the network only from devices that you know. For example, unknown devices could log keystrokes and thereby spy on your login information.
+>If network access is available, the IndustrialPI 4 (A1000003) can be accessed via the Internet. Depending on how this network access is secured, in certain circumstances it may also allow strangers to log on to the device and thus gain access to data and all the functions. For this reason you should always choose a <ins>"strong"</ins> password and work in "headless" mode, i.e. access across the network only from devices that you know. For example, unknown devices could log keystrokes and thereby spy on your login information.
 
 + First of all, connect the IndustrialPI 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
 + Connect a keyboard via the IndustrialPI 4 USB ports.<br/>
@@ -341,6 +341,8 @@ sudo nmtui
 + Select mode: Access Point.
 + Select channel: Automatic.
 + Select security: WPA & WPA2 Personal.
+>[!Important]
+>
 + Assign your password.
 >[!Note]
 >In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
