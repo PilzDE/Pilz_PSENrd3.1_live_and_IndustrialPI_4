@@ -312,6 +312,7 @@ sudo nano /etc/dnsmasq.conf
 ```
 + Add the following example configuration in this file: (scroll all the way down with the down button)
 ```
+interface=wlan0
 dhcp-range=192.168.0.50,192.168.0.150,12h
 ```
 + Save the config.file and exit to start dnsmasq:
@@ -341,8 +342,6 @@ sudo nmtui
 + Select mode: Access Point.
 + Select channel: Automatic.
 + Select security: WPA & WPA2 Personal.
->[!Important]
->
 + Assign your password.
 >[!Note]
 >In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
@@ -354,6 +353,92 @@ sudo nmtui
 ```
 sudo reboot
 ```
+>[!Important]
+>To use a secure WLAN network, please install the hostapd package. This is required to use the WPA2 security protocol. The procedure is explained in detail in the following section.
+
++ Install package:
+```
+sudo apt install hostapd
+```
++ Create a configuration file:
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
++ Please write the following settings in this file:
+```
+interface=wlan0
+driver=nl80211
+ssid=YourNetworkName
+hw_mode=g
+channel=0
+wmm_enabled=1
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=YourPassword
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+```
++ Save the file an exit the file.
+
++ Unmask service for hostapd:
+```
+sudo systemctl unmask hostapd
+```
++ Enable hostapd with:
+```
+sudo systemctl enable hostapd
+```
++ Restart hostapd with:
+```
+sudo systemctl restart hostapd
+```
++ Control the status of hostapd:
+```
+sudo systemctl status hostapd
+```
++ Create a new file for the Configuration of wlan0:
+```
+sudo nano /etc/network/interfaces.d/wlan0
+```
++ Please write the following settings in this new file:
+```
+auto wlan0
+iface wlan0 inet static
+    address 192.168.0.1
+    netmask 255.255.255.0
+    network 192.168.0.0
+    broadcast 192.168.0.255
+```    
++ Save the file an exit the file.
+
++ Go back in the folder of interfaces file:
+```
+sudo nano /etc/network/interfaces
+```
++ comment out the source with a #:
+```
+#source /etc/network/interfaces.d
+```
++ Enable the the networking:
+```
+sudo systemctl enable networking
+```
++ Start the networking:
+```
+sudo systemctl restart networking
+```
++ Control the status of networking:
+```
+sudo system status networking
+```
++ Reboot the IndustrialPI 4:
+```
+sudo reboot
+```
+
 ### 8.3 Set up Cockpit-IndustrialPI 4
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
 http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
