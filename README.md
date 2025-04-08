@@ -356,7 +356,13 @@ sudo reboot
 >[!Important]
 >To use a secure WLAN network, please install the hostapd package. This is required to use the WPA2 security protocol. The procedure is explained in detail in the following section.
 
-+ Install package:
++ Install packages:
+```
+sudo apt update
+```
+```
+sudo get upgrade
+```
 ```
 sudo apt install hostapd
 ```
