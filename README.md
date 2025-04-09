@@ -59,7 +59,7 @@ Information that is particularly important is identified as follows:<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
-8.2 [Set up Wifi connection](#82-set-up-wifi-conncetion)<br/>
+8.2 [Set up WiFi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
@@ -328,7 +328,7 @@ sudo systemctl status dnsmasq
 ```
 + The status shows you that the dnsmasq service is active.
 
-### 8.2 Set up Wifi Conncetion 
+### 8.2 Set up WiFi Conncetion 
 + Use this command:
 ```
 sudo nmtui
