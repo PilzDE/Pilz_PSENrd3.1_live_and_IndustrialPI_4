@@ -419,7 +419,7 @@ iface wlan0 inet static
     broadcast 192.168.0.255
     hostapd /etc/hostapd/hostapd.conf
 ```    
-+ Save the file an exit the file.
++ Save the file an exit the file.<br/>
 
 <!--+ Go back in the folder of interfaces file:
 ```
