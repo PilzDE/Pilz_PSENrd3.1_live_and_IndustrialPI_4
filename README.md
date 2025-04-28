@@ -376,7 +376,7 @@ interface=wlan0
 driver=nl80211
 ssid=YourNetworkName
 hw_mode=g
-channel=0
+channel=6
 wmm_enabled=1
 macaddr_acl=0
 auth_algs=1
@@ -417,10 +417,11 @@ iface wlan0 inet static
     netmask 255.255.255.0
     network 192.168.0.0
     broadcast 192.168.0.255
+    hostapd /etc/hostapd/hostapd.conf
 ```    
 + Save the file an exit the file.
 
-+ Go back in the folder of interfaces file:
+<!--+ Go back in the folder of interfaces file:
 ```
 sudo nano /etc/network/interfaces
 ```
@@ -443,7 +444,42 @@ sudo system status networking
 + Reboot the IndustrialPI 4:
 ```
 sudo reboot
+```-->
+The next step is to create a new file in the NetworkManager folder. Please follow the instructions.
+
+>[!Note]
+>The 99-unmanaged-devices.conf file is used to configure certain network devices so that they are ignored by NetworkManager. This setting forces the use of the WPA2 security protocol.
+
++ Create the following configuration file:
 ```
+sudo nano /etc/NetworkManager/conf.d/99-unmanaged-devices.conf
+```
++ Please write the following settings in this file:
+```
+[keyfile] 
+unmanaged-devices=interface-name:wlan0
+
+[device]
+wifi.scan-rand-mac-address=no
+```
++ Save the file an exit the file.
+
++ Please restart hostapd.service and NetworkManager:
+```
+sudo systemcrt restart hostapd.service
+```
+```
+sudo systemcrt restart NetworkManager.service
+```
++ Control the status of the servises to see if they are activated.
+```
+sudo systemcrt status hostapd.service
+```
+```
+sudo systemcrt status NetworkManager.service
+```
+>[!Note]
+>The WPA2 security protocol is now guatanteed to be used.
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
