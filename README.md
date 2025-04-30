@@ -329,8 +329,7 @@ sudo systemctl status dnsmasq
 + The status shows you that the dnsmasq service is active.
 
 ### 8.2 Set up WiFi Conncetion 
-+ Use this command:
-```
+<!--```
 sudo nmtui
 ```
 + Go to the menu item “edit a connection”.
@@ -343,8 +342,6 @@ sudo nmtui
 + Select channel: Automatic.
 + Select security: WPA & WPA2 Personal.
 + Assign your password.
->[!Note]
->In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
 + Select "Manual" for the IPv4 configuration.
 + Assign the address for example 192.168.0.102/24.
 + At the gateway, assign 192.168.0.1, for example.
@@ -352,7 +349,8 @@ sudo nmtui
 + Restart your System.
 ```
 sudo reboot
-```
+```-->
+
 >[!Important]
 >To use a secure WLAN network, please install the hostapd package. This is required to use the WPA2 security protocol. The procedure is explained in detail in the following section.
 
@@ -366,6 +364,7 @@ sudo get upgrade
 ```
 sudo apt install hostapd
 ```
+[Text for hostapd here]
 + Create a configuration file:
 ```
 sudo nano /etc/hostapd/hostapd.conf
@@ -387,24 +386,11 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
+>[!Note]
+>In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
+
 + Save the file an exit the file.
 
-+ Unmask service for hostapd:
-```
-sudo systemctl unmask hostapd
-```
-+ Enable hostapd with:
-```
-sudo systemctl enable hostapd
-```
-+ Restart hostapd with:
-```
-sudo systemctl restart hostapd
-```
-+ Control the status of hostapd:
-```
-sudo systemctl status hostapd
-```
 + Create a new file for the Configuration of wlan0:
 ```
 sudo nano /etc/network/interfaces.d/wlan0
@@ -421,30 +407,6 @@ iface wlan0 inet static
 ```    
 + Save the file an exit the file.<br/>
 
-<!--+ Go back in the folder of interfaces file:
-```
-sudo nano /etc/network/interfaces
-```
-+ comment out the source with a #:
-```
-#source /etc/network/interfaces.d
-```
-+ Enable the the networking:
-```
-sudo systemctl enable networking
-```
-+ Start the networking:
-```
-sudo systemctl restart networking
-```
-+ Control the status of networking:
-```
-sudo system status networking
-```
-+ Reboot the IndustrialPI 4:
-```
-sudo reboot
-```-->
 The next step is to create a new file in the NetworkManager folder. Please follow the instructions.
 
 >[!Note]
@@ -464,20 +426,15 @@ wifi.scan-rand-mac-address=no
 ```
 + Save the file an exit the file.
 
-+ Please restart hostapd.service and NetworkManager:
++ Please restart the NetworkManager:
 ```
-sudo systemcrt restart hostapd.service
+sudo systemcrl restart NetworkManager.service
 ```
++ Control the status of the NetworkManager to see if it is activated.
 ```
-sudo systemcrt restart NetworkManager.service
+sudo systemcrl status NetworkManager.service
 ```
-+ Control the status of the servises to see if they are activated.
-```
-sudo systemcrt status hostapd.service
-```
-```
-sudo systemcrt status NetworkManager.service
-```
+[Text here]
 >[!Note]
 >The WPA2 security protocol is now guatanteed to be used.
 
