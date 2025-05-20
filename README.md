@@ -510,6 +510,10 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 >We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.
 
 ### 10.1 Work with USB-stick
+
+>[!Important]
+>Make sure that the USB stick comes from a trustworthy source and has not been used before on potentially compromised systems. The stick should be checked or reformatted before use to ensure maximum security.
+
 >[!Note]
 >The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/Samples) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.
 
