@@ -6,7 +6,7 @@
     </a><br/>
 </div>
 
-## Exclusion of Liability 789
+## Exclusion of Liability 
 
 We have taken great care in compiling our documentation. It contains information about our company and our products. All statements are made in accordance with the current status of technology and to the best of our knowledge and belief.
 While every effort has been made to ensure the information provided is accurate, we cannot accept liability for the accuracy and entirety of the information provided, except in the case of gross negligence. In particular, all information on applicable standards, safety-related classifications and time characteristics should be viewed as provisional. In particular it should be noted that statements do not have the legal quality of assurances or assured properties.
