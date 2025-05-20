@@ -1,10 +1,9 @@
-# Samples
+# PSENrd 3.1 live and IndsutrialPI 4
 
 <div style="display: flex; flex-direction: column; align-items: center;">
     <a href="https://www.pilz.com" rel="nofollow">
         <img src="/img/pilz-logo.png" alt="Pilz Logo">
     </a><br/>
-    <strong>Application IndustrialPI 4 and PSENrd 3.1</strong>
 </div>
 
 ## Exclusion of Liability
@@ -154,12 +153,27 @@ The structure of the system and components is based on:<br/>
 
 ### 5.1 Password 
 
->[!Important]
->If network access is available, the IndustrialPI 4 (A1000003) can be accessed via the Internet. Depending on how this network access is secured, in certain circumstances it may also allow strangers to log on to the device and thus gain access to data and all the functions. For this reason you should always choose a <ins>"strong"</ins> password and work in "headless" mode, i.e. access across the network only from devices that you know. For example, unknown devices could log keystrokes and thereby spy on your login information.
+> [!Important]
+> Depending on how this network access is secured, strangers may also be able to log into the device and gain access to data and all functions. Therefore, always choose a
+<ins>"strong"</ins> password and work in "headless" mode, i.e. only access the network from devices that you know. Unknown devices could, for example, log keystrokes and thus spy on your login data. 
 
 + First of all, connect the IndustrialPI 4 to a monitor. A micro HDMI is available on the IndustrialPI 4.<br/>
 + Connect a keyboard via the IndustrialPI 4 USB ports.<br/>
 + Start the IndustrialPI 4 with the 24VDC supply. The IndustrialPI 4 then boots up.<br/>
++ Enter the password shown on the sticker on the side of the IndustrialPI 4.
+
+> [!Important]
+> After the first login, change the default password in the command line and in the web application, immediately.
+```
+sudo raspi-config
+```
++ Select system options.<br/>
++ Under system options select S3 password.<br/>
++ You will asked to enter a new password.<br/>
++ Click OK.<br/>
++ choose a <ins>strong<ins> password.<br/>
++ retype the new password.<br/>
++ The password changed successfully.<br/>
 
 > [!Tip]
 ><ins>Installation after a new Image:</ins><br/>
