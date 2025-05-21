@@ -665,7 +665,7 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
 + You can find for example the information in the table:
 
-New client connection from IP-Address:Portnumber as ID(of your sensor, the MAC-Adress without colon) (p2, c1, k120).
+New client connection from IP-Address:Portnumber as ID (of your sensor, the MAC-Adress without colon) (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial PI 4.
