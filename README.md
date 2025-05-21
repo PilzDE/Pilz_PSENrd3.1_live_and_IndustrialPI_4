@@ -670,7 +670,7 @@ New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial PI 4.
 ```
-mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID of your Sensor>/positionData'-u <username> -p <password> 
+mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID of your Sensor>/positionData'-u <username> -P <password> 
 ```
 >[!Tip]
 >You will find the 12-digit ID on the back of the sensor (The Mac-adress without colon).
