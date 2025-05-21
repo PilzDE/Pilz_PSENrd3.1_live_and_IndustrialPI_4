@@ -388,7 +388,7 @@ sudo chown mosquitto:mosquitto </path/to/certs>/server.key
 sudo systemctl restart mosquitto
 ```
 
-### 6.6 Copy the <ins>ca.crt</ins> Certificate 
+<!--### 6.6 Copy the <ins>ca.crt</ins> Certificate 
 
 Copy the <ins>ca.crt</ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
 
@@ -415,7 +415,7 @@ mkdir broker
 }
 ```
 > [!Important]
-> The value of the key <ins>ca_cert</ins> must be exactly the same as the name of the <ins>ca.crt</ins> certificate!
+> The value of the key <ins>ca_cert</ins> must be exactly the same as the name of the <ins>ca.crt</ins> certificate!-->
 
 <!--+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
 [Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>-->
@@ -670,10 +670,10 @@ New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial PI 4.
 ```
-mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<MAC-Address of your Sensor>/positionData'
+mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID of your Sensor>/positionData'-u <username> -p <password> 
 ```
 >[!Tip]
->You will find the 12-digit Mac address on the back of the sensor.
+>You will find the 12-digit ID on the back of the sensor (The Mac-adress without colon).
 
 +  Position data should then gradually appear on your shell.
 
