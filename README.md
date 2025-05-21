@@ -58,7 +58,6 @@ Information that is particularly important is identified as follows:<br/>
 6.3 [Create an ACL (Access control list)](#63-create-an-acl-access-control-list)<br/>
 6.4 [Configurate Mosquitto Broker](#64-configurate-mosquitto-broker)<br/>
 6.5 [Start mosquitto service](#65-start-mosquitto-service)<br/>
-6.6 [Copy the ca.crt Certificate](#66-copy-the-cacrt-certificate)<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
