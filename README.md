@@ -54,7 +54,11 @@ Information that is particularly important is identified as follows:<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
 6.  [Install Mosquitto and Mosquitto-Clients](#6-install-mosquitto-and-mosquitto-clients)<br/>
 6.1 [Create certificates (optional)](#61-create-certificates-optional)<br/>
-6.2 [Configurate Mosquitto Broker](#62-configurate-mosquitto-broker)<br/>
+6.2 [Create users and passwords for accessing to the broker ](#62-create-users-and-passwords-for-accessing-to-the-broker)<br/>
+6.3 [Create an ACL (Access control list)](#63-create-an-acl-access-control-list)<br/>
+6.4 [Configurate Mosquitto Broker](#64-configurate-mosquitto-broker)<br/>
+6.5 [Start mosquitto service](#65-start-mosquitto-service)<br/>
+6.6 [Copy the ca.crt Certificate](#66-copy-the-cacrt-certificate)<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
@@ -233,19 +237,188 @@ sudo apt-get upgrade
 
 ## 6. Install Mosquitto and Mosquitto-Clients
 
-+ Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
-[Install Mosquitto and Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>
++ Install Mosquitto and Mosquitto-Clients:
+```
+sudo apt-get install mosquitto mosquitto-clients
+```
+<!--+ Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
+[Install Mosquitto and Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>-->
 
 ### 6.1 Create certificates (optional)
 
-+ Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
+> [!Tip]
+> This step is required only when using self-signed certificates.
+
++ Install OpenSSL:
+```
+sudo apt-get install openssl
+```
+1. Create a folder on your broker/server for example in your home directory in which you save the Certificates:<br/>
+```
+mkdir certs
+```
+```
+cd certs
+```
+2. Generate the CA certificate:<br/>
+```
+openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
+```
+> [!Note]
+> The argument <ins>-days<ins> sets the valid period of the certificate.
+
+> [!Caution]
+> The Common Name (CN) for CA must not be the same as for the broker/server later.
+
+3. Generate the certificate signing request for the broker/server:<br/>
+```
+openssl genrsa -out server.key 2048
+```
+```
+openssl req -out server.csr -key server.key -new
+```
+> [!Important]
+> The Common Name (CN) for the broker/server should be set as the IP Adreses of broker/server.
+
+4. Sign the broker/server request with the CA certificate:<br/>
+```
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365
+```
+### 6.2 Create users and passwords for accessing to the broker 
+```
+mosquitto_passwd -c /etc/mosquitto/passwd PSENrd3_sensor
+```
+```
+mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_admin <password for that user>
+```
+```
+mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for that user>
+```
+> [!Tip]
+> We recommend using the suggested usernames.
+
+> [!Important]
+> If you use other usernames, please customize the usernames in the step [6.3 Create an ACL list](#63-create-an-acl-access-control-list)
+
+<!--+ Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
 including the creation of certificates and the creation of access control lists:<br/>
-[Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>
+[Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>-->
 
-### 6.2 Configurate Mosquitto Broker
+### 6.3 Create an ACL (Access control list)
 
-+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
-[Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>
+1. Create an ACL-File:<br/>
+```
+sudo nano /etc/mosquitto/aclfile
+```
+2. Write the ACL-Rules in the ACL-File:
+```
+# PSENrd3_sensor: Read (commands, config, details, positionData); Write (details, positionData, handoff)
+user PSENrd3_sensor
+topic read /PSENrd3/+/commands
+topic read /PSENrd3/+/config
+topic read /PSENrd3/+/details
+topic read /PSENrd3/+/positionData
+topic write /PSENrd3/+/details
+topic write /PSENrd3/+/positionData
+topic write /PSENrd3/+/handoff
+
+# PSENrd3_admin: Read (commands, config, details, positionData); Write (commands, config)
+user PSENrd3_admin
+topic read /PSENrd3/+/commands
+topic read /PSENrd3/+/config
+topic read /PSENrd3/+/details
+topic read /PSENrd3/+/positionData
+topic write /PSENrd3/+/commands
+topic write /PSENrd3/+/config
+
+# PSENrd3_consumer: Read (details, positionData)
+user PSENrd3_consumer
+topic read /PSENrd3/+/details
+topic read /PSENrd3/+/positionData
+```
+> [!Important]
+> If you used another usernames, please customize the usernames in the ACL-File.
+
+### 6.4  Configurate Mosquitto Broker
+
+1. Open the config-file:<br/>
+```
+sudo nano /etc/mosquitto/mosquitto.conf
+```
+2. Add or change following lines:<br/>
+```
+listener 8883
+
+cafile </path/to/certs>/ca.crt
+certfile </path/to/certs>/server.crt
+keyfile </path/to/certs>/server.key
+
+require_certificate false
+use_identity_as_username false
+allow_anonymous false
+
+password_file /etc/mosquitto/passwd
+acl_file /etc/mosquitto/aclfile
+```
+> [!Important]
+> Make sure that you enter the correct path to the <ins>certs<ins> folder where the certificates can be found
+
+### 6.5 Start mosquitto service
+```
+sudo systemctl start mosquitto
+```
+```
+sudo systemctl enable mosquitto
+```
+```
+sudo systemctl status mosquitto
+```
+> [!Note]
+> If the mosquitto service shows an error on starting then it could be that you should make sure that the certificates have the correct authorizations and are readable for the Mosquitto service. To do that you can try:
+```
+sudo chown mosquitto:mosquitto </path/to/certs>/ca.crt
+```
+```
+sudo chown mosquitto:mosquitto </path/to/certs>/server.crt
+```
+```
+sudo chown mosquitto:mosquitto </path/to/certs>/server.key
+```
+```
+sudo systemctl restart mosquitto
+```
+
+### 6.6 Copy the <ins>ca.crt<ins> Certificate 
+
+Copy the <ins>ca.crt<ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
+
+1. If not already present, create the folder <ins>certs<ins> in the main folder (this folder)
+```
+mkdir certs
+```
+```
+cd certs
+```
+2. Create the folder <ins>broker<ins> within the folder <ins>certs<ins>
+```
+mkdir broker
+```
+3. Paste the <ins>ca.crt<ins> file in the folder <ins>broker<ins><br/>
+
+4. If not already present, create the file <ins>config.json<ins> in the folder <ins>broker<ins><br/>
+5. Fill the file <ins>config.json<ins>:
+```
+{
+    	"broker_ip": "<IP-Address of your MQTT Broker>",
+    	"port": 8883,
+    	"ca_cert": "ca.crt"
+}
+```
+> [!Important]
+> The value of the key <ins>ca_cert<ins> must be exactly the same as the name of the <ins>ca.crt<ins> certificate!
+
+<!--+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
+[Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>-->
 
 ## 7. Setup and Configuration NTP Server
 
