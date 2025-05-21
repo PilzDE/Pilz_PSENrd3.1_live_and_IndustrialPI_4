@@ -390,7 +390,7 @@ sudo systemctl restart mosquitto
 
 ### 6.6 Copy the <ins>ca.crt</ins> Certificate 
 
-Copy the <ins>ca.crt<ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
+Copy the <ins>ca.crt</ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
 
 1. If not already present, create the folder <ins>certs<ins> in the main folder (this folder)
 ```
@@ -688,7 +688,7 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 >Make sure that the USB stick comes from a trustworthy source and has not been used before on potentially compromised systems. The stick should be checked or reformatted before use to ensure maximum security.
 
 >[!Note]
->The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/Samples) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.
+>The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/PSENrd3.1_live_and_IndustrialPI_4) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.
 
 + Python is already available on this oparting system. You can view the current Python version with the following command:
 ```
