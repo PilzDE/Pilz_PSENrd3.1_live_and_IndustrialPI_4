@@ -665,7 +665,7 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
 + You can find for example the information in the table:
 
-New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1, k120).
+New client connection from IP-Address:Portnumber as ID(of your sensor, the MAC-Adress without colon) (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial PI 4.
@@ -673,7 +673,7 @@ New connection from IP-Address:Portnumber as MAC-Address(of your sensor) (p2, c1
 mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID of your Sensor>/positionData'-u <username> -P <password> 
 ```
 >[!Tip]
->You will find the 12-digit ID on the back of the sensor (The Mac-adress without colon).
+>You will find the 12-digit ID on the back of the sensor (The Mac-Adress without colon).
 
 +  Position data should then gradually appear on your shell.
 
