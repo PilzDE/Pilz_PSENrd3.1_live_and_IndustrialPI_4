@@ -265,7 +265,7 @@ cd certs
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
 ```
 > [!Note]
-> The argument <ins>-days<ins> sets the valid period of the certificate.
+> The argument <ins>-days</ins> sets the valid period of the certificate.
 
 > [!Caution]
 > The Common Name (CN) for CA must not be the same as for the broker/server later.
@@ -361,7 +361,7 @@ password_file /etc/mosquitto/passwd
 acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
-> Make sure that you enter the correct path to the <ins>certs<ins> folder where the certificates can be found
+> Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found
 
 ### 6.5 Start mosquitto service
 ```
@@ -388,7 +388,7 @@ sudo chown mosquitto:mosquitto </path/to/certs>/server.key
 sudo systemctl restart mosquitto
 ```
 
-### 6.6 Copy the <ins>ca.crt<ins> Certificate 
+### 6.6 Copy the <ins>ca.crt</ins> Certificate 
 
 Copy the <ins>ca.crt<ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
 
@@ -399,14 +399,14 @@ mkdir certs
 ```
 cd certs
 ```
-2. Create the folder <ins>broker<ins> within the folder <ins>certs<ins>
+2. Create the folder <ins>broker</ins> within the folder <ins>certs</ins>
 ```
 mkdir broker
 ```
-3. Paste the <ins>ca.crt<ins> file in the folder <ins>broker<ins><br/>
+3. Paste the <ins>ca.crt</ins> file in the folder <ins>broker</ins><br/>
 
-4. If not already present, create the file <ins>config.json<ins> in the folder <ins>broker<ins><br/>
-5. Fill the file <ins>config.json<ins>:
+4. If not already present, create the file <ins>config.json</ins> in the folder <ins>broker</ins><br/>
+5. Fill the file <ins>config.json</ins>:
 ```
 {
     	"broker_ip": "<IP-Address of your MQTT Broker>",
@@ -415,7 +415,7 @@ mkdir broker
 }
 ```
 > [!Important]
-> The value of the key <ins>ca_cert<ins> must be exactly the same as the name of the <ins>ca.crt<ins> certificate!
+> The value of the key <ins>ca_cert</ins> must be exactly the same as the name of the <ins>ca.crt</ins> certificate!
 
 <!--+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
 [Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>-->
