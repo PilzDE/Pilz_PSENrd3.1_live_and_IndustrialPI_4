@@ -83,9 +83,9 @@ The availability of the software used, and its safe handling are also presuppose
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
 | 1 | Pilz international website, download section | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
-| 2 | Operating manual of PSEN rd3.1 live| [www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE Bed.anl. 1006933-01](http://Link_fehlt_noch.com)<br> |                                                
+| 2 | Operating manual of PSEN rd3.1 live| The documentation is currently still being prepared and will be made available at a later date. We will inform you as soon as it is available. |                                                
 | 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE Bed.anl. 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
-
+<!--[www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE Bed.anl. 1006933-01](http://Link_fehlt_noch.com)<br>-->
 <!--### 1.2 Documentation form other sources of information
 
 |Nr.| Discription | Part number/ Download|
