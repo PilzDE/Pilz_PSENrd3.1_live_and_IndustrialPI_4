@@ -65,9 +65,9 @@ Information that is particularly important is identified as follows:<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
-10.1[Work with USB-Stick](#101-work-with-usb-stick)<br/>
-10.2[Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
-10.3[Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
+10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
+10.2 [Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
+10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
 11. [License Inforamtion](#11-license-inforamtion)<br/>
 
 <!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
