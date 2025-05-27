@@ -1,4 +1,4 @@
-# PSENrd 3.1 live and IndsutrialPI 4
+# PSENrd 3.1 live and IndustrialPI 4
 
 <div style="display: flex; flex-direction: column; align-items: center;">
     <a href="https://www.pilz.com" rel="nofollow">
@@ -614,11 +614,11 @@ wifi.scan-rand-mac-address=no
 
 + Please restart the NetworkManager:
 ```
-sudo systemcrl restart NetworkManager.service
+sudo systemctl restart NetworkManager.service
 ```
 + Control the status of the NetworkManager to see if it is activated.
 ```
-sudo systemcrl status NetworkManager.service
+sudo systemctl status NetworkManager.service
 ```
 [Text here]
 >[!Note]
