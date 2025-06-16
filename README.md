@@ -52,6 +52,7 @@ Information that is particularly important is identified as follows:<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
+5.4 [Install Firewall](#54-install-firewall)<br/>
 6.  [Install Mosquitto and Mosquitto-Clients](#6-install-mosquitto-and-mosquitto-clients)<br/>
 6.1 [Create certificates (optional)](#61-create-certificates-optional)<br/>
 6.2 [Create users and passwords for accessing to the broker ](#62-create-users-and-passwords-for-accessing-to-the-broker)<br/>
@@ -68,7 +69,11 @@ Information that is particularly important is identified as follows:<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2 [Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
-11. [License Inforamtion](#11-license-inforamtion)<br/>
+11. [Work with Remotedesktop-Connection (RDP)](#11-work-with-remotedesktop-connection-rdp)<br/>
+11.1 [Create a new network IP-Address](#111-create-a-new-network-ip-address)<br/>
+11.2 [Install xrdp and xorg xrdp](#112-install-xrdp-and-xorg-xrdp)<br/>
+11.3 [Using the remote desktop connection](#113-using-the-remotedesktop-connection)<br/>
+12. [License Inforamtion](#11-license-inforamtion)<br/>
 
 <!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
 <!--10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>-->
@@ -233,6 +238,44 @@ sudo apt-get upgrade
 > [!Tip]
 > Both commands will ask you to continue. Confirm both commands with Y. Press q when requested for upgrade information.
 
+### 5.4 Install Firewall 
+
+> [!Important]
+> The Lite Version Debain GNU/Linux 12 doesn´t have a Firewall preinstalled. You must install the ufw package. You will find a description of this function in the following steps.
++ Install the package:
+```
+sudo apt-get install ufw
+```
+>[!Tip]
+> Confirm with Y key.
+
+> [!Tip]
+> ufw allows you to add rules before you activate the firewall. If you activate ufw without rules, the firewall closes the necessary ports of the application.
+ + list of general ports:<br/>
+ 
+ 1. Port 22 is for ssh (for example: Putty)
+ ```
+ sudo ufw allow 22
+ ```
+ 2. Port 41443/tcp for the browser view.
+ ```
+ sudo ufw allow 41443/tcp
+ ```
+
++ After to activate the first rules, you must to activate ufw:
+```
+sudo ufw enable
+```
++ You can check the status of the ufw, to ensure that it is active without errors:
+```
+sudo systemctl status ufw
+```
++ Check the rules list:
+```
+sudo ufw status
+```
+> [!Important]
+> In the following discriptions are more several port numbers are mentioned, please make sure to include these port numbers in the rules list.
 
 ## 6. Install Mosquitto and Mosquitto-Clients
 
@@ -360,7 +403,13 @@ password_file /etc/mosquitto/passwd
 acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
-> Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found
+> Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.
+
+> [!Tip]
+> Remember the previous note in the last topic. Integrate the Port Number 8883 in the rules list of ufw.
+ ```
+ sudo ufw allow 8883
+ ```
 
 ### 6.5 Start mosquitto service
 ```
@@ -637,14 +686,14 @@ http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-di
 ```
 sudo reboot
 ```
-> [!Tip]
-> When you connect the WiFi the first time, please control in your Network Mangager "sudo nmtui" whether the IndustrialPI 4 find your desired WiFi. This Tip belongs to the subitem [5.3 Update System packages](#53-update-system-packages).
+>[!Tip]
+>When you connect the WiFi the first time, please control in your Network Mangager "sudo nmtui" whether the IndustrialPI 4 find your desired WiFi. This Tip belongs to the subitem [5.3 Update System packages](#53-update-system-packages).
 
-> [!Tip]
-> Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. Click on it and connect and see if you are then in the WiFi. You can see this by the checkmark and the WiFi icon.
+>[!Tip]
+>Use a WiFi endpoint device, e.g. a smartphone, and check whether you can see the new WiFi connection in your WiFi settings. Click on it and connect and see if you are then in the WiFi. You can see this by the checkmark and the WiFi icon.
 
-> [!Tip]
-> The next test is to try out the browser cockpit of your IndustrialPI 4. First connect your mobile phone or notebook to the existing Wifi connection as described in the previous tip. Then open any browser and enter the same hostname as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
+>[!Tip]
+>The next test is to try out the browser cockpit of your IndustrialPI 4. First connect your mobile phone or notebook to the existing Wifi connection as described in the previous tip. Then open any browser and enter the same hostname as in the settings in the previous chapter. If you are asked for a user name and password, everything is correct.
 
 ## 9. Testing of Data exchange 
 
@@ -653,10 +702,10 @@ sudo reboot
 sudo reboot
 ```
 >[!Tip]
-> General tip, restarting the system is very important for many new installations. Restart the IndustrialPI 4 from time to time.
+>General tip, restarting the system is very important for many new installations. Restart the IndustrialPI 4 from time to time.
 
 >[!Tip]
-> Again, remember the synchronization time of the NTP service.
+>Again, remember the synchronization time of the NTP service.
 
 + The tail -f command is used to display the last lines of a file in real time. If you use it with Mosquitto, you can monitor the log file of the Mosquitto broker to see current activities and messages.
 ```
@@ -783,8 +832,8 @@ startx
 ```
 setxkbmap de
 ```
-> [!Tip]
-> Try whether the setting has worked. For example press Y or Z.
+>[!Tip]
+>Try whether the setting has worked. For example press Y or Z.
 
 Enlarge the display:<br/>
 + Held down with the ctrl key and right mouse button, a menu with unicode fonts will appear.
@@ -800,10 +849,80 @@ python3 PSENrd3_DetectPeople_GUI_V1.py
 ```
 + You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.
 
-## 11. License Inforamtion
+## 11. Work with remote desktop connection (RDP)
 
-> [!Note]
-> This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details. You find the LICENSE file in the main branch.
+In this discription, you will use the system via remotedesktop at your workstation with an Ethernet connection. The Requirement for this is that you need a terminal program for example PuTTY. The Remotdesktop- Connection is available on a Windows PC by default.<br/>
+>[!Important]
+>Observe the specifications of commissioning (security) for your application, in particular the removal of the separation of networks with defferent IP addresses. 
+
+## 11.1 Create a new Network IP-Address
+
+First of all, you need a new Network IP-Address for the Remotedesktop Connection. For example change the third number in your IP-Address, as before. The reason in this case is, if you have the IP-Address in the same network the WLAN connection will be interrupt between PSENrd 3.1 and IndustrialPI 4.<br/> 
+
++ Please use the Network Manager:
+```
+sudo nmtui
+```
++ Select the option edit a connection.
++ In this case select under Ethernet the first wired connection.
++ Enter the automatic behind the IPv4 configuration and select manual.
++ One line will show up for the new IP-Address.
++ Please enter your Ethernet IP-Address in this line. For example 192.168.1.109/24.
++ Then you can click OK in the right corner.
++ Reboot the system:
+```
+sudo reboot
+```
+
+### 11.2 Install xrdp and xorg xrdp
+
++ Install the packages xrdp and xorg xrdp:
+```
+sudo apt install xrdp xorgxrdp
+```
++ Reboot the system:
+```
+sudo reboot
+```
+>[!Tip]
+>Integrate the Port Number 3389/tcp in the rules list of ufw. The Port number is the typical standard Port number of the RDP (Remote Desktop Protokoll) from Windows.
+ ```
+ sudo ufw allow 3389/tcp
+ ```
+
+### 11.3 Using the Remotedesktop-Connection
+
+Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for the Remote Desktop Connection in your saerch bar in your operating system.<br/>
++ A small Window with an input line opens. 
++ Please enter your Ethernet IP-Address there.
++ An identity question is displayed.
+>[!Important]
+>In your application, make sure that the settings for commissioning are sufficiently secure (security).
++ Please click Yes.
++ After that a login query will open.
++ Please enter your Username and your password of your IndustrialPI 4.
++ Now the graphical desktop opens directly.
++ If you want to use the python program you need a different display number.
++ You can find this number in a file it names "xrdp-sesman.log". 
+```
+sudo nano /var/log/xrdp-sesman.log
+```
++ In the fourth line you will find the IP address of your PC. At the bottom of this file you will find the display number, in this case the number 10 is available.
++ Exit this file with ctrl + X.
++ Change the DISPLAY number:
+```
+export DISPLAY=:10.0
+```
++ Control the change with:
+```
+echo $DISPLAY
+```
+Now you can start the python program on the remote desktop connection.<br/>
+
+## 12. License Inforamtion
+
+>[!Note]
+>This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details. You find the LICENSE file in the main branch.
 
 
 <!--### 10.3 Install additional Python packages for the Version V4 
