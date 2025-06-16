@@ -900,7 +900,7 @@ Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for th
 >In your application, make sure that the settings for commissioning are sufficiently secure (security).
 + Please click Yes.
 + After that a login query will open.
-+ Please enter your Username and your password of your IndustrialPI 4.
++ Please enter your username and your password of your IndustrialPI 4.
 + Now the graphical desktop opens directly.
 + If you want to use the python program you need a different display number.
 + You can find this number in a file it names "xrdp-sesman.log". 
