@@ -892,7 +892,7 @@ sudo reboot
 
 ### 11.3 Using the Remotedesktop-Connection
 
-Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for the Remote Desktop Connection in your saerch bar in your operating system.<br/>
+Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for the Remote Desktop Connection in your search bar in your operating system.<br/>
 + A small Window with an input line opens. 
 + Please enter your Ethernet IP-Address there.
 + An identity question is displayed.
