@@ -671,7 +671,7 @@ sudo systemctl status NetworkManager.service
 ```
 [Text here]
 >[!Note]
->The WPA2 security protocol is now guatanteed to be used.
+>The WPA2 security protocol is now guaranteed to be used.
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
