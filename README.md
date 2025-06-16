@@ -855,7 +855,7 @@ In this discription, you will use the system via remotedesktop at your workstati
 >[!Important]
 >Observe the specifications of commissioning (security) for your application, in particular the removal of the separation of networks with defferent IP addresses. 
 
-## 11.1 Create a new Network IP-Address
+### 11.1 Create a new Network IP-Address
 
 First of all, you need a new Network IP-Address for the Remotedesktop Connection. For example change the third number in your IP-Address, as before. The reason in this case is, if you have the IP-Address in the same network the WLAN connection will be interrupt between PSENrd 3.1 and IndustrialPI 4.<br/> 
 
