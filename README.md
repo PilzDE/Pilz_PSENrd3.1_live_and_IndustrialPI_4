@@ -227,6 +227,7 @@ sudo raspi-config
 > [!Tip]
 > + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface.
 > + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
+> + It would be advisable to work with the Ethernet interface connection first.
 
 + get all updates with the commando:
 ```
