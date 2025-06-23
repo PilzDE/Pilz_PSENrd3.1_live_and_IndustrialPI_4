@@ -69,7 +69,7 @@ Information that is particularly important is identified as follows:<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2 [Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
-11. [Work with Remotedesktop-Connection (RDP)](#11-work-with-remotedesktop-connection-rdp)<br/>
+11. [Work with remote desktop connection (RDP)](#11-work-with-remote-desktop-connection-rdp)<br/>
 11.1 [Create a new network IP-Address](#111-create-a-new-network-ip-address)<br/>
 11.2 [Install xrdp and xorg xrdp](#112-install-xrdp-and-xorg-xrdp)<br/>
 11.3 [Using the remote desktop connection](#113-using-the-remotedesktop-connection)<br/>
