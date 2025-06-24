@@ -600,7 +600,7 @@ sudo get upgrade
 ```
 sudo apt install hostapd
 ```
-[Text for hostapd here]
+<!--[Text for hostapd here]-->
 + Create a configuration file:
 ```
 sudo nano /etc/hostapd/hostapd.conf
