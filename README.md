@@ -382,7 +382,7 @@ topic read /PSENrd3/+/positionData
 > [!Important]
 > If you used another usernames, please customize the usernames in the ACL-File.
 
-### 6.4  Configurate Mosquitto Broker
+### 6.4 Configurate Mosquitto Broker
 
 1. Open the config-file:<br/>
 ```
