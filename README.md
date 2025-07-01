@@ -65,7 +65,7 @@ Information that is particularly important is identified as follows:<br/>
 8.2 [Set up WiFi connection](#82-set-up-wifi-conncetion)<br/>
 8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
-10. [Integration of the supplied python program example](#10-integration-of-the-supplied-python-program-example)<br/>
+10. [Integration of a python program](#10-integration-of-a-python-program)<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
 10.2 [Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
 10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
@@ -75,9 +75,6 @@ Information that is particularly important is identified as follows:<br/>
 11.3 [Using the remote desktop connection](#113-using-the-remotedesktop-connection)<br/>
 12. [License Inforamtion](#11-license-inforamtion)<br/>
 
-<!--1.2 [Documentation form other sources](#12-documentation-form-other-sources)<br/>-->
-<!--10.4[Work with GitHub directly](#104-work-with-github-directly)<br/>-->
-<!--10.3[Install additional Python packages for the Version V4](#102-install-additional-python-packages-for-the-version-v4)<br/>-->
 ## 1. Useful documentation
 
 Reading the documentations listed below is necessary for understanding this Application.<br/>
@@ -90,12 +87,6 @@ The availability of the software used, and its safe handling are also presuppose
 | 1 | Pilz international website, download section | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
 | 2 | Operating manual of PSEN rd3.1 live| The documentation is currently still being prepared and will be made available at a later date. We will inform you as soon as it is available. |                                                
 | 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE Bed.anl. 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
-<!--[www.pilz.com >EN Operat.Man. XXXXX](http://Link_fehlt_noch.com)<br/>[www.pilz.com > DE Bed.anl. 1006933-01](http://Link_fehlt_noch.com)<br>-->
-<!--### 1.2 Documentation form other sources of information
-
-|Nr.| Discription | Part number/ Download|
-|---| ------------| ---------------------|
-| 1 |             |                      |-->
 
 ## 2. Hardware and software used
 
@@ -279,14 +270,11 @@ sudo ufw status
 > In the following discriptions are more several port numbers are mentioned, please make sure to include these port numbers in the rules list.
 
 ## 6. Install Mosquitto and Mosquitto-Clients
-
+<!--[Text for Mosquitto and mqtt here]-->
 + Install Mosquitto and Mosquitto-Clients:
 ```
 sudo apt-get install mosquitto mosquitto-clients
 ```
-<!--+ Please use the installation of Mosquitto and Mosquitto-Clients from the README.md PilzForwarder:<br/>
-[Install Mosquitto and Mosquitto-Clients](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#32-install-mosquitto-and-mosquitto-clients)<br/>-->
-
 ### 6.1 Create certificates (optional)
 
 > [!Tip]
@@ -342,10 +330,6 @@ mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for that us
 
 > [!Important]
 > If you use other usernames, please customize the usernames in the step [6.3 Create an ACL list](#63-create-an-acl-access-control-list)
-
-<!--+ Also install the necessary additional conditions that are only required if you want to use self-signed certificates,<br/>
-including the creation of certificates and the creation of access control lists:<br/>
-[Install OpenSLL and create certificates](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#33-install-openssl-optional)<br/>-->
 
 ### 6.3 Create an ACL (Access control list)
 
@@ -436,39 +420,6 @@ sudo chown mosquitto:mosquitto </path/to/certs>/server.key
 ```
 sudo systemctl restart mosquitto
 ```
-
-<!--### 6.6 Copy the <ins>ca.crt</ins> Certificate 
-
-Copy the <ins>ca.crt</ins> Certificate created in step 2 of [Create Certificates](#61-create-certificates-optional) to the server and set up the config file:<br/>
-
-1. If not already present, create the folder <ins>certs<ins> in the main folder (this folder)
-```
-mkdir certs
-```
-```
-cd certs
-```
-2. Create the folder <ins>broker</ins> within the folder <ins>certs</ins>
-```
-mkdir broker
-```
-3. Paste the <ins>ca.crt</ins> file in the folder <ins>broker</ins><br/>
-
-4. If not already present, create the file <ins>config.json</ins> in the folder <ins>broker</ins><br/>
-5. Fill the file <ins>config.json</ins>:
-```
-{
-    	"broker_ip": "<IP-Address of your MQTT Broker>",
-    	"port": 8883,
-    	"ca_cert": "ca.crt"
-}
-```
-> [!Important]
-> The value of the key <ins>ca_cert</ins> must be exactly the same as the name of the <ins>ca.crt</ins> certificate!-->
-
-<!--+ The next step describes the configuration of the MQTT-broker, this step is necessary, so follow the instructions:<br/>
-[Configurate Mosquitto Broker](https://github.com/PilzDE/PilzForwarder?tab=readme-ov-file#37-configurate-mosquitto-broker)<br/>-->
-
 ## 7. Setup and Configuration NTP Server
 
 + Install NTP:
@@ -565,27 +516,6 @@ sudo systemctl status dnsmasq
 + The status shows you that the dnsmasq service is active.
 
 ### 8.2 Set up WiFi Conncetion 
-<!--```
-sudo nmtui
-```
-+ Go to the menu item “edit a connection”.
-+ Navigate to the "Add"-button.
-+ Select: Wi-Fi.
-+ Assign a profile name.
-+ Write under device: wlan0.
-+ Next up assign the SSID. You can use the same name as in profile name.
-+ Select mode: Access Point.
-+ Select channel: Automatic.
-+ Select security: WPA & WPA2 Personal.
-+ Assign your password.
-+ Select "Manual" for the IPv4 configuration.
-+ Assign the address for example 192.168.0.102/24.
-+ At the gateway, assign 192.168.0.1, for example.
-+ Then accept everything with OK.
-+ Restart your System.
-```
-sudo reboot
-```-->
 
 >[!Important]
 >To use a secure WLAN network, please install the hostapd package. This is required to use the WPA2 security protocol. The procedure is explained in detail in the following section.
@@ -726,18 +656,21 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd
 
 +  Position data should then gradually appear on your shell.
 
-## 10. Integration of the supplied python program example
+## 10. Integration of a python program   
 
 >[!Note]
->We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.
-
+>The follow description shows how to get a possible python program into an IndustrialPI 4. The possible procedure for a Python program is described in detail.
+<!--
+>[!Note]
+>We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.-->
+ 
 ### 10.1 Work with USB-stick
 
 >[!Important]
 >Make sure that the USB stick comes from a trustworthy source and has not been used before on potentially compromised systems. The stick should be checked or reformatted before use to ensure maximum security.
-
+<!--
 >[!Note]
->The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/PSENrd3.1_live_and_IndustrialPI_4) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.
+>The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/PSENrd3.1_live_and_IndustrialPI_4) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.-->
 
 + Python is already available on this oparting system. You can view the current Python version with the following command:
 ```
@@ -758,9 +691,10 @@ lsblk
 ```
 sudo mount /dev/sda1 /media/usb
 ```
+<!--Hier wird später das Sample erläutert. Das "possible_python_program.py ist ein Beipsiel-->
 + Copy the supplied program in this new folder for example from a stick:
 ```
-sudo cp /media/usb/PSENrd3_DetectPeople_GUI_V1.py /home/pi/my_python_program
+sudo cp /media/usb/possible_python_program.py /home/pi/my_python_program
 ```
 + After you have copied your program you could umount the USB stick:
 ```
@@ -769,7 +703,7 @@ sudo umount /dev/sda1
 The next step is to change the correct mac-address and path.<br/>
 + Open the python program:
 ```
-sudo nano /home/pi/my_python_program/PSENrd3_DetectPeople_GUI_V1.py
+sudo nano /home/pi/my_python_program/possible_python_program.py
 ```
 + Change the mac-address where the "XXXXXXXXXXXX" are located.
 
@@ -924,41 +858,3 @@ Now you can start the python program on the remote desktop connection.<br/>
 
 >[!Note]
 >This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details. You find the LICENSE file in the main branch.
-
-
-<!--### 10.3 Install additional Python packages for the Version V4 
-
-First of all, we need packages of Python before we start the python program in the lite version of the IndustrialPI4. Pip3 is a package management tool for Python that is used specifically for Python 3. It allows you to install, manage and update Python packages from the Python Package Index (PyPI). It is a central repository where Python packages are stored and distributed.
-
-+ Install pip3:
-```
-sudo apt-get install python3-pip
-```
->[!Tip]
->Confirm with Y.-->
-
-<!--### 10.4 Work with GitHub directly
-+ An other way is to copy the python program from GitHub directly. The condition is that you are connected to the IndustrialPI 4 in your network and you have an Ethernet connection.
-```
-git clone https://github.com/PilzDE/Samples.git
-```
-```
-cd repository
-```
-+ Run program on the remote system:
-```
-cd /pfad/zu/repository
-```
-+ If the program has dependencies, install them with pip:
-```
-pip install -r requirements.txt
-```
-+ Execute the Python program:
-```
-python3 programm.py
-```
->[!Tip]
->Replace program.py with the name of the Python file you want to execute.<br/>
-
->[!Note]
->The condition here is that you have to install git and pip for this method.<br/>-->
