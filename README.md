@@ -715,7 +715,7 @@ sudo nano /home/pi/my_python_program/possible_python_program.py
 + Save the file and exit.
 
 ### 10.2 Install additional Python package and graphical packages  
-For the program Version 1 you need a Python package for installation for execution.<br/>
+For the possible python program you need a Python package for installation for execution.<br/>
 + Install tkinter:
 ```
 sudo apt-get install python3-tk
@@ -780,9 +780,9 @@ cd /home/pi/my_python_program
 ```
 + Execute the python program:
 ```
-python3 PSENrd3_DetectPeople_GUI_V1.py
+python3 possible_python_program.py
 ```
-+ You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.
+<!--+ You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.-->
 
 ## 11. Work with remote desktop connection (RDP)
 
