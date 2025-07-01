@@ -67,7 +67,7 @@ Information that is particularly important is identified as follows:<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of a python program](#10-integration-of-a-python-program)<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
-10.2 [Install additional Python package and graphical packages for the Version V1](#102-install-additional-python-package-and-graphical-packages-for-the-version-v1)<br/>
+10.2 [Install additional Python package and graphical packages](#102-install-additional-python-package-and-graphical-packages)<br/>
 10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
 11. [Work with remote desktop connection (RDP)](#11-work-with-remote-desktop-connection-rdp)<br/>
 11.1 [Create a new network IP-Address](#111-create-a-new-network-ip-address)<br/>
@@ -714,7 +714,7 @@ sudo nano /home/pi/my_python_program/possible_python_program.py
 
 + Save the file and exit.
 
-### 10.2 Install additional Python package and graphical packages for the Version V1 
+### 10.2 Install additional Python package and graphical packages  
 For the program Version 1 you need a Python package for installation for execution.<br/>
 + Install tkinter:
 ```
