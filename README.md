@@ -73,7 +73,7 @@ Information that is particularly important is identified as follows:<br/>
 11.1 [Create a new network IP-Address](#111-create-a-new-network-ip-address)<br/>
 11.2 [Install xrdp and xorg xrdp](#112-install-xrdp-and-xorg-xrdp)<br/>
 11.3 [Using the remote desktop connection](#113-using-the-remotedesktop-connection)<br/>
-12. [License Inforamtion](#11-license-inforamtion)<br/>
+12. [License Information](#12-license-information)<br/>
 
 ## 1. Useful documentation
 
