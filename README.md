@@ -857,7 +857,7 @@ Now you can start the python program on the remote desktop connection.<br/>
 ## 12. License Information
 
 >[!Note]
->This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/licenses/by-nd/4.0/)
+>This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/licenses/by-nd/4.0/).
 >Furthermore, the code snippets are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/publicdomain/zero/1.0/).
 
 Copyright (c) 2025 Pilz GmbH & Co. KG<br/>
