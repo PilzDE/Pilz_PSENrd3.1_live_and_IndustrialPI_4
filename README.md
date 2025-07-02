@@ -6,14 +6,14 @@
     </a><br/>
 </div>
 
-## Exclusion of Liability 
+## Limitation of Liability
 
 We have taken great care in compiling our documentation. It contains information about our company and our products. All statements are made in accordance with the current status of technology and to the best of our knowledge and belief.
 While every effort has been made to ensure the information provided is accurate, we cannot accept liability for the accuracy and entirety of the information provided, except in the case of gross negligence. In particular, all information on applicable standards, safety-related classifications and time characteristics should be viewed as provisional. In particular it should be noted that statements do not have the legal quality of assurances or assured properties.
 We are grateful for any feedback on the contents.<br/>
 February 2025<br/>
 All rights to this publication are reserved by Pilz GmbH & Co. KG.
-We reserve the right to amend specifications without prior notice. Copies may be made for the user’s internal purposes.
+We reserve the right to amend specifications without prior notice.
 The names of products, goods and technologies used in this manual are trademarks of the respective companies. Please note the current information about the products, their licenses and registered trademarks in the documents listed in [Useful documentation](#1-useful-documentation).<br/>
 
 ## Industrial Security
@@ -854,7 +854,10 @@ echo $DISPLAY
 ```
 Now you can start the python program on the remote desktop connection.<br/>
 
-## 12. License Inforamtion
+## 12. License Information
 
 >[!Note]
->This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details. You find the LICENSE file in the main branch.
+>This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/licenses/by-nd/4.0/)
+>Furthermore, the code snippets are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/publicdomain/zero/1.0/).
+
+Copyright (c) 2025 Pilz GmbH & Co. KG<br/>
