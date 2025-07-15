@@ -63,7 +63,7 @@ Information that is particularly important is identified as follows:<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
 8.2 [Set up WiFi connection](#82-set-up-wifi-conncetion)<br/>
-8.3 [Set up Cockpit-IndustrialPI](#83-set-up-cockpit-industrialpi)<br/>
+8.3 [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of a python program](#10-integration-of-a-python-program)<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
@@ -317,13 +317,13 @@ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out s
 ```
 ### 6.2 Create users and passwords for accessing to the broker 
 ```
-mosquitto_passwd -c /etc/mosquitto/passwd PSENrd3_sensor
+sudo mosquitto_passwd -c /etc/mosquitto/passwd PSENrd3_sensor
 ```
 ```
-mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_admin <password for that user>
+sudo mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_admin <password for that user>
 ```
 ```
-mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for that user>
+sudo mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for that user>
 ```
 > [!Tip]
 > We recommend using the suggested usernames.
