@@ -443,12 +443,12 @@ restrict ::1
 > [!Tip]
 > Comment out all other commands.
 
-+ Save the file and restart the ntp:
++ Save the file and restart the ntpsec:
 ```
-sudo systemctl restart ntp
+sudo systemctl restart ntpsec
 ```
 ```
-sudo systemctl enable ntp
+sudo systemctl enable ntpsec
 ```
 + Control whether your system clock is synchronized:
 ```
