@@ -440,10 +440,12 @@ fudge 127.127.1.0 stratum 10
 restrict 127.0.0.1
 restrict ::1
 ```
++ Save the file.
+
 > [!Tip]
 > Comment out all other commands.
 
-+ Save the file and restart the ntpsec:
++ Restart the ntpsec:
 ```
 sudo systemctl restart ntpsec
 ```
