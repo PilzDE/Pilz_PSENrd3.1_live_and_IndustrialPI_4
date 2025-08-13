@@ -635,7 +635,7 @@ sudo systemctl status NetworkManager.service
 >The WPA2 security protocol is now guaranteed to be used.
 
 >[!Tip]
->Before continuing, please ingrate the Port number 41443/tcp. 
+>Before continuing, please ingrate the Port number 41443/tcp in the rules list of ufw. You need this Port number for the Cockpit in your Browser.
  ```
  sudo ufw allow 41443/tcp
  ```
