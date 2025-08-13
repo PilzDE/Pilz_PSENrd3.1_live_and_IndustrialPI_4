@@ -559,7 +559,8 @@ sudo get upgrade
 ```
 sudo apt install hostapd
 ```
-<!--[Text for hostapd here]-->
+hostapd is a package that allows you to create a router in your IndustrialPI 4 to later ensure the WPA2 protocol. <br/>
+
 + Create a configuration file:
 ```
 sudo nano /etc/hostapd/hostapd.conf
