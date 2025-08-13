@@ -291,6 +291,27 @@ mkdir certs
 ```
 cd certs
 ```
+<!--
+1.1 create a private key
+```
+openssl genrsa -out server.key 2048
+```
+> [!Note]
+> create a private RSA-key with 2048 bit.
+
+2. Create certificate signing request (CSR)
+```
+openssl req -new -key server.key -out server.csr
+```
+> [!Note]
+> You will be asked for information such as country, organization, common name (IP address).
+
+3. create self-signed certificate. 
+```
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+```
+Creates a certificate that is valid for 365 days.
+-->
 2. Generate the CA certificate:<br/>
 ```
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
@@ -482,6 +503,12 @@ An asterisk (*) at the beginning of a line means that this NTP server is the mai
 >[!Tip]
 >This synchronization can take a long time after a restart of the IndustrialPI 4 and the PSENrd 3.1. (It can take up to 6 minutes).
 
+>[!Tip]
+>Please also note the previous note in the topic of Firewall, as well. Integrate the Port Number 123/udp in the rules list of ufw.
+ ```
+ sudo ufw allow 123/udp
+ ```
+
 ## 8. WiFi configuration 
 
 ### 8.1 Install dnsmasq
@@ -602,9 +629,16 @@ sudo systemctl restart NetworkManager.service
 ```
 sudo systemctl status NetworkManager.service
 ```
-[Text here]
+<!--[Text here]-->
+
 >[!Note]
 >The WPA2 security protocol is now guaranteed to be used.
+
+>[!Tip]
+>Before continuing, please ingrate the Port number 41443/tcp. 
+ ```
+ sudo ufw allow 41443/tcp
+ ```
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
