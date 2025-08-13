@@ -249,7 +249,7 @@ sudo apt-get install ufw
  ```
  sudo ufw allow 22
  ```
- 2. Port 41443/tcp for the browser view.
+ 2. Port 41443/tcp for the browser view (Cockpit of the IndsutrialPI 4).
  ```
  sudo ufw allow 41443/tcp
  ```
@@ -544,6 +544,12 @@ sudo systemctl status dnsmasq
 ```
 + The status shows you that the dnsmasq service is active.
 
+>[!Tip]
+>Please also note the previous note in the topic of Firewall, as well. Integrate the Port Number 67/udp in the rules list of ufw.
+ ```
+ sudo ufw allow 67/udp
+ ```
+
 ### 8.2 Set up WiFi Conncetion 
 
 >[!Important]
@@ -634,12 +640,6 @@ sudo systemctl status NetworkManager.service
 
 >[!Note]
 >The WPA2 security protocol is now guaranteed to be used.
-
->[!Tip]
->Before continuing, please ingrate the Port number 41443/tcp in the rules list of ufw. You need this Port number for the Cockpit in your Browser.
- ```
- sudo ufw allow 41443/tcp
- ```
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
 + To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
