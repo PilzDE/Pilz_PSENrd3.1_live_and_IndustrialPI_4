@@ -636,8 +636,6 @@ sudo systemctl restart NetworkManager.service
 ```
 sudo systemctl status NetworkManager.service
 ```
-<!--[Text here]-->
-
 >[!Note]
 >The WPA2 security protocol is now guaranteed to be used.
 
