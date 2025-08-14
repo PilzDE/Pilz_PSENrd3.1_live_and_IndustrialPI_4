@@ -597,7 +597,7 @@ rsn_pairwise=CCMP
 ```
 sudo nano /etc/network/interfaces.d/wlan0
 ```
-+ Please write the following settings in this new file:
++ Please write the following settings in this new file: (The following settings are an example, please use your IP addresses)
 ```
 auto wlan0
 iface wlan0 inet static
