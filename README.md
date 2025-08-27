@@ -116,7 +116,7 @@ The availability of the software used, and its safe handling are also presuppose
 ### 2.3 Structure of the application (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/IndustrialPI_4_and_PSENrd_3_1.png" alt="Structure of the application (schematic)" width="800">
+        <img src="/img/Pilz_IndustrialPI_4_and_PSENrd3.png" alt="Structure of the application (schematic)" width="800">
     </a><br/>
 </div>
 
@@ -316,6 +316,27 @@ Creates a certificate that is valid for 365 days.
 ```
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
 ```
++ When you enter the above command, many lines with plus signs and dots will appear.
++ After that you will be asked for a password (Enter PEM pass Phrase:).
++ Enter any password. Make sure that the settings for commissioning are sufficiently secure (security).
++ Now you will be asked about your dates of your country, province, locality and organizations. Please fill as much as possilbe.
++ After this procedure you have a certificate in your directory "certs".
++ Please create a separate directory with the name "ca".
+´´´
+mkdir ca
+´´´
++ Now put the ca.crt in this directory "ca".
+´´´
+sudo mv ca.crt /ca/
+´´´
++ In the third step you will create the next Certificate and Key. Please create a new directory here.
+´´´
+mkdir server
+´´´
++ Go to the directory and follow the next steps from step three onwards.
+´´´
+cd server
+´´´
 > [!Note]
 > The argument <ins>-days</ins> sets the valid period of the certificate.
 
@@ -397,7 +418,7 @@ sudo nano /etc/mosquitto/mosquitto.conf
 ```
 listener 8883
 
-cafile </path/to/certs>/ca.crt
+#cafile </path/to/certs>/ca.crt 
 certfile </path/to/certs>/server.crt
 keyfile </path/to/certs>/server.key
 
@@ -464,7 +485,7 @@ restrict ::1
 + Save the file.
 
 > [!Tip]
-> Comment out all other commands.
+> Comment out all other commands with #.
 
 + Restart the ntpsec:
 ```
@@ -620,7 +641,7 @@ sudo nano /etc/NetworkManager/conf.d/99-unmanaged-devices.conf
 ```
 + Please write the following settings in this file:
 ```
-[keyfile] 
+[keyfile]
 unmanaged-devices=interface-name:wlan0
 
 [device]
