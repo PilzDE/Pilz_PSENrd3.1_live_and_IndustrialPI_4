@@ -116,7 +116,7 @@ The availability of the software used, and its safe handling are also presuppose
 ### 2.3 Structure of the application (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/Pilz_IndustrialPI_4_and_PSENrd3.png" alt="Structure of the application (schematic)" width="800">
+        <img src="/img/Pilz_IndustrialPI4_and_PSENrd3.png" alt="Structure of the application (schematic)" width="800">
     </a><br/>
 </div>
 
