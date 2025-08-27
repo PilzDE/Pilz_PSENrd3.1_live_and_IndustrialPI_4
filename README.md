@@ -322,21 +322,21 @@ openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
 + Now you will be asked about your dates of your country, province, locality and organizations. Please fill as much as possilbe.
 + After this procedure you have a certificate in your directory "certs".
 + Please create a separate directory with the name "ca".
-´´´
+```
 mkdir ca
-´´´
+```
 + Now put the ca.crt in this directory "ca".
-´´´
+```
 sudo mv ca.crt /ca/
-´´´
+```
 + In the third step you will create the next Certificate and Key. Please create a new directory here.
-´´´
+```
 mkdir server
-´´´
+```
 + Go to the directory and follow the next steps from step three onwards.
-´´´
+```
 cd server
-´´´
+```
 > [!Note]
 > The argument <ins>-days</ins> sets the valid period of the certificate.
 
