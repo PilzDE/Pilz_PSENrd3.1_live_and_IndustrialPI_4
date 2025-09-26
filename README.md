@@ -743,7 +743,7 @@ lsblk
 >[!Tip]
 >In the last column of this table you will see the name of the mount point for your USB device, e.g. /media/usb.
 
-+ Create a folder for your USB Devices under the media directory. 
++ Create a folder for your USB Devices under the media directory: 
 ```
 sudo mkdir /media/usb
 ```
