@@ -571,7 +571,7 @@ sudo systemctl status dnsmasq
  sudo ufw allow 67/udp
  ```
 
-### 8.2 Set up WiFi Conncetion 
+### 8.2 Set up WiFi Connection 
 
 >[!Important]
 >To use a secure WLAN network, please install the hostapd package. This is required to use the WPA2 security protocol. The procedure is explained in detail in the following section.
@@ -581,7 +581,7 @@ sudo systemctl status dnsmasq
 sudo apt update
 ```
 ```
-sudo get upgrade
+sudo apt upgrade
 ```
 ```
 sudo apt install hostapd
