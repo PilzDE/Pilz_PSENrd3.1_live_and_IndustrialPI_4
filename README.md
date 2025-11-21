@@ -291,21 +291,21 @@ mkdir certs
 ```
 cd certs
 ```
-2. Create a private key
+2. Create a private key:
 ```
 openssl genrsa -out server.key 2048
 ```
 > [!Note]
 > create a private RSA-key with 2048 bit.
 
-3. Create certificate signing request (CSR)
+3. Create certificate signing request (CSR):
 ```
 openssl req -new -key server.key -out server.csr
 ```
 > [!Note]
 > You will be asked for information such as country, organization, common name (IP address).
 
-4. Create self-signed certificate. 
+4. Create self-signed certificate: 
 ```
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
