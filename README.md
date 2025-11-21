@@ -291,27 +291,27 @@ mkdir certs
 ```
 cd certs
 ```
-<!--
-1.1 create a private key
+2. Create a private key
 ```
 openssl genrsa -out server.key 2048
 ```
 > [!Note]
 > create a private RSA-key with 2048 bit.
 
-2. Create certificate signing request (CSR)
+3. Create certificate signing request (CSR)
 ```
 openssl req -new -key server.key -out server.csr
 ```
 > [!Note]
 > You will be asked for information such as country, organization, common name (IP address).
 
-3. create self-signed certificate. 
+4. Create self-signed certificate. 
 ```
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 Creates a certificate that is valid for 365 days.
--->
+
+<!--
 2. Generate the CA certificate:<br/>
 ```
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt
@@ -357,6 +357,7 @@ openssl req -out server.csr -key server.key -new
 ```
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365
 ```
+-->
 ### 6.2 Create users and passwords for accessing to the broker 
 ```
 sudo mosquitto_passwd -c /etc/mosquitto/passwd PSENrd3_sensor
