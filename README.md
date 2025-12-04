@@ -419,7 +419,6 @@ sudo nano /etc/mosquitto/mosquitto.conf
 ```
 listener 8883
 
-#cafile </path/to/certs>/ca.crt 
 certfile </path/to/certs>/server.crt
 keyfile </path/to/certs>/server.key
 
@@ -431,6 +430,7 @@ password_file /etc/mosquitto/passwd
 acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
+<!-->> #cafile </path/to/certs>/ca.crt, this line is only used if an existing certificate is available.-->
 > Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.
 
 > [!Tip]
@@ -451,9 +451,12 @@ sudo systemctl status mosquitto
 ```
 > [!Note]
 > If the mosquitto service shows an error on starting then it could be that you should make sure that the certificates have the correct authorizations and are readable for the Mosquitto service. To do that you can try:
+<!--
+> [!Important]
+> You don´t need the first line, if you have a own certificate.
 ```
 sudo chown mosquitto:mosquitto </path/to/certs>/ca.crt
-```
+```-->
 ```
 sudo chown mosquitto:mosquitto </path/to/certs>/server.crt
 ```
