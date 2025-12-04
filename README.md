@@ -419,6 +419,7 @@ sudo nano /etc/mosquitto/mosquitto.conf
 ```
 listener 8883
 
+cafile </path/to/certs>/ca.crt
 certfile </path/to/certs>/server.crt
 keyfile </path/to/certs>/server.key
 
@@ -431,8 +432,7 @@ acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
 > Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.
-
-<!-- #cafile </path/to/certs>/ca.crt, this line is only used if an existing certificate is available.-->
+> cafile </path/to/certs>/ca.crt, this configuration line is only used if an existing certificate is available.
 
 > [!Tip]
 > Remember the previous note in the last topic. Integrate the Port Number 8883 in the rules list of ufw.
@@ -452,12 +452,12 @@ sudo systemctl status mosquitto
 ```
 > [!Note]
 > If the mosquitto service shows an error on starting then it could be that you should make sure that the certificates have the correct authorizations and are readable for the Mosquitto service. To do that you can try:
-<!--
+
 > [!Important]
-> You don´t need the first line, if you have a own certificate.
+> You do not need the first command line if you are using a self-signed CA-Certifcate.
 ```
 sudo chown mosquitto:mosquitto </path/to/certs>/ca.crt
-```-->
+```
 ```
 sudo chown mosquitto:mosquitto </path/to/certs>/server.crt
 ```
