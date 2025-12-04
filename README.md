@@ -432,7 +432,7 @@ acl_file /etc/mosquitto/aclfile
 > [!Important]
 > Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.
 
-<!-->> #cafile </path/to/certs>/ca.crt, this line is only used if an existing certificate is available.-->
+<!-- #cafile </path/to/certs>/ca.crt, this line is only used if an existing certificate is available.-->
 
 > [!Tip]
 > Remember the previous note in the last topic. Integrate the Port Number 8883 in the rules list of ufw.
