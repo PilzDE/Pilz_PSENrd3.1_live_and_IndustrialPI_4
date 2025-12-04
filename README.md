@@ -431,7 +431,7 @@ password_file /etc/mosquitto/passwd
 acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
-> Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.
+> Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.<br/>
 > cafile </path/to/certs>/ca.crt, this configuration line is only used if an existing certificate is available.
 
 > [!Tip]
