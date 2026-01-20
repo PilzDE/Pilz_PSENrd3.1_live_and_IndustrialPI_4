@@ -372,7 +372,7 @@ sudo mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for th
 > We recommend using the suggested usernames. The less-than signs and greater-than signs, "<>" do not need to be written.
 
 > [!Note]
-> -c: create a new password file (overwrites an existing file).
+> -c: create a new password file (overwrites an existing file).<br/>
   -b: sets the user and password directly in the command (password in plain text)
 
 > [!Important]
