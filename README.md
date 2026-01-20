@@ -67,7 +67,7 @@ Information that is particularly important is identified as follows:<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of a python program](#10-integration-of-a-python-program)<br/>
 10.1 [Work with USB-Stick](#101-work-with-usb-stick)<br/>
-10.2 [Install additional Python package and graphical packages](#102-install-additional-python-package-and-graphical-packages)<br/>
+10.2 [Install additional Python packages and graphical packages](#102-install-additional-python-packages-and-graphical-packages)<br/>
 10.3 [Start the GUI in the graphical interface](#103-start-the-gui-in-the-graphical-interface)<br/>
 11. [Work with remote desktop connection (RDP)](#11-work-with-remote-desktop-connection-rdp)<br/>
 11.1 [Create a new network IP-Address](#111-create-a-new-network-ip-address)<br/>
@@ -369,7 +369,11 @@ sudo mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_admin <password for that 
 sudo mosquitto_passwd -b /etc/mosquitto/passwd PSENrd3_consumer <password for that user>
 ```
 > [!Tip]
-> We recommend using the suggested usernames.
+> We recommend using the suggested usernames. The less-than signs and greater-than signs, "<>" do not need to be written.
+
+> [!Note]
+> -c: create a new password file (overwrites an existing file).
+  -b: sets the user and password directly in the command (password in plain text)
 
 > [!Important]
 > If you use other usernames, please customize the usernames in the step [6.3 Create an ACL list](#63-create-an-acl-access-control-list)
@@ -385,6 +389,7 @@ sudo nano /etc/mosquitto/aclfile
 # PSENrd3_sensor: Read (commands, config, details, positionData); Write (details, positionData, handoff)
 user PSENrd3_sensor
 topic read /PSENrd3/+/commands
+topic read /PSENrd3/+/handoff
 topic read /PSENrd3/+/config
 topic read /PSENrd3/+/details
 topic read /PSENrd3/+/positionData
@@ -432,7 +437,10 @@ acl_file /etc/mosquitto/aclfile
 ```
 > [!Important]
 > Make sure that you enter the correct path to the <ins>certs</ins> folder where the certificates can be found.<br/>
-> cafile </path/to/certs>/ca.crt, this configuration line is only used if an existing certificate is available.
+> **cafile </path/to/certs>/ca.crt**, this configuration line is only used if an existing certificate is available.
+
+> [!Tip]
+> The less-than signs and greater-than signs, "<>" do not need to be written.
 
 > [!Tip]
 > Remember the previous note in the last topic. Integrate the Port Number 8883 in the rules list of ufw.
@@ -467,6 +475,9 @@ sudo chown mosquitto:mosquitto </path/to/certs>/server.key
 ```
 sudo systemctl restart mosquitto
 ```
+> [!Tip]
+> The less-than signs and greater-than signs, "<>" do not need to be written.
+
 ## 7. Setup and Configuration NTP Server
 
 + Install NTP:
@@ -601,7 +612,7 @@ sudo nano /etc/hostapd/hostapd.conf
 ```
 interface=wlan0
 driver=nl80211
-ssid=YourNetworkName
+ssid=<YourNetworkName>
 hw_mode=g
 channel=6
 wmm_enabled=1
@@ -609,11 +620,14 @@ macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
 wpa=2
-wpa_passphrase=YourPassword
+wpa_passphrase=<YourPassword>
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
+> [!Tip]
+> The less-than signs and greater-than signs, "<>" do not need to be written.
+
 >[!Note]
 >In your application, make sure that the settings for commissioning are sufficiently secure (security).<br/>
 
@@ -689,6 +703,10 @@ sudo reboot
 
 ## 9. Testing of Data exchange 
 
+<!-->>[!Important]
+>Before you start exchaning data, please read or note the operating manual.
+-->
+
 + You can start by checking whether you can connect the IndustrialPI 4 system to the PSENrd 3.1. First restart the IndustrialPI 4:
 ```
 sudo reboot
@@ -705,15 +723,27 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 ```
 + You can find for example the information in the table:
 
-New client connection from IP-Address:Portnumber as ID (p2, c1, k120).
+New client connection from IP-Address: Portnumber as ID (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the Industrial PI 4.
 ```
-mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID of your Sensor>/positionData'-u <username> -P <password> 
+mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID OF YOUR SENSOR>/positionData'-u <username> -P <password> 
 ```
 >[!Tip]
->You will find the 12-digit ID on the back of the sensor (The Mac-Adress without colon).
+>Use your wlan0 IP-Address for this command.
+
+>[!Tip]
+>For the Path to your CA file, use your lines from the point [6.4 Configurate Mosquitto Broker](#64-configurate-mosquitto-broker).
+
+>[!Tip]
+>You will find the 12-digit ID on the back of the sensor (The Mac-Adress without colon and capital letters).
+
+>[!Tip]
+>Use for username and password your settings from point [6.2 Create users and passwords for accessing to the broker](#62-create-users-and-passwords-for-accessing-to-the-broker).
+
+> [!Tip]
+> The less-than signs and greater-than signs, "<>" do not need to be written.
 
 +  Position data should then gradually appear on your shell.
 
@@ -779,11 +809,15 @@ sudo nano /home/pi/my_python_program/possible_python_program.py
 
 + Save the file and exit.
 
-### 10.2 Install additional Python package and graphical packages  
+### 10.2 Install additional Python packages and graphical packages  
 For the possible python program you need a Python package for installation for execution.<br/>
 + Install tkinter:
 ```
 sudo apt-get install python3-tk
+```
++ Install matplotlib:
+```
+sudo apt-get install python3-matplotlib
 ```
 >[!Tip]
 >Confirm with Y.
