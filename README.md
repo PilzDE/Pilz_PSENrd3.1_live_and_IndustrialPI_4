@@ -786,7 +786,7 @@ sudo mkdir /media/usb
 ```
 sudo mount /dev/sda1 /media/usb
 ```
-<!--Hier wird später das Sample erläutert. Das "possible_python_program.py ist ein Beipsiel-->
+<!--Hier wird später das Sample erläutert.Das "possible_python_program.py ist ein Beipsiel-->
 + Copy the supplied program in this new folder for example from a stick:
 ```
 sudo cp /media/usb/possible_python_program.py /home/pi/my_python_program
@@ -820,7 +820,7 @@ sudo apt-get install python3-tk
 sudo apt-get install python3-matplotlib
 ```
 >[!Tip]
->Confirm with Y.
+>Confirm both installations with Y.
 
 Several steps are required for the graphical interface.
 
