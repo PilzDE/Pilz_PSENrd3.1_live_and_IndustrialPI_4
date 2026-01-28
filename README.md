@@ -703,7 +703,7 @@ sudo reboot
 
 ## 9. Testing of Data exchange 
 
-<!-->>[!Important]
+<!--[!Important]
 >Before you start exchaning data, please read or note the operating manual.
 -->
 
