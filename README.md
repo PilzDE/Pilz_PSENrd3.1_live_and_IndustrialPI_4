@@ -116,7 +116,7 @@ The availability of the software used, and its safe handling are also presuppose
 ### 2.3 Structure of the application (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/Pilz_IndustrialPI4_and_PSENrd3.png" alt="Structure of the application (schematic)" width="800">
+        <img src="/img/Pilz_IndustrialPI4_and_PSENrd3_1_live.png" alt="Structure of the application (schematic)" width="800">
     </a><br/>
 </div>
 
@@ -124,7 +124,7 @@ The availability of the software used, and its safe handling are also presuppose
 
 This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
 Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there.<br/>
-The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12.<br/> 
+The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12 (bookworm-arm64.img).<br/> [www.pilz.com >eShop](https://www.pilz.com/en-INT/eshop/Controller/Industrial-PC/IndustrialPI-/IndustrialPI-Accessories/IndustrialPI-4-8GB-32GB-Wifi/p/A1000003)<br/> 
 
 > [!IMPORTANT]
 > This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (6B000017) and does not constitute technical documentation on the general use of the operating system Linux and the program language Python. The operating system and the programming language are basic requirements for this application.
@@ -416,11 +416,11 @@ topic read /PSENrd3/+/positionData
 
 ### 6.4 Configurate Mosquitto Broker
 
-1. Open the config-file:<br/>
+1. Open the mosquitto config-file:<br/>
 ```
 sudo nano /etc/mosquitto/mosquitto.conf
 ```
-2. Add or change following lines:<br/>
+2. Add the following lines:<br/>
 ```
 listener 8883
 
