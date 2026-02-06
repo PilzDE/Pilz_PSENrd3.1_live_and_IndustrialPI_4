@@ -124,7 +124,7 @@ The availability of the software used, and its safe handling are also presuppose
 
 This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
 Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there.<br/>
-The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12 (bookworm-arm64.img).<br/> [www.pilz.com >eShop](https://www.pilz.com/en-INT/eshop/Controller/Industrial-PC/IndustrialPI-/IndustrialPI-Accessories/IndustrialPI-4-8GB-32GB-Wifi/p/A1000003)<br/> 
+The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12 (bookworm-arm64.img). [www.pilz.com >eShop](https://www.pilz.com/en-INT/eshop/Controller/Industrial-PC/IndustrialPI-/IndustrialPI-Accessories/IndustrialPI-4-8GB-32GB-Wifi/p/A1000003)<br/> 
 
 > [!IMPORTANT]
 > This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (6B000017) and does not constitute technical documentation on the general use of the operating system Linux and the program language Python. The operating system and the programming language are basic requirements for this application.
