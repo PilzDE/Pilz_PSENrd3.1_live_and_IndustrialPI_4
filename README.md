@@ -500,7 +500,7 @@ restrict ::1
 ```
 + Save the file.
 
-> [!Tip]
+> [!Important]
 > Comment out all other commands with #.
 
 + Restart the ntpsec:
@@ -680,7 +680,7 @@ sudo systemctl status NetworkManager.service
 >The WPA2 security protocol is now guaranteed to be used.
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
-+ To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the Industrial PI's Ethernet ports. Open your browser and enter<br/> 
++ To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the IndustrialPI's Ethernet ports. Open your browser and enter<br/> 
 http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
 + Log in with the data provided on the sticker on the side of the IndutrialPI 4.
 + The dashboard of your IndustrialPI 4 will open and is called Cockpit.
@@ -726,7 +726,7 @@ sudo tail -f /var/log/mosquitto/mosquitto.log
 New client connection from IP-Address: Portnumber as ID (p2, c1, k120).
 
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
-+ We need the first test whether the sensor sends data to the Industrial PI 4.
++ We need the first test whether the sensor sends data to the IndustrialPI 4.
 ```
 mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID OF YOUR SENSOR>/positionData'-u <username> -P <password> 
 ```
