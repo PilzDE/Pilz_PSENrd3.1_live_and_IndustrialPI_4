@@ -247,7 +247,7 @@ sudo apt-get install ufw
  
  1. Port 22 is for ssh (for example: Putty)
  ```
- sudo ufw allow 22
+ sudo ufw allow 22/tcp
  ```
  2. Port 41443/tcp for the browser view (Cockpit of the IndsutrialPI 4).
  ```
@@ -728,7 +728,7 @@ New client connection from IP-Address: Portnumber as ID (p2, c1, k120).
 + The next step is to press Ctrl + C to exit the currently running command or process and return to the command line to enter new commands.
 + We need the first test whether the sensor sends data to the IndustrialPI 4.
 ```
-mosquitto_sub -p 8883 -h <IP-Address> --cafile <Path to the CA file> -t '/PSENrd3/<ID OF YOUR SENSOR>/positionData'-u <username> -P <password> 
+mosquitto_sub -p 8883 -h <IP-Address> --cafile </path/to/certs>/server.crt> -t '/PSENrd3/<ID OF YOUR SENSOR>/positionData'-u <username> -P <password> 
 ```
 >[!Tip]
 >Use your wlan0 IP-Address for this command.
