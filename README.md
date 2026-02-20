@@ -730,6 +730,9 @@ New client connection from IP-Address: Portnumber as ID (p2, c1, k120).
 ```
 mosquitto_sub -p 8883 -h <IP-Address> --cafile </path/to/certs>/server.crt> -t '/PSENrd3/<ID OF YOUR SENSOR>/positionData'-u <username> -P <password> 
 ```
+>[!Important]
+>If you already have an existing certificate, please replace "sever.crt" to "ca.crt" and specify the path to "ca.crt".
+
 >[!Tip]
 >Use your wlan0 IP-Address for this command.
 
