@@ -116,7 +116,7 @@ The availability of the software used, and its safe handling are also presuppose
 ### 2.3 Structure of the application (schematic)
 
 <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="/img/Pilz_IndustrialPI4_and_PSENrd3_1_live.png" alt="Structure of the application (schematic)" width="800">
+        <img src="/img/Pilz_IndustrialPI_4_and_PSENrd3_1_live.png" alt="Structure of the application (schematic)" width="800">
     </a><br/>
 </div>
 
@@ -624,6 +624,9 @@ wpa_passphrase=<YourPassword>
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
+
+ap_max_inactivity=5
+disassoc_low_ack=1
 ```
 > [!Tip]
 > The less-than signs and greater-than signs, "<>" do not need to be written.
@@ -645,7 +648,6 @@ iface wlan0 inet static
     netmask 255.255.255.0
     network 192.168.0.0
     broadcast 192.168.0.255
-    hostapd /etc/hostapd/hostapd.conf
 ```    
 + Save the file an exit the file.<br/>
 
