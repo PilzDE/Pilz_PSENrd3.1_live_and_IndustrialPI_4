@@ -686,7 +686,7 @@ sudo systemctl status NetworkManager.service
 >The WPA2 security protocol is now guaranteed to be used.
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
-+ To connect a laptop to your IndustrialPI 4. Connect the laptop to the right Ethernet port on the IndustrialPI 4 unsing an Ethernet cable. Open your browser and enter<br/> 
++ To connect a laptop to your IndustrialPI 4. Connect the laptop to the right Ethernet port on the IndustrialPI 4 using an Ethernet cable. Open your browser and enter<br/> 
 http://industrialpiXXXXXX:41443 in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
 + Log in with the data provided on the sticker on the side of the IndutrialPI 4.
 + The dashboard of your IndustrialPI 4 will open and is called Cockpit.
