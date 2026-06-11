@@ -216,7 +216,7 @@ sudo raspi-config
 ### 5.3 Update System packages
 
 > [!Tip]
-> + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface.
+> + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface. Please use the left Ethernet port.
 > + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
 > + It would be advisable to work with the Ethernet interface connection first.
 
@@ -529,6 +529,10 @@ sudo timedatectl set-timezone Europe/Berlin
 ```
 ntpq -p
 ```
+or
+```
+ntpq -p 127.0.0.1
+```
 > [!Note]
 > The ntpq -p command displays a list of the NTP servers (Network Time Protocol) with which your local system is synchronized. This list contains important information such as the IP address of the server, the status of the connection and the synchronization quality.<br/>
 An asterisk (*) at the beginning of a line means that this NTP server is the main synchronization partner of your system. You can find an example of this in the following table:
@@ -682,13 +686,14 @@ sudo systemctl status NetworkManager.service
 >The WPA2 security protocol is now guaranteed to be used.
 
 ### 8.3 Set up Cockpit-IndustrialPI 4
-+ To connect a notebook to your IndustrialPI 4, use an Ethernet cable to connect the notebook to one of the IndustrialPI's Ethernet ports. Open your browser and enter<br/> 
-http://industrialpiXXXXXX.local in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
++ To connect a laptop to your IndustrialPI 4. Connect the laptop to the right Ethernet port on the IndustrialPI 4 unsing an Ethernet cable. Open your browser and enter<br/> 
+http://industrialpiXXXXXX:41443 in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
 + Log in with the data provided on the sticker on the side of the IndutrialPI 4.
 + The dashboard of your IndustrialPI 4 will open and is called Cockpit.
-+ Under Tools you will find the item IndustrialPI Configuration. Click on it.
-+ Now you will see various setting options.
-+ To be on the safe side, please deactivate the bluetooth cennection.
++ Under System/ IndustrialPI you will find the field WLAN and BT. 
++ Select WLAN country code.
++ Switch on the WLAN slider.
++ Make sure the Bluetooth slider is switch off.
 + Select the external antenna (SMA) under select antenna.
 + then restart the IndustrialPI 4:
 ```
