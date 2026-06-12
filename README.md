@@ -458,13 +458,13 @@ acl_file /etc/mosquitto/aclfile
 
 > [!Tip]
 > The less-than signs and greater-than signs, "<>" do not need to be written.
-
+<!--
 > [!Tip]
 > Remember the previous note in the last topic. Integrate the Port Number 8883 in the rules list of ufw.
  ```
  sudo ufw allow 8883
  ```
-
+-->
 ### 6.5 Start mosquitto service
 ```
 sudo systemctl start mosquitto
@@ -560,13 +560,13 @@ An asterisk (*) at the beginning of a line means that this NTP server is the mai
 
 >[!Tip]
 >This synchronization can take a long time after a restart of the IndustrialPI 4 and the PSENrd 3.1. (It can take up to 6 minutes).
-
+<!--
 >[!Tip]
 >Please also note the previous note in the topic of Firewall, as well. Integrate the Port Number 123/udp in the rules list of ufw.
  ```
  sudo ufw allow 123/udp
  ```
-
+-->
 ## 8. WiFi configuration 
 
 ### 8.1 Install dnsmasq
@@ -601,13 +601,13 @@ sudo systemctl enable dnsmasq
 sudo systemctl status dnsmasq
 ```
 + The status shows you that the dnsmasq service is active.
-
+<!--
 >[!Tip]
 >Please also note the previous note in the topic of Firewall, as well. Integrate the Port Number 67/udp in the rules list of ufw.
  ```
  sudo ufw allow 67/udp
  ```
-
+-->
 ### 8.2 Set up WiFi Connection 
 
 >[!Important]
@@ -945,12 +945,13 @@ sudo apt install xrdp xorgxrdp
 ```
 sudo reboot
 ```
+<!--
 >[!Tip]
 >Integrate the Port Number 3389/tcp in the rules list of ufw. The Port number is the typical standard Port number of the RDP (Remote Desktop Protokoll) from Windows.
  ```
  sudo ufw allow 3389/tcp
  ```
-
+-->
 ### 11.3 Using the Remotedesktop-Connection
 
 Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for the Remote Desktop Connection in your search bar in your operating system.<br/>
