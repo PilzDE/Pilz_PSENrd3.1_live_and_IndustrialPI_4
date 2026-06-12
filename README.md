@@ -236,7 +236,7 @@ The IndustrialPI 4 comes with a pre-installed firewall.
 + Connect a laptop to the right Ethernet port on the IndustrialPI 4 using an Ethernet cable.
 + Open your browser and enter https://industrialpiXXXXXX:41443 in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
 + Click under System/ Networking.
-+ Here is the Firewall – make sure the slider is enabled.(By default, the slider is enabled.)
++ Here is the Firewall – make sure the slider is enabled. (By default, the slider is enabled.)
 + Click the Button (Edit rules and zones).
 + You can see a table with the followring default ports.(22/TCP, 564/UDP, 41443/TCP, 5353/UDP, 80/TCP, 443/TCP) 
 + To select additional ports, click the button (Add services).
