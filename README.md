@@ -238,7 +238,7 @@ The IndustrialPI 4 comes with a pre-installed firewall.
 + Click under System/ Networking.
 + Here is the Firewall – make sure the slider is enabled. (By default, the slider is enabled.)
 + Click the Button (Edit rules and zones).
-+ You can see a table with the followring default ports.(22/TCP, 564/UDP, 41443/TCP, 5353/UDP, 80/TCP, 443/TCP) 
++ You can see a table with the followring default ports. (22/TCP, 564/UDP, 41443/TCP, 5353/UDP, 80/TCP, 443/TCP) 
 + To select additional ports, click the button (Add services).
 + Filter the services ony by one: 8883 (mqtt-tls); 3389 (rdp); 123 (ntp); 67 (dhcp). Add the services. 
 + Please reboot the IndustrialPI 4 after this settings.
