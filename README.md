@@ -52,7 +52,7 @@ Information that is particularly important is identified as follows:<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
 5.3 [Update System packages](#53-update-system-packages)<br/>
-5.4 [Install Firewall](#54-install-firewall)<br/>
+5.4 [Using the Firewall](#54-using-the-firewall)<br/>
 6.  [Install Mosquitto and Mosquitto-Clients](#6-install-mosquitto-and-mosquitto-clients)<br/>
 6.1 [Create certificates (optional)](#61-create-certificates-optional)<br/>
 6.2 [Create users and passwords for accessing to the broker ](#62-create-users-and-passwords-for-accessing-to-the-broker)<br/>
@@ -230,8 +230,25 @@ sudo apt-get upgrade
 > [!Tip]
 > Both commands will ask you to continue. Confirm both commands with Y. Press q when requested for upgrade information.
 
-### 5.4 Install Firewall 
+### 5.4 Using the Firewall 
 
+The IndustrialPI 4 comes with a pre-installed firewall. 
++ Connect a laptop to the right Ethernet port on the IndustrialPI 4 using an Ethernet cable.
++ Open your browser and enter https://industrialpiXXXXXX:41443 in your search bar. For XXXXXX, enter the six-digit serial number of the IndustrialPI 4. You will find this number on the front of the IndustrialPI 4.
++ Click under System/ Networking.
++ Here is the Firewall – make sure the slider is enabled.(By default, the slider is enabled.)
++ Click the Button (Edit rules and zones).
++ You can see a table with the followring default ports.(22/TCP, 564/UDP, 41443/TCP, 5353/UDP, 80/TCP, 443/TCP) 
++ To select additional ports, click the button (Add services).
++ Filter the services ony by one: 8883 (mqtt-tls); 3389 (rdp); 123 (ntp); 67 (dhcp). Add the services. 
++ Please reboot the IndustrialPI 4 after this settings.
++ Go back to the terminal and type the command: 
+```
+sudo reboot
+```
+
+<!--
+### 5.4 Install Firewall 
 > [!Important]
 > The Lite Version Debain GNU/Linux 12 doesn´t have a Firewall preinstalled. You must install the ufw package. You will find a description of this function in the following steps.
 + Install the package:
@@ -267,7 +284,7 @@ sudo systemctl status ufw
 sudo ufw status
 ```
 > [!Important]
-> In the following discriptions are more several port numbers are mentioned, please make sure to include these port numbers in the rules list.
+> In the following discriptions are more several port numbers are mentioned, please make sure to include these port numbers in the rules list.-->
 
 ## 6. Install Mosquitto and Mosquitto-Clients
 <!--[Text for Mosquitto and mqtt here]-->
