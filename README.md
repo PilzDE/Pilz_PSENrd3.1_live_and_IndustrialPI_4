@@ -51,8 +51,9 @@ Information that is particularly important is identified as follows:<br/>
 5.  [First steps to start IndustrialPI 4](#5-first-steps-to-start-industrialpi-4)<br/>
 5.1 [Password](#51-password)<br/>
 5.2 [Instructions for changing the keyboard settings](#52-instructions-for-changing-the-keyboard-settings)<br/>
-5.3 [Update System packages](#53-update-system-packages)<br/>
-5.4 [Using the Firewall](#54-using-the-firewall)<br/>
+5.3 [Automated Installation and Configuration](#53-automated-installation-and-configuration)<br/>
+5.4 [Update System packages](#54-update-system-packages)<br/>
+5.5 [Using the Firewall](#55-using-the-firewall)<br/>
 6.  [Install Mosquitto and Mosquitto-Clients](#6-install-mosquitto-and-mosquitto-clients)<br/>
 6.1 [Create certificates (optional)](#61-create-certificates-optional)<br/>
 6.2 [Create users and passwords for accessing to the broker ](#62-create-users-and-passwords-for-accessing-to-the-broker)<br/>
@@ -213,12 +214,29 @@ sudo raspi-config
 > [!Tip]
 > Try whether the setting has worked. for example press Y or Z.
 
-### 5.3 Update System packages
+### 5.3 Automated Installation and Configuration
 
+As an alternative to manually performing the steps described in this document, an installation script is available. This script automates the installation of all required packages as well as the configuration of the necessary services and components.<br/>
+To do this, use the “Installation and Configuration_Script.sh” script. You find the Script in the table. Please follow the instructions in the script. These are marked with a single #.<br/>
+
++ Once you have finished making changes to the script. For example place the script in your home directory in your Linux system. Follow the instructions under [10.1 Work with USB-Stick](#101-work-with-usb-stick) and replace the file name there as appropraite. Start at the point "Insert your USB stick into one of the two USB ports. Check the name of the USB with the command:"
++ Go to the folder where your script is located.
++ run the following command:
+```
+chmod +x Installation and Configuration_Script.sh
+```
+```
+sudo ./Installation and Configuration_Script.sh
+```
++ It will take about 10 minutes for the script to complete the installations and configurations.
++ Once the script is finished, you no longer need to perform the following steps—this script handled them automatically. The remaining steps are important only for verification purposes.
+
+### 5.4 Update System packages
+<!--Pat have a good tipp about the Wifi Connection, delete this line because is stuggleing the costumer -->
 > [!Tip]
 > + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface. Please use the left Ethernet port.
-> + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
-> + It would be advisable to work with the Ethernet interface connection first.
+<!-- + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
+> + It would be advisable to work with the Ethernet interface connection first. !!DISCUSS WITH PAT--> 
 
 + get all updates with the commando:
 ```
@@ -230,7 +248,7 @@ sudo apt-get upgrade
 > [!Tip]
 > Both commands will ask you to continue. Confirm both commands with Y. Press q when requested for upgrade information.
 
-### 5.4 Using the Firewall 
+### 5.5 Using the Firewall 
 
 The IndustrialPI 4 comes with a pre-installed firewall. 
 + Connect a laptop to the right Ethernet port on the IndustrialPI 4 using an Ethernet cable.
@@ -657,6 +675,25 @@ disassoc_low_ack=1
 
 + Save the file an exit the file.
 
+>[!Note]
+>After installation, the hostapd service is hidden by default on many systems. This prevents the access point from being started accidentally before network configuration is complete. Before putting the system into operation, the service must therefore first be unhidden and then.
+
++ Please unmask the hostapd service using the following command:
+```
+sudo systemctl unmask hostapd 
+```
++ Enable the hostapd service with: 
+```
+sudo systemctl enable hostapd
+```
++ Start the hostapd service:
+```
+sudo systemctl start hostapd
+```
++ Control the status of hostapd:
+```
+sudo systemctl status hostapd
+```
 + Create a new file for the Configuration of wlan0:
 ```
 sudo nano /etc/network/interfaces.d/wlan0
@@ -985,6 +1022,6 @@ Now you can start the python program on the remote desktop connection.<br/>
 
 >[!Note]
 >This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/licenses/by-nd/4.0/).
->Furthermore, the code snippets are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/publicdomain/zero/1.0/).
+>Furthermore, the code snippets and the "Installation_and_Configuration_Script.sh" are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/publicdomain/zero/1.0/).
 
 Copyright (c) 2025 Pilz GmbH & Co. KG<br/>
