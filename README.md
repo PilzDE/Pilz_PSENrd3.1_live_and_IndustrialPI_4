@@ -217,7 +217,7 @@ sudo raspi-config
 ### 5.3 Automated Installation and Configuration
 
 As an alternative to manually performing the steps described in this document, an installation script is available. This script automates the installation of all required packages as well as the configuration of the necessary services and components.<br/>
-To do this, use the “Installation and Configuration_Script.sh” script. You find the Script in the table. Please follow the instructions in the script. These are marked with a single #.<br/>
+To do this, use the “Installation_and_Configuration_Script.sh” script. You find the Script in the table. Please follow the instructions in the script. These are marked with a single #.<br/>
 
 + Once you have finished making changes to the script. For example place the script in your home directory in your Linux system. Follow the instructions under [10.1 Work with USB-Stick](#101-work-with-usb-stick) and replace the file name there as appropraite. Start at the point "Insert your USB stick into one of the two USB ports. Check the name of the USB with the command:"
 + Go to the folder where your script is located.
