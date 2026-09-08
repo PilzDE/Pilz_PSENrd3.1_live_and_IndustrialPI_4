@@ -229,7 +229,7 @@ chmod +x Installation and Configuration_Script.sh
 sudo ./Installation and Configuration_Script.sh
 ```
 + It will take about 10 minutes for the script to complete the installations and configurations.
-+ Once the script is finished, you no longer need to perform the following steps—this script handled them automatically. The remaining steps are important only for verification purposes.
++ Once the script is finished, you no longer need to perform the following steps. this script handled them automatically. The remaining steps are important only for verification purposes.
 
 ### 5.4 Update System packages
 <!--Pat have a good tipp about the Wifi Connection, delete this line because is stuggleing the costumer -->
