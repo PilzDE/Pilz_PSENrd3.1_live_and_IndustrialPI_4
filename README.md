@@ -223,10 +223,10 @@ To do this, use the “Installation and Configuration_Script.sh” script. You f
 + Go to the folder where your script is located.
 + run the following command:
 ```
-chmod +x Installation and Configuration_Script.sh
+chmod +x Installation_and_Configuration_Script.sh
 ```
 ```
-sudo ./Installation and Configuration_Script.sh
+sudo ./Installation_and_Configuration_Script.sh
 ```
 + It will take about 10 minutes for the script to complete the installations and configurations.
 + Once the script is finished, you no longer need to perform the following steps. this script handled them automatically. The remaining steps are important only for verification purposes.
