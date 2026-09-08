@@ -216,6 +216,9 @@ sudo raspi-config
 
 ### 5.3 Automated Installation and Configuration
 
+> [!Tip]
+> + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface. Please use the left Ethernet port.
+
 As an alternative to manually performing the steps described in this document, an installation script is available. This script automates the installation of all required packages as well as the configuration of the necessary services and components.<br/>
 To do this, use the “Installation_and_Configuration_Script.sh” script. You find the Script in the table. Please follow the instructions in the script. These are marked with a single #.<br/>
 
@@ -232,7 +235,7 @@ sudo ./Installation_and_Configuration_Script.sh
 + Once the script is finished, you no longer need to perform the following steps. this script handled them automatically. The remaining steps are important only for verification purposes.
 
 ### 5.4 Update System packages
-<!--Pat have a good tipp about the Wifi Connection, delete this line because is stuggleing the costumer -->
+<!--Pat have a good tipp about the Wifi Connection, delete this line because is stuggleing the costumer 
 > [!Tip]
 > + Connect your IndustrialPI 4 to the Internet for the first time via the Ethernet interface. Please use the left Ethernet port.
 <!-- + If you connect your IndustrialPI 4 with a WiFi- Hotspot follow the points of [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4).
