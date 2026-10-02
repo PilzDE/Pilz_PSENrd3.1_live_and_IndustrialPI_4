@@ -29,7 +29,7 @@ RDP_PORT="3389/tcp"
 
 # --- MQTT / Mosquitto ---
 # Please enter your correct path of your certificate here. For example:
-MOSQUITTO_CERT_DIR="/home/pi/certs"
+MOSQUITTO_CERT_DIR="/etc/mosquitto/certs"
 
 MOSQUITTO_USER_SENSOR="PSENrd3_sensor"
 MOSQUITTO_USER_ADMIN="PSENrd3_admin"
@@ -89,7 +89,7 @@ echo ">>> Installing required packages"
 sudo apt-get install -y \
   mosquitto mosquitto-clients \
   openssl \
-  ntp ntpsec \
+  ntpsec \
   dnsmasq \
   hostapd \
   python3-tk \
@@ -199,8 +199,8 @@ EOF
 log "Configuring Mosquitto broker"
 sudo tee -a /etc/mosquitto/mosquitto.conf > /dev/null <<EOF
 listener 8883
-certfile /home/pi/certs/server.crt
-keyfile /home/pi/certs/server.key
+certfile /etc/mosquitto/certs/server.crt
+keyfile /etc/mosquitto/certs/server.key
 require_certificate false
 #use_identity_as_username false
 allow_anonymous true
