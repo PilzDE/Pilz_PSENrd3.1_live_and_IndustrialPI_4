@@ -63,7 +63,7 @@ Information that is particularly important is identified as follows:<br/>
 7.  [Setup and Configuration NTP Server](#7-setup-and-configuration-ntp-server)<br/>
 8.  [WiFi Configuration](#8-wifi-configuration)<br/>
 8.1 [Install dnsmasq](#81-install-dnsmasq)<br/>
-8.2 [Set up WiFi connection](#82-set-up-wifi-conncetion)<br/>
+8.2 [Set up WiFi connection](#82-set-up-wifi-connection)<br/>
 8.3 [Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4)<br/>
 9.  [Testing of Data exchange](#9-testing-of-data-exchange)<br/>
 10. [Integration of a python program](#10-integration-of-a-python-program)<br/>
