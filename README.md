@@ -18,9 +18,9 @@ The names of products, goods and technologies used in this manual are trademarks
 
 ## Industrial Security
 
-To secure plants, systems, machines and networks against cyberthreats it is necessary to implement (and continuously maintain) an overall [Industrial Security concept](https://www.pilz.com/en-INT/products/industrial-security) that is state of the art.
+To secure plants, systems, machines and networks against cyberthreats it is necessary to implement (and continuously maintain) an overall &#128279;[Industrial Security concept](https://www.pilz.com/en-INT/products/industrial-security) that is state of the art.
 Perform a risk assessment in accordance with VDI/VDE 2182 or IEC 62443-3-2 and plan the security measures with care. If necessary, seek advice from<br/>
-[Pilz Customer Support](https://www.pilz.com/en-INT/support/technical-support).<br/>
+&#128279;[Pilz Customer Support](https://www.pilz.com/en-INT/support/technical-support).<br/>
 
 ## Definition of Symbols
 
@@ -85,9 +85,9 @@ The availability of the software used, and its safe handling are also presuppose
 
 |Nr.| Discription | Part number/ Download|
 |---| ------------| ---------------------|
-| 1 | Pilz international website, download section | [www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/> [www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
+| 1 | Pilz international website, download section | &#128279;[www.pilz.com >EN Support >Downloads](https://www.pilz.com/en-INT/support/downloads)<br/>&#128279;[www.pilz.com > DE Support > Downloads](https://www.pilz.com/de-INT/support/downloads)<br/> |
 | 2 | Operating manual of PSEN rd3.1 live| The documentation is currently still being prepared and will be made available at a later date. We will inform you as soon as it is available. |                                                
-| 3 | Operating manual of IndutrialPI 4 |[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>[www.pilz.com >DE Bed.anl. 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
+| 3 | Operating manual of IndutrialPI 4 |&#128279;[www.pilz.com >EN Operat.Man. 1006970-01](https://www.pilz.com/en-INT/search#currentPage=1&SEARCH=1006970)<br/>&#128279;[www.pilz.com >DE Bed.anl. 1006970-01](https://www.pilz.com/de-INT/search#currentPage=1&SEARCH=1006970)<br/> |
 
 ## 2. Hardware and software used
 
@@ -1024,7 +1024,7 @@ Now you can start the python program on the remote desktop connection.<br/>
 ## 12. License Information
 
 >[!Note]
->This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/licenses/by-nd/4.0/).
->Furthermore, the code snippets and the "Installation_and_Configuration_Script.sh" are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE (https://creativecommons.org/publicdomain/zero/1.0/).
+>This Documentation is licensed under the CC-BY-ND-4.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE &#128279;(https://creativecommons.org/licenses/by-nd/4.0/).
+>Furthermore, the code snippets and the "Installation_and_Configuration_Script.sh" are subject to the LICENSE CC0-1.0.txt- see the LICENSE file for details. Here you will find a short description about the LICENSE &#128279;(https://creativecommons.org/publicdomain/zero/1.0/).
 
 Copyright (c) 2025 Pilz GmbH & Co. KG<br/>
