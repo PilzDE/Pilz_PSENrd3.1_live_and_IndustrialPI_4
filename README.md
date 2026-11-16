@@ -123,9 +123,9 @@ The availability of the software used, and its safe handling are also presuppose
 
 ## 3. Preface
 
-This application basically describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate with each other using MQTT.
-Data is sent from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is sent to the Python program provided and processed there.<br/>
-The basic procedure for successful basic configuration is shown here step-by-step, mostly using command lines. The operating system used is Debain GNU/Linux 12 (bookworm-arm64.img). &#128279;[www.pilz.com >eShop](https://www.pilz.com/en-INT/eshop/Controller/Industrial-PC/IndustrialPI-/IndustrialPI-Accessories/IndustrialPI-4-8GB-32GB-Wifi/p/A1000003)<br/> 
+This application describes the commissioning process of a PSENrd 3.1 with an IndustrialPI 4. Both devices communicate via MQTT.
+Data is transmitted from the PSENrd 3.1 to the internal access point of the IndustrialPI 4. This data is then processed by the provided Python application.<br/>
+The basic configuration procedure is presented step by-step, primarily using command-line instructions. The operating system used is Debain GNU/Linux 12 (bookworm-arm64.img). &#128279;[www.pilz.com >eShop](https://www.pilz.com/en-INT/eshop/Controller/Industrial-PC/IndustrialPI-/IndustrialPI-Accessories/IndustrialPI-4-8GB-32GB-Wifi/p/A1000003)<br/> 
 
 > [!IMPORTANT]
 > This document only describes the procedure for using the IndustrialPI 4 (A1000003) and PSENrd 3.1 (6B000017) and does not constitute technical documentation on the general use of the operating system Linux and the program language Python. The operating system and the programming language are basic requirements for this application.
@@ -134,7 +134,7 @@ The basic procedure for successful basic configuration is shown here step-by-ste
 
 The example here shows people counting to determine whether one or more people are present in a monitored area.<br/>
 
-There are several requirements for the realization of this application:<br/>
+There are several requirements for the realisation of this application:<br/>
 
 + Data transmission takes place via MQTT.<br/>
 + Evaluation of the sensor data in the IndustrialPI 4 in real time.<br/>
@@ -233,6 +233,7 @@ sudo ./Installation_and_Configuration_Script.sh
 ```
 + It will take about 10 minutes for the script to complete the installations and configurations.
 + Once the script is finished, you no longer need to perform the following steps. This script handled them automatically. The remaining steps are important only for verification purposes.
++ Please proceed to Step [8.3 Set up Cockpit-IndustrialPI 4](#83-set-up-cockpit-industrialpi-4), and follow the remaining steps.
 
 ### 5.4 Update System packages
 <!--Pat have a good tipp about the Wifi Connection, delete this line because is stuggleing the costumer 
@@ -767,8 +768,20 @@ sudo reboot
 
 ## 9. Testing of Data exchange 
 
+First, verify that the Mosquitto broker is running correctly on the access point by using the following commands. To perform this test, open two terminal windows.<br/>
+
++ In the first terminal window, start the subscriber:
+```
+mosquitto_sub -p 8883 -h <IP-Address> --cafile </path/to/certs>/server.crt -t 'test/topic' -v
+```
++ In the second terminal window, start the publisher: 
+```
+mosquitto_pub -p 8883 -h <IP-Address> --cafile </path/to/certs>/server.crt -t 'test/topic' -m 'Hello Mosquitto'
+```
+If the MQTT broker is configured correctly, the message "Hello Mosquitto" should be displayed in the subscriber terminal window after executing the publisher command.<br/>
+
 <!--[!Important]
->Before you start exchaning data, please read or note the operating manual.
+>Before you start exchaning data, please read or note the operating manual. 7.2.1.1 Certificate MQTT Broker.
 -->
 
 + You can start by checking whether you can connect the IndustrialPI 4 system to the PSENrd 3.1. First restart the IndustrialPI 4:
