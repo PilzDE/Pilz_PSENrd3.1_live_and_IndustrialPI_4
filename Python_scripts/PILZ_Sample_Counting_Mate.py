@@ -15,7 +15,7 @@ import matplotlib.image as mpimg
 # This section defines the detection zones used for target monitoring, the visualization boundaries of the GUI,
 # and the positions of the status text elements displayed within the application.
 # All values are provided for demonstration purposes and should be adapted to the actual installation setup.
-# You will find a picture of this program in the img directory.
+# You will find a picture of this program in the img directory by GitHub. (https://github.com/PilzDE/Pilz_PSENrd3.1_live_and_RevPi_Connect_4/tree/main/img)
 
 # Example detection zone coordinates [m]
 ZONE_1 = {"x_min": 0.8, "x_max": 1.9, "y_min": 1.8, "y_max": 2.6}  # Inner zone (orange)
