@@ -830,20 +830,18 @@ mosquitto_sub -p 8883 -h <IP-Address> --cafile </path/to/certs>/server.crt> -t '
 ## 10. Integration of a python program   
 
 >[!Note]
->The follow description shows how to get a possible python program into an IndustrialPI 4. The possible procedure for a Python program is described in detail.
-<!--
->[!Note]
->We greate a graphical python program for this application. This graphical Python program displays recognized people and counts them. The program can be found in the table at the top of this repository.-->
+>A graphical Python application was developed for this use case. The application visualizes detected persons and provides a real-time people counting function. The corresponding source code can be found in the table at the top of this repository.
+>The following description explains how to deploy the application on an IndustrialPI 4. The procedure is described step by step.
  
 ### 10.1 Work with USB-stick
 
 >[!Important]
->Make sure that the USB stick comes from a trustworthy source and has not been used before on potentially compromised systems. The stick should be checked or reformatted before use to ensure maximum security.
-<!--
->[!Note]
->The follow description shows how to copy the Python program from the GitHub repository (https://github.com/PilzDE/PSENrd3.1_live_and_IndustrialPI_4) of your workstation notebook to any USB stick and then integrate it into your IndustrialPI 4 system. Please copy the raw file of the Python program from the GitHub repository Samples and insert it into a suitable tool. Save the file and copy the program to your USB stick.-->
+>Make sure that the USB stick comes from a trustworthy source and has not previously been used on potentially compromised systems. The USB stick should be checked or reformatted before use to help ensure maximum security.
 
-+ Python is already available on this oparting system. You can view the current Python version with the following command:
+>[!Note]
+> Please download the Python script (.py) from the table above and copy it to your USB storage device.
+
++ Python is already installed on the operating system. The currently installed Python version can be displayed using the following command:
 ```
 python3 --version
 ```
@@ -856,40 +854,40 @@ mkdir ~/my_python_program
 lsblk
 ```
 >[!Tip]
->In the last column of this table you will see the name of the mount point for your USB device, e.g. /media/usb.
+>The last column (MOUNTPOINTS) shows the mount point of the USB device.  
 
 + Create a folder for your USB Devices under the media directory: 
 ```
 sudo mkdir /media/usb
 ```
-+ Mount the example USB into your system:
++ Mount the USB storage device to your system:
 ```
 sudo mount /dev/sda1 /media/usb
 ```
 <!--Hier wird später das Sample erläutert.Das "possible_python_program.py ist ein Beipsiel-->
-+ Copy the supplied program in this new folder for example from a stick:
++ Copy the Python script (.py) in this new folder:
 ```
-sudo cp /media/usb/possible_python_program.py /home/pi/my_python_program
+sudo cp /media/usb/Pilz_Sample_Counting_Mate.py /home/pi/my_python_program
 ```
-+ After you have copied your program you could umount the USB stick:
++ After copying your program, unmount the USB stick:
 ```
 sudo umount /dev/sda1
 ```
-The next step is to change the correct mac-address and path.<br/>
+The next step is to change the sensor IDs and path.<br/>
+
 + Open the python program:
 ```
-sudo nano /home/pi/my_python_program/possible_python_program.py
+sudo nano /home/pi/my_python_program/Pilz_Sample_Counting_Mate.py
 ```
-+ Change the mac-address where the "XXXXXXXXXXXX" are located.
-
->[!Tip]
->You will find the 12-digit Mac address on the back of the sensor.
-
-+ Change the path of your certificates markes with "/XXX/XXX/XXX/XXX" as well.
++ Follow the instructions marked with a # in the Python script.
 
 + Save the file and exit.
 
-### 10.2 Install additional Python packages and graphical packages  
+### 10.2 Install additional Python packages and graphical packages
+
+>[!Note]
+>When you used the Installation_and_Configuration_Script.sh then you no longer need this Installations.
+
 For the possible python program you need a Python package for installation for execution.<br/>
 + Install tkinter:
 ```
@@ -941,25 +939,15 @@ sudo apt install xorg
 ```
 startx
 ```
-+ There will open a new window with a new commando line. Now you can use a mouse in this shell. Click behind the Commoando line.
-+ Change at first your keyboard language again. For example Germany (de):
-```
-setxkbmap de
-```
->[!Tip]
->Try whether the setting has worked. For example press Y or Z.
-
-Enlarge the display:<br/>
-+ Held down with the ctrl key and right mouse button, a menu with unicode fonts will appear.
-+ Navigate with the mouse to your desired font size.<br/>(Hold down the ctrl key and the right mouse button the whole time.)
-
++ A new window with a black background will open. Right-click to open the menu,<br/> then select Application → System → UXTerm.
++ A new terminal window with a command line will open
 + Change into the directory: 
 ```
 cd /home/pi/my_python_program
 ```
 + Execute the python program:
 ```
-python3 possible_python_program.py
+sudo python3 Pilz_Sample_Counting_Mate.py
 ```
 <!--+ You should now see a yellow GUI with a gray range area showing whether your sensor is connected. You have a counter in the yellow area.-->
 
@@ -967,7 +955,7 @@ python3 possible_python_program.py
 
 In this discription, you will use the system via remotedesktop at your workstation with an Ethernet connection. The Requirement for this is that you need a terminal program for example PuTTY. The Remotdesktop- Connection is available on a Windows PC by default.<br/>
 >[!Important]
->Observe the specifications of commissioning (security) for your application, in particular the removal of the separation of networks with defferent IP addresses. 
+>Observe the specifications of commissioning (security) for your application, in particular the removal of the separation of networks with different IP addresses. 
 
 ### 11.1 Create a new Network IP-Address
 
@@ -989,6 +977,9 @@ sudo reboot
 ```
 
 ### 11.2 Install xrdp and xorg xrdp
+
+>[!Note]
+>When you used the Installation_and_Configuration_Script.sh then you no longer need this Installations.
 
 + Install the packages xrdp and xorg xrdp:
 ```
@@ -1022,7 +1013,6 @@ Connect the IndustrialPI 4 to your laptop via Ethernet cable. Then search for th
 ```
 sudo nano /var/log/xrdp-sesman.log
 ```
-+ In the fourth line you will find the IP address of your PC. At the bottom of this file you will find the display number, in this case the number 10 is available.
 + Exit this file with ctrl + X.
 + Change the DISPLAY number:
 ```
@@ -1032,7 +1022,10 @@ export DISPLAY=:10.0
 ```
 echo $DISPLAY
 ```
-Now you can start the python program on the remote desktop connection.<br/>
++ Start the Python script with: 
+```
+sudo -E python3 PILZ_Sample_Counting_Mate.py
+```
 
 ## 12. License Information
 
